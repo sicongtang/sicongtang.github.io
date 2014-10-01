@@ -8,7 +8,9 @@
   <meta name="description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
 1 Essentials
 1.1 Single var Pattern
-####">
+
+
+1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript Patterns Notes">
 <meta property="og:url" content="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/">
@@ -16,13 +18,17 @@
 <meta property="og:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
 1 Essentials
 1.1 Single var Pattern
-####">
+
+
+1.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript Patterns Notes">
 <meta name="twitter:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
 1 Essentials
 1.1 Single var Pattern
-####">
+
+
+1.">
 
   
     <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
@@ -103,7 +109,30 @@
         <p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
 <h2 id="1_Essentials">1 Essentials</h2>
 <h4 id="1-1_Single_var_Pattern">1.1 Single var Pattern</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script><br>####1.2 Switch Pattern<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script><br>##2 Literal Patterns<br>####2.1 Patterns for Enforcing new<br>If we forgot to add new, this.value will become global obejct.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=patterns_for_enforcing_new.js"></script><br>####2.2 Self-Invoking Constructor<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_invoking_constructor.js"></script><br>####2.3 Error Objects<br>On the other hand, throw works with any object, not necessarily an object created with one of the error constructors, so you can opt in for throwing your own objects.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=error_objects.js"></script><br>##3 API Patterns<br>####3.1 Callback Pattern<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=callback_pattern.js"></script><br>####3.2 Configuration Object Pattern<br>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script><br>##4 Performance Patterns<br>####4.1 Self-Defining Functions<br>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.<br><br>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script><br>####4.2 Memoization Pattern(Function Properties)<br>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script><br>##5 Object Creation Patterns<br>####5.1 Prototypes and Privacy<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script><br>####5.2 Evelation Pattern(revealing module pattern)<br>####5.3 Static Memebers<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script>
+
+<h4 id="1-2_Switch_Pattern">1.2 Switch Pattern</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script>
+
+<h2 id="2_Literal_Patterns">2 Literal Patterns</h2>
+<h4 id="2-1_Patterns_for_Enforcing_new">2.1 Patterns for Enforcing new</h4>
+<p>If we forgot to add new, this.value will become global obejct.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=patterns_for_enforcing_new.js"></script>
+
+<h4 id="2-2_Self-Invoking_Constructor">2.2 Self-Invoking Constructor</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_invoking_constructor.js"></script>
+
+<h4 id="2-3_Error_Objects">2.3 Error Objects</h4>
+<p>On the other hand, throw works with any object, not necessarily an object created with one of the error constructors, so you can opt in for throwing your own objects.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=error_objects.js"></script>
+
+<h2 id="3_API_Patterns">3 API Patterns</h2>
+<h4 id="3-1_Callback_Pattern">3.1 Callback Pattern</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=callback_pattern.js"></script>
+
+<h4 id="3-2_Configuration_Object_Pattern">3.2 Configuration Object Pattern</h4>
+<p>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script><br>##4 Performance Patterns<br>####4.1 Self-Defining Functions<br>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.<br><br>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script><br>####4.2 Memoization Pattern(Function Properties)<br>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script><br>##5 Object Creation Patterns<br>####5.1 Prototypes and Privacy<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script><br>####5.2 Evelation Pattern(revealing module pattern)<br>####5.3 Static Memebers<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
 
 <script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=private_static_members.js"></script><br>##6 Code Reuse Patterns<br>####6.1 The Default Pattern<br>####6.2 Rent a Constructor<br>####6.3 Rent and Set Prototype<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script><br>####6.4 Share the Prototype<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script><br>####6.5 A Temporary Constructor<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script><br>####6.6 Mix-ins<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
 
