@@ -132,9 +132,43 @@
 
 <h4 id="3-2_Configuration_Object_Pattern">3.2 Configuration Object Pattern</h4>
 <p>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script><br>##4 Performance Patterns<br>####4.1 Self-Defining Functions<br>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.<br><br>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script><br>####4.2 Memoization Pattern(Function Properties)<br>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script><br>##5 Object Creation Patterns<br>####5.1 Prototypes and Privacy<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script><br>####5.2 Evelation Pattern(revealing module pattern)<br>####5.3 Static Memebers<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script>
 
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=private_static_members.js"></script><br>##6 Code Reuse Patterns<br>####6.1 The Default Pattern<br>####6.2 Rent a Constructor<br>####6.3 Rent and Set Prototype<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script><br>####6.4 Share the Prototype<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script><br>####6.5 A Temporary Constructor<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script><br>####6.6 Mix-ins<br><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
+<h2 id="4_Performance_Patterns">4 Performance Patterns</h2>
+<h4 id="4-1_Self-Defining_Functions">4.1 Self-Defining Functions</h4>
+<p>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.</p>
+<p>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script>
+
+<h4 id="4-2_Memoization_Pattern(Function_Properties)">4.2 Memoization Pattern(Function Properties)</h4>
+<p>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script>
+
+<h2 id="5_Object_Creation_Patterns">5 Object Creation Patterns</h2>
+<h4 id="5-1_Prototypes_and_Privacy">5.1 Prototypes and Privacy</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script>
+
+<h4 id="5-2_Evelation_Pattern(revealing_module_pattern)">5.2 Evelation Pattern(revealing module pattern)</h4>
+<h4 id="5-3_Static_Memebers">5.3 Static Memebers</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
+
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=private_static_members.js"></script>
+
+<h2 id="6_Code_Reuse_Patterns">6 Code Reuse Patterns</h2>
+<h4 id="6-1_The_Default_Pattern">6.1 The Default Pattern</h4>
+<h4 id="6-2_Rent_a_Constructor">6.2 Rent a Constructor</h4>
+<h4 id="6-3_Rent_and_Set_Prototype">6.3 Rent and Set Prototype</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script>
+
+<h4 id="6-4_Share_the_Prototype">6.4 Share the Prototype</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script>
+
+<h4 id="6-5_A_Temporary_Constructor">6.5 A Temporary Constructor</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script>
+
+<h4 id="6-6_Mix-ins">6.6 Mix-ins</h4>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
+
 
 <h2 id="7_Design_Patterns">7 Design Patterns</h2>
 <h2 id="References:">References:</h2>
