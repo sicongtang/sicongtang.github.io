@@ -86,4 +86,4 @@ exclude_generator:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: github
-  repo: https://github.com/sicongtang/sicongtang.github.io.git
+  repo: git@github.com:sicongtang/sicongtang.github.io.git
