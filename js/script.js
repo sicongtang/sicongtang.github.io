@@ -1,35 +1,6 @@
 (function($){
-  // Search
-  var $searchWrap = $('#search-form-wrap'),
-    isSearchAnim = false,
-    searchAnimDuration = 200;
 
-  var startSearchAnim = function(){
-    isSearchAnim = true;
-  };
-
-  var stopSearchAnim = function(callback){
-    setTimeout(function(){
-      isSearchAnim = false;
-      callback && callback();
-    }, searchAnimDuration);
-  };
-
-  $('#nav-search-btn').on('click', function(){
-    if (isSearchAnim) return;
-
-    startSearchAnim();
-    $searchWrap.addClass('on');
-    stopSearchAnim(function(){
-      $('.search-form-input').focus();
-    });
-  });
-
-  $('.search-form-input').on('blur', function(){
-    startSearchAnim();
-    $searchWrap.removeClass('on');
-    stopSearchAnim();
-  });
+  $("#main").fitVids();
 
   // Share
   $('body').on('click', function(){
@@ -41,6 +12,8 @@
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
       id = 'article-share-box-' + $this.attr('data-id'),
+      title = $this.attr('data_title'),
+      summary = $this.attr('data_summary'),
       offset = $this.offset();
 
     if ($('#' + id).length){
@@ -53,11 +26,9 @@
     } else {
       var html = [
         '<div id="' + id + '" class="article-share-box">',
-          '<input class="article-share-input" value="' + url + '">',
           '<div class="article-share-links">',
-            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+            '<a href="http://v.t.sina.com.cn/share/share.php?url=' + encodedUrl + '&title=' + summary + '" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+            '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&title=' + title + '&description=' + summary + '" class="article-share-renren" target="_blank" title="Renren"></a>',
             '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
           '</div>',
         '</div>'
@@ -71,8 +42,8 @@
     $('.article-share-box.on').hide();
 
     box.css({
-      top: offset.top + 25,
-      left: offset.left
+      top: offset.top + 30,
+      left: offset.left + 50
     }).addClass('on');
   }).on('click', '.article-share-box', function(e){
     e.stopPropagation();
@@ -86,15 +57,24 @@
   });
 
   // Caption
+  var path = window.location.pathname;
+  var reg = new RegExp('^/page\\/\\d+\\/');
   $('.article-entry').each(function(i){
+    var postLink = $(this).prev().find('.article-title').attr('href');
+
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox')) return;
 
       var alt = this.alt;
+      var target;
+      if (path === '/'|| reg.test(path)){
+        target = postLink;
+      } else {
+        target = this.src;
+      }
+//      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
 
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+      $(this).wrap('<a href="' + target + '" title="' + alt + '" class="fancybox"></a>');
     });
 
     $(this).find('.fancybox').each(function(){
@@ -134,4 +114,57 @@
 
     $container.removeClass('mobile-nav-on');
   });
+
+  //Got to top
+    $(window).scroll(function () {
+        var d = document.documentElement.scrollTop + document.body.scrollTop;
+        if (d > 200) {
+            $('#gotop').fadeIn(400)
+        } else {
+            $('#gotop').stop().fadeOut(400)
+        }
+    });
+    $('#gotop').click(function () {
+        $('html,body').animate({
+            scrollTop: '0px'
+        }, 200)
+    });
+
+  var navHeight = $('#main-nav').outerHeight(true);
+
+  //Wiki TOC
+  $('#wiki-toc-wrap').affix({
+    offset: {
+      top: 100
+    , bottom: function () {
+        return (this.bottom = $('#footer').outerHeight(true) + navHeight);
+      }
+    }
+  });
+
+  var $affix = $("#wiki-toc-wrap"),
+    $parent = $("#wiki-sidebar"),
+    affix_resize = function() {
+      var wid = $parent.width() - parseInt($parent.css('paddingLeft')) - parseInt($parent.css('paddingRight'))
+                        - parseInt($parent.css('marginLeft')) - parseInt($parent.css('marginRight'))
+                        - parseInt($affix.css('paddingLeft')) - parseInt($affix.css('marginLeft'));
+      $affix.width(wid);
+    };
+  $(window).resize(affix_resize);
+  var affix_load = function() {
+    var wid = $parent.width() - parseInt($parent.css('paddingLeft')) - parseInt($parent.css('paddingRight'));
+    $affix.width(wid);
+  };
+  affix_load();
+
+  $('body').scrollspy({ target: '#wiki-toc-wrap', offset: navHeight });
+
+  $("[href^='#']").not("[href~='#']").click(function(evt){
+    evt.preventDefault();
+    var obj = $(this),
+    getHref = obj.attr("href").split("#")[1],
+    offsetSize = $("[id*='"+getHref+"']").offset().top - navHeight;
+    $("html, body").animate({ scrollTop: offsetSize }, 200);
+  });
+
 })(jQuery);

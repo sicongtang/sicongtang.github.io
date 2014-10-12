@@ -19,193 +19,218 @@
     <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.ico">
   
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 
 </head>
+
 <body>
   <div id="container">
     <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">BobbyTang Tech Blog</a>
-      </h1>
+      <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <div class="collapse navbar-collapse nav-menu">
+      <ul class="nav navbar-nav">
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Learn Share Inspire</a>
-        </h2>
+        <li>
+          <a href="/archives">
+            <i class="fa fa-archive"></i>
+            Archives
+          </a>
+        </li>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+        <li>
+          <a href="/categories">
+            <i class="fa fa-folder"></i>
+            Categories
+          </a>
+        </li>
+      
+        <li>
+          <a href="/tags">
+            <i class="fa fa-tags"></i>
+            Tags
+          </a>
+        </li>
+      
+        <li>
+          <a href="/wiki">
+            <i class="fa fa-book"></i>
+            Wiki
+          </a>
+        </li>
+      
+        <li>
+          <a href="/about">
+            <i class="fa fa-user"></i>
+            About
+          </a>
+        </li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         
-          <a class="main-nav-link" href="/">Home</a>
+          <li><a id="rss-link" href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://sicongtang.github.io"></form>
-      </div>
+      </ul>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-2014-09-05-javascript-patterns-notes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/05/2014-09-05-javascript-patterns-notes/" class="article-date">
-  <time datetime="2014-09-05T09:20:45.000Z" itemprop="datePublished">Sep 5 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
+</nav>
+<div class="clearfix"></div>
 
-  </div>
+      <div id='content' class="container">
+
+        <div class="page-header-wrapper">
+          <!--[if lt IE 9]><div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>提示:</strong>您的浏览器版本太低了,建议升级到 <strong><a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" title="IE9">IE9</a></strong> 以上,本站使用<a href="https://www.google.com/intl/zh-CN/chrome/">Chrome浏览器</a>可以获得最好的显示效果.</div><![endif]-->
+          <div class="page-header">
+            <h1 class="title">
+          
+            
+              javascript
+            
+          
+            </h1>
+        </div>
+      </div>
+      
+      <section id="main"
+        
+      >
+  
+  
+    <article id="post-l555e0klrygz0a5w" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+
     
       <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
         
   
-    <h1 itemprop="name">
+    <h1 class="archive-title" itemprop="name">
       <a class="article-title" href="/2014/09/05/2014-09-05-javascript-patterns-notes/">Javascript Patterns Notes</a>
     </h1>
   
 
+
+        <div class="article-date">
+  <time datetime="2014-09-05T09:20:45.000Z" itemprop="datePublished">Sep 5 2014</time>
+</div>
+
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
-<h2 id="1_Essentials">1 Essentials</h2>
-<h4 id="1-1_Single_var_Pattern">1.1 Single var Pattern</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script>
+        
+          <p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
+<h2 id="1-essentials">1 Essentials</h2><h4 id="1.1-single-var-pattern">1.1 Single var Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script>
 
-<h4 id="1-2_Switch_Pattern">1.2 Switch Pattern</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script>
+<h4 id="1.2-switch-pattern">1.2 Switch Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script>
 
-<h2 id="2_Literal_Patterns">2 Literal Patterns</h2>
-<h4 id="2-1_Patterns_for_Enforcing_new">2.1 Patterns for Enforcing new</h4>
-<p>If we forgot to add new, this.value will become global obejct.</p>
+<h2 id="2-literal-patterns">2 Literal Patterns</h2><h4 id="2.1-patterns-for-enforcing-new">2.1 Patterns for Enforcing new</h4><p>If we forgot to add new, this.value will become global obejct.</p>
 <script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=patterns_for_enforcing_new.js"></script>
 
-<h4 id="2-2_Self-Invoking_Constructor">2.2 Self-Invoking Constructor</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_invoking_constructor.js"></script>
+<h4 id="2.2-self-invoking-constructor">2.2 Self-Invoking Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_invoking_constructor.js"></script>
 
-<h4 id="2-3_Error_Objects">2.3 Error Objects</h4>
-<p>On the other hand, throw works with any object, not necessarily an object created with one of the error constructors, so you can opt in for throwing your own objects.</p>
+<h4 id="2.3-error-objects">2.3 Error Objects</h4><p>On the other hand, throw works with any object, not necessarily an object created with one of the error constructors, so you can opt in for throwing your own objects.</p>
 <script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=error_objects.js"></script>
 
-<h2 id="3_API_Patterns">3 API Patterns</h2>
-<h4 id="3-1_Callback_Pattern">3.1 Callback Pattern</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=callback_pattern.js"></script>
+<h2 id="3-api-patterns">3 API Patterns</h2><h4 id="3.1-callback-pattern">3.1 Callback Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=callback_pattern.js"></script>
 
-<h4 id="3-2_Configuration_Object_Pattern">3.2 Configuration Object Pattern</h4>
-<p>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.</p>
+<h4 id="3.2-configuration-object-pattern">3.2 Configuration Object Pattern</h4><p>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.</p>
 <script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script>
 
-<h2 id="4_Performance_Patterns">4 Performance Patterns</h2>
-<h4 id="4-1_Self-Defining_Functions">4.1 Self-Defining Functions</h4>
-<p>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.</p>
+<h2 id="4-performance-patterns">4 Performance Patterns</h2><h4 id="4.1-self-defining-functions">4.1 Self-Defining Functions</h4><p>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.</p>
 <p>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.</p>
 <script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script>
 
-<h4 id="4-2_Memoization_Pattern(Function_Properties)">4.2 Memoization Pattern(Function Properties)</h4>
-<p>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.</p>
+<h4 id="4.2-memoization-pattern(function-properties)">4.2 Memoization Pattern(Function Properties)</h4><p>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.</p>
 <script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script>
 
-<h2 id="5_Object_Creation_Patterns">5 Object Creation Patterns</h2>
-<h4 id="5-1_Prototypes_and_Privacy">5.1 Prototypes and Privacy</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script>
+<h2 id="5-object-creation-patterns">5 Object Creation Patterns</h2><h4 id="5.1-prototypes-and-privacy">5.1 Prototypes and Privacy</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script>
 
-<h4 id="5-2_Evelation_Pattern(revealing_module_pattern)">5.2 Evelation Pattern(revealing module pattern)</h4>
-<h4 id="5-3_Static_Memebers">5.3 Static Memebers</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
+<h4 id="5.2-evelation-pattern(revealing-module-pattern)">5.2 Evelation Pattern(revealing module pattern)</h4><h4 id="5.3-static-memebers">5.3 Static Memebers</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
 
 <script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=private_static_members.js"></script>
 
-<h2 id="6_Code_Reuse_Patterns">6 Code Reuse Patterns</h2>
-<h4 id="6-1_The_Default_Pattern">6.1 The Default Pattern</h4>
-<h4 id="6-2_Rent_a_Constructor">6.2 Rent a Constructor</h4>
-<h4 id="6-3_Rent_and_Set_Prototype">6.3 Rent and Set Prototype</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script>
+<h2 id="6-code-reuse-patterns">6 Code Reuse Patterns</h2><h4 id="6.1-the-default-pattern">6.1 The Default Pattern</h4><h4 id="6.2-rent-a-constructor">6.2 Rent a Constructor</h4><h4 id="6.3-rent-and-set-prototype">6.3 Rent and Set Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script>
 
-<h4 id="6-4_Share_the_Prototype">6.4 Share the Prototype</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script>
+<h4 id="6.4-share-the-prototype">6.4 Share the Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script>
 
-<h4 id="6-5_A_Temporary_Constructor">6.5 A Temporary Constructor</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script>
+<h4 id="6.5-a-temporary-constructor">6.5 A Temporary Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script>
 
-<h4 id="6-6_Mix-ins">6.6 Mix-ins</h4>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
+<h4 id="6.6-mix-ins">6.6 Mix-ins</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
 
 
-<h2 id="7_Design_Patterns">7 Design Patterns</h2>
-<h2 id="References:">References:</h2>
-<ol>
+<h2 id="7-design-patterns">7 Design Patterns</h2><h2 id="references:">References:</h2><ol>
 <li><a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752/ref=sr_1_1?ie=UTF8&amp;qid=1410247009&amp;sr=8-1" target="_blank" rel="external">Javascript Patterns</a></li>
 </ol>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="p51k2tml1pxvrep8" class="article-share-link">Share</a>
-      
-        <a href="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2014-07-16-frontend-javascript-framework-alternatives" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" class="article-date">
-  <time datetime="2014-07-16T09:37:35.000Z" itemprop="datePublished">Jul 16 2014</time>
-</a>
-    
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="l555e0klrygz0a5w" data_title="Javascript Patterns Notes"
+          data_summary="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
+..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
   <div class="article-category">
     <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
+
+          
+
+        </footer>
+      
+    </div>
   </div>
+</article>
+
+
+  
+    <article id="post-v0njb08ywbnmsv9p" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+
     
       <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/">Frontend JavaScript Framework Alternatives</a>
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/">Frontend Java Script Framework Alternatives</a>
     </h1>
   
+
+
+        <div class="article-date">
+  <time datetime="2014-07-16T09:37:35.000Z" itemprop="datePublished">Jul 16 2014</time>
+</div>
 
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="MV*_framework">MV* framework</h2>
-<ol>
+        
+          <h2 id="mv*-framework">MV* framework</h2><ol>
 <li>BackBonejs</li>
 <li>Angularjs</li>
 <li>Emberjs</li>
@@ -213,44 +238,36 @@
 <li>Dojo</li>
 <li>Spinejs</li>
 </ol>
-<h2 id="MVC_extension_framework">MVC extension framework</h2>
-<ol>
+<h2 id="mvc-extension-framework">MVC extension framework</h2><ol>
 <li>MarionetteJS</li>
 <li>Thorax</li>
 </ol>
-<h2 id="template">template</h2>
-<ol>
+<h2 id="template">template</h2><ol>
 <li>Handlebars</li>
 <li>Mustache</li>
 <li>JST</li>
 <li>ECO</li>
 </ol>
-<h2 id="build_automation">build automation</h2>
-<ol>
+<h2 id="build-automation">build automation</h2><ol>
 <li>Grunt</li>
 </ol>
-<h2 id="module_loader">module loader</h2>
-<ol>
+<h2 id="module-loader">module loader</h2><ol>
 <li>Requirejs</li>
 <li>Browserify</li>
 </ol>
-<h2 id="package_manager">package manager</h2>
-<ol>
+<h2 id="package-manager">package manager</h2><ol>
 <li>Bower</li>
 </ol>
-<h2 id="workflow_automation">workflow automation</h2>
-<ol>
+<h2 id="workflow-automation">workflow automation</h2><ol>
 <li>Yeoman</li>
 <li>Brunch</li>
 <li>Catero</li>
 </ol>
-<h2 id="code_analysis">code analysis</h2>
-<ol>
+<h2 id="code-analysis">code analysis</h2><ol>
 <li>JSLint</li>
 <li>JSHint</li>
 </ol>
-<h2 id="unit_testing">unit testing</h2>
-<ol>
+<h2 id="unit-testing">unit testing</h2><ol>
 <li>Jasmine</li>
 <li>QUnit</li>
 <li>Mocha</li>
@@ -260,99 +277,156 @@
 <li><a href="http://todomvc.com/" target="_blank" rel="external">http://todomvc.com/</a></li>
 </ol>
 
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" data-id="v0njb08ywbnmsv9p" data_title="Frontend Java Script Framework Alternatives"
+          data_summary="MV* framework
+BackBonejs
+Angularjs
+Emberjs
+KnockoutJS
+Dojo
+Spinejs
+
+MVC extension framework
+MarionetteJS
+Thorax
+
+template
+Handlebars
+Mustache
+JST
+ECO
+
+build aut..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+
+          
+
+        </footer>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" data-id="9zoy5b2qphvlwt2o" class="article-share-link">Share</a>
-      
-        <a href="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
   </div>
-  
 </article>
 
 
   
   
+
+
+
+
 </section>
         
-          <aside id="sidebar">
+          
+<aside id="sidebar">
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/books/">books</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devenvsetup-emacs/">devenvsetup emacs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devenvsetup-python/">devenvsetup python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devenvsetup-ruby/">devenvsetup ruby</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sql/">sql</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+      <div class="widget-wrap">
+    <div id="search-form-wrap">
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://sicongtang.github.io"></form>
     </div>
-  </div>
+</div>
 
-  
     
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
+      
   <div class="widget-wrap">
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
         
-          <li>
-            <a href="/2014/10/02/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
+          <li class="recent-list">
             <a href="/2014/09/05/2014-09-05-javascript-patterns-notes/">Javascript Patterns Notes</a>
           </li>
         
-          <li>
-            <a href="/2014/09/02/2014-09-02-mongodb-sql-summary/">mongodb sql summary</a>
+          <li class="recent-list">
+            <a href="/2014/09/02/2014-09-02-mongodb-crud-summary/">Mongo Db Crud Summary</a>
           </li>
         
-          <li>
-            <a href="/2014/07/24/2014-07-24-a-series-of-general-questions-while-designing-webapps/">A series of general questions while designing webapps</a>
+          <li class="recent-list">
+            <a href="/2014/07/24/2014-07-24-a-series-of-general-questions-while-designing-webapps/">a Series of General Questions While Designing Webapps</a>
           </li>
         
-          <li>
-            <a href="/2014/07/23/2014-07-23-getting-start-with-emacs/">Getting Start with Emacs</a>
+          <li class="recent-list">
+            <a href="/2014/07/23/2014-07-23-getting-start-with-emacs/">Getting Start With Emacs</a>
+          </li>
+        
+          <li class="recent-list">
+            <a href="/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/">Frontend Java Script Framework Alternatives</a>
           </li>
         
       </ul>
     </div>
   </div>
 
+
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+         <li class="blogroll">
+           
+             <i class="fa fa-github"></i>
+           
+           <a href="https://github.com/" title="Github">Github</a>
+          </li>
+        
+         <li class="blogroll">
+           
+             <i class="fa fa-google-plus"></i>
+           
+           <a href="https://plus.google.com/" title="Google+">Google+</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
   
 </aside>
+
+
         
       </div>
       <footer id="footer">
   
-  <div class="outer">
+  <div class="outer container">
     <div id="footer-info" class="inner">
-      &copy; 2014 Bobby Tang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>
+<a id="gotop" href="#">
+  <i class="fa fa-chevron-up"></i>
+</a>
+
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="[object Object]" class="mobile-nav-link">0</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="[object Object]" class="mobile-nav-link">1</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">2</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">3</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">4</a>
   
 </nav>
+
     
 <script>
   var disqus_shortname = 'bobbytang';
@@ -361,7 +435,7 @@
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//go.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
@@ -370,11 +444,12 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="/js/jquery.fitvids.js" type="text/javascript"></script>
 
-
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
 
 <script src="/js/script.js" type="text/javascript"></script>
 
