@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/3 | BobbyTang Tech Blog</title>
+  <title>Archives: 2014/3 | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BobbyTang Tech Blog">
+<meta property="og:title" content="Bobby's Blog">
 <meta property="og:url" content="http://sicongtang.github.io/archives/2014/03/">
-<meta property="og:site_name" content="BobbyTang Tech Blog">
+<meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BobbyTang Tech Blog">
+<meta name="twitter:title" content="Bobby's Blog">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -44,7 +44,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
     <div class="collapse navbar-collapse nav-menu">
       <ul class="nav navbar-nav">
       
@@ -102,7 +102,7 @@
             <h1 class="title">
           
             
-              <time datetime="2014-10-12T15:40:56.520Z" itemprop="datePublished">October 2014</time>
+              <time datetime="2014-10-12T16:33:50.687Z" itemprop="datePublished">October 2014</time>
             
           
             </h1>
@@ -118,7 +118,7 @@
 
 
   
-    <article id="post-nn94sbeih612kvdk" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-d3njfvm112kjdgxx" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -142,72 +142,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <h2 id="process-control-block">Process Control Block</h2><p><strong>Process Control Block</strong> (PCB, also called Task Controlling Block, Task Struct, or Switchframe) is a data structure in the operating system kernel containing the information needed to manage a particular process.</p>
 <p>Process state. The state may be new, ready, running, waiting, halted, and so on. </p>
 <p>Program counter. The counter indicates the address of the next instruction to be executed for this process. </p>
 <p>CPU registers. They include accumulators, index registers, stack pointers, and general-purpose registers, plus any condition-code information. Along with the program counter, this state information must be saved when an interrupt occurs, to allow the process to be continued correctly afterward.</p>
-<p>CPU-scheduling information. This information includes a process priority, pointers to scheduling queues, and any other scheduling parameters.</p>
-<p>Memory-management information. This information may include such information as the value of the base and limit registers, the page tables, or the segment tables, depending on the memory system used by the operating system. </p>
-<p>Accounting information. This information includes the amount of CPU and real time used, time limits, account numbers, job or process numbers, and so on. </p>
-<p>I/O status information. This information includes the list of I/O devices allocated to the process, a list of open files, and so on.</p>
-<h2 id="context-switch">Context Switch</h2><p>A <strong>context switch</strong> (also sometimes referred to as a process switch or a task switch) is the switching of the CPU (central processing unit) from one process or thread to another.</p>
-<p>A <strong>context</strong> is the contents of a CPU&#39;s registers and program counter at any point in time.</p>
-<p>A <strong>program counter</strong> is a specialized register that indicates the position of the CPU in its instruction sequence and which holds either the address of the instruction being executed or the address of the next instruction to be executed, depending on the specific system.</p>
-<p>Context switching can be described in slightly more detail as the kernel (i.e., the core of the operating system) performing the following activities with regard to processes (including threads) on the CPU:</p>
-<ol>
-<li><p>suspending the progression of one process and storing the CPU&#39;s state (i.e., the context) for that process somewhere in memory,</p>
-</li>
-<li><p>retrieving the context of the next process from memory and restoring it in the CPU&#39;s registers and</p>
-</li>
-<li><p>returning to the location indicated by the program counter (i.e., returning to the line of code at which the process was interrupted) in order to resume the process.</p>
-</li>
-</ol>
-<h3 id="when-to-switch?">When to switch?</h3><p>Context switches can occur only in kernel mode.</p>
-<p><strong>Multitasking</strong> 1.)Preemptive schedulers often configure a timer interrupt to fire when a process exceeds its time slice. 2.)This context switch can be triggered by the process making itself unrunnable, such as by waiting for an I/O or synchronization operation to complete.</p>
-<p><strong>Interrupt handling</strong> 1.) Hardware interrupt</p>
-<p><strong>User and kernel mode switching</strong> may cause context switch.</p>
-<h2 id="multithread-programing">Multithread programing</h2><p>Benifits 1.) Responsiveness 2.)Resource sharing 3.) Economy 4.)Scalability</p>
-<h2 id="multicore-programming">Multicore Programming</h2><p>Concerns 1.) Dividing activities 2.)Balance Data splitting 3.)Data dependency 4.)Testing and debugging</p>
-<h2 id="multithread-model">Multithread Model</h2><ul>
-<li>Many-to-one model</li>
-<li>One-to-one model</li>
-</ul>
-<p>The nptl(native posix thread library) implementation only uses a 1:1 thread model. The scheduler handles every thread as if it were a process. Therefore only the supported scope is PTHREAD_SCOPE_SYSTEM(Plesae see on Pthread Scheduling label). The default scheduling policy is SCHED_OTHER, which is the default Linux scheduler. The nptl implementation can utilize multiple CPUs.</p>
-<ul>
-<li>Many-to-many model</li>
-<li>Green thread</li>
-</ul>
-<p>On multi-CPU machines, native threads can run more than one thread simultaneously by assigning different threads to different CPUs. Green threads run on only one CPU.</p>
-<p>Green threads, the threads provided by the JVM, run at the user level, meaning that the JVM creates and schedules the threads itself. Therefore, the operating system kernel doesn&#39;t create or schedule them. Instead, the underlying OS sees the JVM only as one thread.</p>
-<ul>
-<li>Light weight process(LWP)
-In the traditional meaning of the term, as used in Unix System V and Solaris, a LWP runs in user space on top of a single kernel thread and shares its address space and system resources with other LWPs within the same process.</li>
-</ul>
-<h2 id="pthread-scheduling">Pthread Scheduling</h2><p>There are two possible contention scopes. PTHREAD_SCOPE_SYSTEM and PTHREAD_SCOPE_PROCESS. They can be set with pthread_attr_setscope(). The scope of a thread can only be specified before the thread is created.</p>
-<ul>
-<li>PTHREAD_SCOPE_SYSTEM</li>
-</ul>
-<p>A thread that has a scope of PTHREAD_SCOPE_SYSTEM will content with other processes and other PTHREAD_SCOPE_SYSTEM threads for the CPU.</p>
-<ul>
-<li>PTHREAD_SCOPE_PROCESS</li>
-</ul>
-<p>All threads of a process that have a scope of PTHREAD_SCOPE_PROCESS will be grouped together and this group of threads contents for the CPU. If there is a process with 4 PTHREAD_SCOPE_PROCESS threads and 4 PTHREAD_SCOPE_SYSTEM threds, then each of the PTHREAD_SCOPE_SYSTEM threads will get a fifth of the CPU and the other 4 PTHREAD_SCOPE_PROCESS threads will share the remaing fifth of the CPU. How the PTHREAD_SCOPE_PROCESS threads share their fifth of the CPU among themselves is determined by the scheduling policy and the thread&#39;s priority.</p>
-<h2 id="process-creation">Process Creation</h2><p>When a process creates a new process, two possibilities exist in terms of execution:</p>
-<ol>
-<li>The parent continues to execute concurrently with its children.</li>
-<li>The parent waits until some or all of its children have terminated.</li>
-</ol>
-<p>There are also two possibilities in terms of the address space of the new process:</p>
-<ol>
-<li>The child process is a duplicate of the parent process (it has the same program and data as the parent).</li>
-<li>The child process has a new program loaded into it.</li>
-</ol>
-<p>For example, if <code>clone()</code> is passed the flags <code>CLONE FS</code>, <code>CLONE VM</code>, <code>CLONE SIGHAND</code>, and <code>CLONE FILES</code>, the parent and child tasks will share the same file-system information (such as the current working directory), the same memory space, the same signal handlers, and the same set of open files.</p>
-<p>However, if none of these flags is set when <code>clone()</code> is invoked, no sharing takes place, resulting in functionality similar to that provided by the <code>fork()</code> system call.</p>
 
+          
+            <p class="article-more-link">
+              <a href="/2014/03/25/2014-03-25-operating-system-concepts-process-slash-thread/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/03/25/2014-03-25-operating-system-concepts-process-slash-thread/" data-id="nn94sbeih612kvdk" data_title="Operating System Concepts   Process/Thread"
+          <a data-url="http://sicongtang.github.io/2014/03/25/2014-03-25-operating-system-concepts-process-slash-thread/" data-id="d3njfvm112kjdgxx" data_title="Operating System Concepts   Process/Thread"
           data_summary="Process Control BlockProcess Control Block (PCB, also called Task Controlling Block, Task Struct, or Switchframe) is a data structure in the operating system ke..." class="article-share-link">Share</a>
           
             <a href="http://sicongtang.github.io/2014/03/25/2014-03-25-operating-system-concepts-process-slash-thread/#disqus_thread" class="article-comment-link">Comments</a>
@@ -228,7 +176,7 @@ In the traditional meaning of the term, as used in Unix System V and Solaris, a 
 
 
   
-    <article id="post-7ihn3ojulr32nr14" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2dws3oo745bbq1j8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -253,13 +201,13 @@ In the traditional meaning of the term, as used in Unix System V and Solaris, a 
       
         
           <p>There is audit trial requirement that need to be captured into log table these day. But we suffer from the limited function provided by Sybase ASE DB in order to achieve our goals. SybaseASE 12.5 does not support neither analytic function nor row number column, and therefore we have to implement cross comparison by ourselves via basic semantics.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--create rownum column</span></div><div class="line"><span class="operator"><span class="keyword">select</span> rownum = <span class="keyword">identity</span>(<span class="number">10</span>), * <span class="keyword">from</span> #temp_table <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> <span class="number">1</span>=<span class="number">2</span></span></div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> pid = @pid</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_history <span class="keyword">where</span> pid = @pid <span class="keyword">order</span> <span class="keyword">by</span> audit_update_date <span class="keyword">desc</span></div><div class="line"></div><div class="line"><span class="comment">--use self-join to match the cross rows</span></div><div class="line"><span class="keyword">select</span> a.rownum,</div><div class="line">		<span class="keyword">case</span> <span class="keyword">when</span> a.col1 = b.col1 <span class="keyword">then</span> <span class="string">'equal'</span> <span class="keyword">else</span> <span class="string">'inequal'</span> <span class="keyword">end</span></div><div class="line"><span class="keyword">from</span> #temp_table a <span class="keyword">left</span> out <span class="keyword">join</span> #temp_table b <span class="keyword">on</span> ( a.pid = b.pid <span class="keyword">and</span> (a.rownum + <span class="number">1</span>) = b.rownum )</div><div class="line"><span class="keyword">where</span> ...</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--create rownum column</span></div><div class="line"><span class="operator"><span class="keyword">select</span> rownum = <span class="keyword">identity</span>(<span class="number">10</span>), * <span class="keyword">from</span> #temp_table <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> <span class="number">1</span>=<span class="number">2</span></span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> pid = @pid</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_history <span class="keyword">where</span> pid = @pid <span class="keyword">order</span> <span class="keyword">by</span> audit_update_date <span class="keyword">desc</span></div><div class="line"><span class="comment">--use self-join to match the cross rows</span></div><div class="line"><span class="keyword">select</span> a.rownum,</div><div class="line">		<span class="keyword">case</span> <span class="keyword">when</span> a.col1 = b.col1 <span class="keyword">then</span> <span class="string">'equal'</span> <span class="keyword">else</span> <span class="string">'inequal'</span> <span class="keyword">end</span></div><div class="line"><span class="keyword">from</span> #temp_table a <span class="keyword">left</span> out <span class="keyword">join</span> #temp_table b <span class="keyword">on</span> ( a.pid = b.pid <span class="keyword">and</span> (a.rownum + <span class="number">1</span>) = b.rownum )</div><div class="line"><span class="keyword">where</span> ...</div></pre></td></tr></table></figure>
 
 <p>In contrast, we also provide oracle version of implementation.</p>
 
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/03/10/2014-03-10-sql-sybasease-alternative-way-to-support-lead-slash-lag-function/" data-id="7ihn3ojulr32nr14" data_title="Sql   Sybase Ase   Alternative Way to Support Lead/Lag Function"
+          <a data-url="http://sicongtang.github.io/2014/03/10/2014-03-10-sql-sybasease-alternative-way-to-support-lead-slash-lag-function/" data-id="2dws3oo745bbq1j8" data_title="Sql   Sybase Ase   Alternative Way to Support Lead/Lag Function"
           data_summary="There is audit trial requirement that need to be captured into log table these day. But we suffer from the limited function provided by Sybase ASE DB in order t..." class="article-share-link">Share</a>
           
             <a href="http://sicongtang.github.io/2014/03/10/2014-03-10-sql-sybasease-alternative-way-to-support-lead-slash-lag-function/#disqus_thread" class="article-comment-link">Comments</a>
@@ -280,7 +228,7 @@ In the traditional meaning of the term, as used in Unix System V and Solaris, a 
 
 
   
-    <article id="post-6t6rpcqi1ahc8xs6" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-n79lxm71pfg1ngyr" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -317,7 +265,7 @@ In the traditional meaning of the term, as used in Unix System V and Solaris, a 
 
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/03/10/2014-03-10-sql-switch-slash-transpose-columns-and-rows/" data-id="6t6rpcqi1ahc8xs6" data_title="Sql   Switch/Transpose Columns and Rows"
+          <a data-url="http://sicongtang.github.io/2014/03/10/2014-03-10-sql-switch-slash-transpose-columns-and-rows/" data-id="n79lxm71pfg1ngyr" data_title="Sql   Switch/Transpose Columns and Rows"
           data_summary="In practice, we will meet the requirement to rotate the table including convert cols to rows, convert rows to cols. In this session, I&#39;ll produce the soluti..." class="article-share-link">Share</a>
           
             <a href="http://sicongtang.github.io/2014/03/10/2014-03-10-sql-switch-slash-transpose-columns-and-rows/#disqus_thread" class="article-comment-link">Comments</a>
@@ -338,7 +286,7 @@ In the traditional meaning of the term, as used in Unix System V and Solaris, a 
 
 
   
-    <article id="post-lu0d7ln8hqv5ns0f" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-011e6lxouyhwgf8k" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -362,45 +310,19 @@ In the traditional meaning of the term, as used in Unix System V and Solaris, a 
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!--<div class="thumbnail"><img src="https://farm4.staticflickr.com/3775/13508587744_aa4be3c238_o.png" alt="Alt text" title="cpu_cache_hierarchy"></div>-->
           <p>The aim of this post is to review the crucial terms of operating-system and basic interaction of these underlying components.</p>
 <p>Before starting with topic, I am going to reveal why I try to read books of OS related at this point. Let me conclude the reasons, first and foremost, various applications in my daily work encounter issues that are associated with LINUX system, such as buffer size, open file limits and unable to create native threads etc. All of these issues point out to the knowledge of OS. Next, Java performance tuning is always based on the operating system concept, like memory management, cpu utilization etc. Furthermore, including all the design concepts are derived from the solution of common issue inside operating system.</p>
 <p>Due to these, it is so encouraged to read and go through operating system concept again that I could be inspired and get everything tied. If there are any findings or association with Java, I will make more explanations and comments linked with definitive resource.</p>
-<h2 id="1.storage-device-hierarchy">1.Storage Device Hierarchy</h2><p>registers -- &gt; cache -- &gt; main memory (RAM random access memory) -- &gt; electronic disk -- &gt; magnetic disk -- &gt; optical disk -- &gt; magnetic tapes</p>
-<p><img src="https://farm4.staticflickr.com/3775/13508587744_aa4be3c238_o.png" alt="Alt text" title="cpu_cache_hierarchy"></p>
-<h2 id="2.symmetric-multiprocessing-(smp)">2.Symmetric Multiprocessing (SMP)</h2><p>SMP systems are tightly coupled multiprocessor systems with a pool of homogeneous processors running independently, each processor executing different programs and working on different data and with capability of sharing common resources (memory, I/O device, interrupt system and so on) and connected using a system bus or a crossbar.</p>
-<pre><code>$uname -a
-Linux [nodename] 2.6.18-348.18.l.e15 #1 SMP [date] x86_64 x86_64 GUN/Linux
-</code></pre><h2 id="3.non-uniform-memory-access-(numa)">3.Non-uniform Memory Access (NUMA)</h2><p>NUMA is a computer memory design used in multiprocessing, where the memory access time depends on the memory location relative to the processor. Under NUMA, a processor can access its own local memory faster than non-local memory (memory local to another processor or memory shared between processors). </p>
-<h3 id="numa-collector-enhancements">NUMA collector enhancements</h3><ul>
-<li>The Parallel Scavenger garbage collector has been extended to take advantage of machines with NUMA (Non Uniform Memory Access) architecture. 
-The NUMA-aware allocator can be turned on with the <code>-XX:+UseNUMA</code> flag in conjunction with the selection of the Parallel Scavenger garbage collector. The Parallel Scavenger garbage collector is the default for a server-class machine. The Parallel Scavenger garbage collector can also be turned on explicitly by specifying the <code>-XX:+UseParallelGC</code> option.
-If you want see the detail, please see <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/vm/performance-enhancements-7.html" target="_blank" rel="external">oracle official document</a>.</li>
-</ul>
-<h2 id="4.clustering">4.Clustering</h2><p>Clustering can be structured asymmetrically or symmetrically. In asymmetric clustering, one machine is in hot-standby mode while the other is running the applications. The hot-standby host machine does nothing but monitor the active server. If that server fails, the hot-standby host becomes the active server. In symmetric mode, two or more hosts are running applications and are monitoring each other. This mode is obviously more efficient, as it uses all of the available hardware. It does require that more than one application be available to run.</p>
-<p>For example in real-world scenario: The secondary EMS server is hot-standby mode. Two Weblogic servers are symmetric mode and load balance.</p>
-<h2 id="5.network">5.Network</h2><h3 id="5.1.local-area-network-(lan)">5.1.local area network (LAN)</h3><p>A local area network (LAN) is a computer network that user interconnects computers in a limited area such as a home, school, computer laboratory, or office building using network media.</p>
-<h3 id="5.2.storage-area-network(san)">5.2.storage-area network(SAN)</h3><p>SANs are primarily used to enhance storage devices, such as disk arrays, tape libraries, and optical jukeboxes, accessible to servers so that the devices appear like locally attached devices to the operating system.</p>
-<h3 id="5.3.wide-area-network-(wan)">5.3.wide area network (WAN)</h3><p>A wide area network (WAN) is a network that covers a broad area (i.e., any telecommunications network that links across metropolitan, regional, or national boundaries) using private or public network transports. WANs are often built using leased lines. WANs can also be built using less costly circuit switching or packet switching methods.</p>
-<h2 id="6.computing-environments">6.Computing Environments</h2><h3 id="6.1.traditional-computing">6.1.traditional computing</h3><p><strong>Batch systems</strong> processed jobs in bulk, with predetermined input (from files or other sources of data).</p>
-<p><strong>Time-sharing</strong> systems used a timer and scheduling algorithms to rapidly cycle processes through the CPU, giving each user a share of the resources. Time-sharing systems are an extension of multiprogramming wherein CPU scheduling algorithms rapidly switch between jobs, thus providing the illusion that all jobs are running concurrently.</p>
-<h3 id="6.2client–server-computing-(compute-or-file-server-system)">6.2client–Server computing (compute or file server system)</h3><p>A <strong>socket</strong> is identified by an IP address concatenated with a port number. Servers implementing specific services (such as telnet, FTP, and HTTP) listen to well-known ports (a telnet server listens to port 23; an FTP server listens to port 21; and a Web, or HTTP, server listens to port 80). </p>
-<p>The <strong>remote procedure calls (RPCs)</strong> was designed as a way to abstract the procedure-call mechanism for use between systems with network connections.</p>
-<p><strong>Remote method invocation (RMI)</strong> is a Java feature similar to RPCs.</p>
-<h3 id="6.3.peer-to-peer-computing">6.3.peer-to-peer computing</h3><h3 id="6.4.web-based-computing">6.4.web-based computing</h3><h2 id="7.system-calls">7.System Calls</h2><p>In computing, a system call is how a program requests a service from an operating system&#39;s kernel.
-System calls provide an essential interface between a process and the operating system.
-System calls can be grouped roughly into six major categories: process control, file manipulation, device manipulation, information maintenance, communications, and protection.</p>
-<p>To monitor and trace the system call within the process, we can use strace command in Linux.
-Strace is used for debugging and troubleshooting the execution of an executable on Linux environment. It displays the system calls used by the process, and the signals received by the process.</p>
-<pre><code>$strace
-</code></pre><h2 id="8.interprocess-communication">8.Interprocess Communication</h2><p>There are two common models of interprocess communication:</p>
-<h3 id="8.1.message-passing-model">8.1.message-passing model</h3><p><strong>Message passing</strong> is useful for exchanging smaller amounts of data, because no conflicts need be avoided.</p>
-<p>Message passing may be either blocking or nonblocking— also known as synchronous and asynchronous. 1.)<strong>Blocking send</strong> 2.)<strong>Nonblocking send</strong> 3.)<strong>Blockingreceive</strong> 4.)<strong>Nonblocking receive</strong></p>
-<p>Whether communication is direct or indirect, messages exchanged by commu- nicating processes reside in a temporary queue. 1.)<strong>Zero capacity</strong> 2.)<strong>Boundedcapacity</strong> 3.)<strong>Unboundedcapacity</strong></p>
-<h3 id="8.2.shared-memory-model">8.2.shared-memory model</h3><p>In the <strong>shared-memory</strong> model, processes use shared memory create and shared memory attach system calls to create and gain access to regions of memory owned by other processes.</p>
 
+          
+            <p class="article-more-link">
+              <a href="/2014/03/05/2014-03-05-operating-system-concepts-terminology/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/03/05/2014-03-05-operating-system-concepts-terminology/" data-id="lu0d7ln8hqv5ns0f" data_title="Operating System Concepts   Terminology"
+          <a data-url="http://sicongtang.github.io/2014/03/05/2014-03-05-operating-system-concepts-terminology/" data-id="011e6lxouyhwgf8k" data_title="Operating System Concepts   Terminology"
           data_summary="The aim of this post is to review the crucial terms of operating-system and basic interaction of these underlying components.
 Before starting with topic, I am g..." class="article-share-link">Share</a>
           
@@ -507,7 +429,7 @@ Before starting with topic, I am g..." class="article-share-link">Share</a>
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>

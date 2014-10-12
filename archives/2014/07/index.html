@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/7 | BobbyTang Tech Blog</title>
+  <title>Archives: 2014/7 | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BobbyTang Tech Blog">
+<meta property="og:title" content="Bobby's Blog">
 <meta property="og:url" content="http://sicongtang.github.io/archives/2014/07/">
-<meta property="og:site_name" content="BobbyTang Tech Blog">
+<meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BobbyTang Tech Blog">
+<meta name="twitter:title" content="Bobby's Blog">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -44,7 +44,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
     <div class="collapse navbar-collapse nav-menu">
       <ul class="nav navbar-nav">
       
@@ -102,7 +102,7 @@
             <h1 class="title">
           
             
-              <time datetime="2014-10-12T15:40:56.776Z" itemprop="datePublished">October 2014</time>
+              <time datetime="2014-10-12T16:33:50.949Z" itemprop="datePublished">October 2014</time>
             
           
             </h1>
@@ -118,7 +118,7 @@
 
 
   
-    <article id="post-jhjdtchy71urmtm1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-a8ffbj9atem19sln" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -142,30 +142,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <p>In this post, I am going to list a series of questions as well as answers in order to figure out why contemporary webapps are designed and built like that.</p>
-<h4 id="why-single-page-applications?">Why single page applications?</h4><ul>
-<li>The web is currently trending such that all data/content will be exposed through an API.<h4 id="why-backbonejs?">Why backbonejs?</h4></li>
-<li>It is essentially MVC for the client and allows you to make your code modular.</li>
-<li>Backbone.js is not strictly for single-age apps (SPA), but the strength of Backbone.js is in the SPA realm.</li>
-<li>Basically, backbone works best to untangle elaborate chains of rendering logic and model updating. If you just need to select and manipulate DOM elements, it&#39;s overkill. jQuery alone can handle that.</li>
-</ul>
-<h4 id="why-amd(requirejs)?">Why AMD(RequireJS)?</h4><p>Without RequreJS</p>
-<ul>
-<li>Browsers are limited in how many parallel requests they can make, so it can only do a certain number at a time.</li>
-<li>Scripts loaded synchronously. This means that the browser cannot continue page rendering while the script is loading.</li>
-</ul>
-<p>With RequireJS</p>
-<ul>
-<li>Loading the scripts asynchronously.</li>
-<li>Ensuring that modules with dependencies are loaded in the right order. </li>
-<li>You can use the optimizer to combine the JavaScript files together and minify it.<h4 id="which-is-preferred-about-i18n?-client-side-or-server-side?">Which is preferred about i18n? Client side or server side?</h4></li>
-</ul>
 
+          
+            <p class="article-more-link">
+              <a href="/2014/07/24/2014-07-24-a-series-of-general-questions-while-designing-webapps/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/07/24/2014-07-24-a-series-of-general-questions-while-designing-webapps/" data-id="jhjdtchy71urmtm1" data_title="a Series of General Questions While Designing Webapps"
+          <a data-url="http://sicongtang.github.io/2014/07/24/2014-07-24-a-series-of-general-questions-while-designing-webapps/" data-id="a8ffbj9atem19sln" data_title="a Series of General Questions While Designing Webapps"
           data_summary="In this post, I am going to list a series of questions as well as answers in order to figure out why contemporary webapps are designed and built like that.
-Why ..." class="article-share-link">Share</a>
+
+
+Wh..." class="article-share-link">Share</a>
           
             <a href="http://sicongtang.github.io/2014/07/24/2014-07-24-a-series-of-general-questions-while-designing-webapps/#disqus_thread" class="article-comment-link">Comments</a>
           
@@ -185,7 +176,7 @@ Why ..." class="article-share-link">Share</a>
 
 
   
-    <article id="post-e3lbklthj59ofpio" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-u2e3tlihisptdusw" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -209,94 +200,25 @@ Why ..." class="article-share-link">Share</a>
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <h2 id="why-emacs?">Why emacs?</h2><p>Previously I was developing with dynamic language, like js, ruby, python, via using vim. Vim is a great editing tools with different internal mode(command/visial/insert mode). But the original reason why I intended to migrate from vim to emacs is the powerful <code>REPL</code> environment as well as other embedded function.</p>
 <h2 id="trouble-from-vim-to-emacs">Trouble from vim to emacs</h2><p>I was starting to read the documentation of emacs, and acquainted with new key-binding. Then I realized editing in emacs is less effective than in vim. Thus I came up to <code>evil</code>, an extensible vi layer for Emacs. Combing emacs with evil will maximize the productivies, therefore it is not necessary for you to remember all the key-binding under emacs environment.</p>
-<h2 id="how-to-install-on-os-x?">How to install on OS X?</h2><p>Download and install emacs, no args will not install gui enviornment.</p>
-<p><code>brew install emacs</code></p>
-<h2 id="keyboard-setting-on-os-x">Keyboard setting on OS X</h2><ol>
-<li>open the terminal perference, and then set option as a meta key.</li>
-<li>recommend you to swap capslock with ctrl</li>
-</ol>
-<h2 id="basic-command-you-should-remember">Basic command you should remember</h2><p>Emacs self key-binding</p>
-<ul>
-<li><code>M-x help-with-tutorial</code> open emacs tutorial</li>
-<li><code>C-x C-c</code> quit</li>
-<li><code>C-x C-f</code> open file</li>
-<li><code>C-x C-s</code> save file</li>
-<li><code>C-g</code> quit a partially entered command</li>
-<li><p><code>C-h m</code> list active mode</p>
-</li>
-<li><p><code>C-x left-arrow</code> previous buffer</p>
-</li>
-<li><code>C-x C-b</code> list buffers</li>
-<li><p><code>M-x desktop-clear</code></p>
-</li>
-<li><p><code>C-x 0</code> close current window</p>
-</li>
-<li><code>C-x 1</code> close other window except current</li>
-<li><code>C-x 2</code> split window vertically</li>
-<li><code>C-x 3</code> split window horizontally</li>
-<li><p><code>C-x 4 C-f</code> open new window and move the cursor to it</p>
-</li>
-<li><p><code>C-v</code> scroll down the window</p>
-</li>
-<li><code>M-v</code> scroll up the window</li>
-<li><p><code>C-M-v</code> scroll the botton window without focusing the cursor</p>
-</li>
-<li><p><code>M-;</code> comment on current line</p>
-</li>
-</ul>
-<p>Plugin default setting key-binding</p>
-<ul>
-<li><code>tab</code> autocomplete in evil-insert mode</li>
-<li><code>gv</code> reselect evil visual mode&quot;</li>
-<li><code>:%s/foo/bar/g</code> replace all matched words in evil-normal mode</li>
-<li><code>1g</code> or <code>ng</code> jump to the specific line</li>
-<li><code>C-c b</code> send buffer to REPL</li>
-<li><code>C-c r</code> send region to REPL</li>
-<li><code>C-c f</code> format js/html/css by web-beautify</li>
-</ul>
-<h2 id="emacs-package-system">Emacs package system</h2><p>There are four package servers, including GUN, ELPA, Marmalade, MELPA. Currently I choosed MELPA as a default package system, becasue I forked config from <a href="https://github.com/purcell/emacs.d/" title="Title" target="_blank" rel="external">Steve Purcell emacs.d repository</a>.</p>
-<p>There are several starter kits you can begin with:</p>
-<ol>
-<li><a href="https://github.com/eschulte/emacs24-starter-kit" target="_blank" rel="external">emacs24-starter-kit</a> is highly recommended if you want a clean environment and build it from scratch.</li>
-<li><a href="https://github.com/bbatsov/prelude" target="_blank" rel="external">emacs prelude</a> is not recommended by novice.</li>
-<li><a href="https://github.com/purcell/emacs.d" target="_blank" rel="external">Steve Purcell&#39;s emacs.d</a>.</li>
-<li><a href="https://github.com/xiaohanyu/oh-my-emacs" target="_blank" rel="external">oh-my-emacs</a> adapted el-get instead of the builtin package.el.</li>
-<li><a href="https://github.com/redguardtoo/emacs.d" target="_blank" rel="external">redguardtoo&#39;s emacs</a> is forked from Purcell&#39;s emacs.d, and make it localize if you have no access to network. In addition, it enhances some features on the top of Purcell&#39;s config.</li>
-</ol>
-<p>Steve Purcell emacs config is really impressive and the structure is clean and tidy. So I highly recommmend you to fork his repos and localize your configure file into your home directory.</p>
-<p>Note that if you encounter any difficulties, please run command <code>emacs --debug-init</code> to check any error.</p>
-<h2 id="increamtal-plugin-list-besides-purcell-config">Increamtal plugin list besides purcell config</h2><ol>
-<li><a href="https://gitorious.org/evil/pages/Home" target="_blank" rel="external">evil</a> is an extensible vi layer for Emacs.</li>
-<li><a href="https://github.com/emacs-helm/helm" target="_blank" rel="external">helm</a> is Emacs incremental and narrowing framework.</li>
-<li><a href="https://github.com/yasuyk/ac-helm" target="_blank" rel="external">ac-helm</a> integrates AC in helm mode.</li>
-<li><a href="https://github.com/capitaomorte/yasnippet" target="_blank" rel="external">yasnippet</a> is a template system for Emacs. The snippet syntax is inspired from TextMate&#39;s syntax.</li>
-<li><a href="https://github.com/yasuyk/ac-helm" target="_blank" rel="external">ace-jump-mode</a> is A quick cursor location minor mode for emacs, like easymotion under vim.</li>
-<li><a href="https://github.com/yasuyk/web-beautify" target="_blank" rel="external">web-beautify</a> is used to format HTML, CSS and JavaScript/JSON by js-beautify</li>
-</ol>
-<h2 id="other-notes">Other notes</h2><ol>
-<li>Please <code>brew install ispell</code> before enabling flyspell</li>
-<li>Using <code>node --interactive</code> as inferior-js-program-command in js-comint mode.</li>
-<li>Please <code>(setq auto-save-default nil)</code> in order to disable auto-save-mode.</li>
-<li>If you cannot download plugins, please <code>M-x package-list-packages</code> to refresh your package list<h2 id="reference">Reference</h2></li>
-<li><a href="http://ergoemacs.org/misc/list_of_emacs_starter_kits.html" target="_blank" rel="external">http://ergoemacs.org/misc/list_of_emacs_starter_kits.html</a></li>
-<li><a href="http://ergoemacs.org/emacs/emacs_package_system.html" target="_blank" rel="external">http://ergoemacs.org/emacs/emacs_package_system.html</a></li>
-<li><a href="http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/" target="_blank" rel="external">http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/</a></li>
-<li><a href="http://toumorokoshi.github.io/emacs-from-scratch-part-1-extending-emacs-basics.html" target="_blank" rel="external">http://toumorokoshi.github.io/emacs-from-scratch-part-1-extending-emacs-basics.html</a></li>
-<li><a href="http://blog.csdn.net/redguardtoo/article/details/7222501" target="_blank" rel="external">http://blog.csdn.net/redguardtoo/article/details/7222501</a></li>
-</ol>
 
+          
+            <p class="article-more-link">
+              <a href="/2014/07/23/2014-07-23-getting-start-with-emacs/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/07/23/2014-07-23-getting-start-with-emacs/" data-id="e3lbklthj59ofpio" data_title="Getting Start With Emacs"
+          <a data-url="http://sicongtang.github.io/2014/07/23/2014-07-23-getting-start-with-emacs/" data-id="u2e3tlihisptdusw" data_title="Getting Start With Emacs"
           data_summary="Why emacs?Previously I was developing with dynamic language, like js, ruby, python, via using vim. Vim is a great editing tools with different internal mode(com..." class="article-share-link">Share</a>
           
             <a href="http://sicongtang.github.io/2014/07/23/2014-07-23-getting-start-with-emacs/#disqus_thread" class="article-comment-link">Comments</a>
           
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/devenvsetup-emacs/">devenvsetup emacs</a>
+    <a class="article-category-link" href="/categories/emacs/">emacs</a>
   </div>
 
 
@@ -310,7 +232,7 @@ Why ..." class="article-share-link">Share</a>
 
 
   
-    <article id="post-woeevqyopwnlyar9" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ap2ybxie7c6kfmde" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -383,7 +305,7 @@ Why ..." class="article-share-link">Share</a>
 
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" data-id="woeevqyopwnlyar9" data_title="Frontend Java Script Framework Alternatives"
+          <a data-url="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" data-id="ap2ybxie7c6kfmde" data_title="Frontend Java Script Framework Alternatives"
           data_summary="MV* framework
 BackBonejs
 Angularjs
@@ -507,7 +429,7 @@ build aut..." class="article-share-link">Share</a>
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>

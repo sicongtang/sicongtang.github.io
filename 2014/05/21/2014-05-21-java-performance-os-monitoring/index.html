@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Java Performance   Os Monitoring | BobbyTang Tech Blog</title>
+  <title>Java Performance   Os Monitoring | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Bottom Up ApproachBottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use of CPU instructions, and then working up">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Performance   Os Monitoring">
 <meta property="og:url" content="http://sicongtang.github.io/2014/05/21/2014-05-21-java-performance-os-monitoring/">
-<meta property="og:site_name" content="BobbyTang Tech Blog">
+<meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description" content="Bottom Up ApproachBottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use of CPU instructions, and then working up">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Performance   Os Monitoring">
 <meta name="twitter:description" content="Bottom Up ApproachBottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use of CPU instructions, and then working up">
 
   
-    <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -44,7 +44,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
     <div class="collapse navbar-collapse nav-menu">
       <ul class="nav navbar-nav">
       
@@ -109,7 +109,7 @@
       
       <section id="main"
         
-      ><article id="post-27ul9wf1zabgmvms" class="article article-type-post" itemscope itemprop="blogPost">
+      ><article id="post-44o6jmk1kjhkkbz6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -118,6 +118,8 @@
       
         <div id="toc"><span class="toc-header">Contents</span><ol class="article-toc"><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#bottom-up-approach"><span class="article-toc-text">Bottom Up Approach</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#choosing-the-right-cpu-architecture"><span class="article-toc-text">Choosing the Right CPU Architecture</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#cpu-utilization"><span class="article-toc-text">CPU Utilization</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#monitoring-linux-cpu-scheduler-run-queue"><span class="article-toc-text">Monitoring Linux CPU Scheduler Run Queue</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#memory-utilization"><span class="article-toc-text">Memory Utilization</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#monitoring-lock-contention-on-linux"><span class="article-toc-text">Monitoring Lock Contention on Linux</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#quick-lock-contention-monitoring"><span class="article-toc-text">Quick Lock Contention Monitoring</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#isolating-hot-locks"><span class="article-toc-text">Isolating Hot Locks</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#monitoring-involuntary-context-switches"><span class="article-toc-text">Monitoring Involuntary Context Switches</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#monitoring-thread-migrations"><span class="article-toc-text">Monitoring Thread Migrations</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#network-i/o-utilization"><span class="article-toc-text">Network I/O Utilization</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#disk-i/o-utilization"><span class="article-toc-text">Disk I/O Utilization</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#additional-command-line-tools"><span class="article-toc-text">Additional Command Line Tools</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#monitoring-cpu-utilization-on-sparc-t-series-systems"><span class="article-toc-text">Monitoring CPU Utilization on SPARC T-Series Systems</span></a></li></ol></div><h2 id="bottom-up-approach">Bottom Up Approach</h2><p>Bottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use of CPU instructions, and then working up the software stack at what constructs or idioms are used by the application.</p>
 <h2 id="choosing-the-right-cpu-architecture">Choosing the Right CPU Architecture</h2><p>One of the major design points behind the SPARC T-series processors is to address CPU cache misses by introducing multiple hardware threads per core.</p>
+<a id="more"></a>
+
 <h2 id="cpu-utilization">CPU Utilization</h2><p>A system with a single CPU socket with a quad core processor with hyperthreading disabled will show four CPUs in the GNOME System Monitor and report four virtual processors using the Java API Runtime.availableProcessors(). </p>
 <pre><code>xosview
 vmstat
@@ -172,7 +174,7 @@ nicstat
       
     </li>
     <li>
-      <a data-url="http://sicongtang.github.io/2014/05/21/2014-05-21-java-performance-os-monitoring/" data-id="27ul9wf1zabgmvms" data_title="Java Performance   Os Monitoring"
+      <a data-url="http://sicongtang.github.io/2014/05/21/2014-05-21-java-performance-os-monitoring/" data-id="44o6jmk1kjhkkbz6" data_title="Java Performance   Os Monitoring"
         data_summary="Bottom Up ApproachBottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use o..." class="article-share-link">Share</a>
     </li>
     <li>
@@ -223,7 +225,7 @@ nicstat
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>

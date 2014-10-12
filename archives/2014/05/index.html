@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/5 | BobbyTang Tech Blog</title>
+  <title>Archives: 2014/5 | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BobbyTang Tech Blog">
+<meta property="og:title" content="Bobby's Blog">
 <meta property="og:url" content="http://sicongtang.github.io/archives/2014/05/">
-<meta property="og:site_name" content="BobbyTang Tech Blog">
+<meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BobbyTang Tech Blog">
+<meta name="twitter:title" content="Bobby's Blog">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -44,7 +44,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
     <div class="collapse navbar-collapse nav-menu">
       <ul class="nav navbar-nav">
       
@@ -102,7 +102,7 @@
             <h1 class="title">
           
             
-              <time datetime="2014-10-12T15:40:56.683Z" itemprop="datePublished">October 2014</time>
+              <time datetime="2014-10-12T16:33:50.861Z" itemprop="datePublished">October 2014</time>
             
           
             </h1>
@@ -118,7 +118,7 @@
 
 
   
-    <article id="post-g68xcy5h0eqddtau" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-k15dl8jo1m766lv1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -128,7 +128,7 @@
         
   
     <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/05/30/2014-05-30-install-ruby-and-vim-command-without-root/">Install Ruby&amp;Amp;Vim Command Without Root</a>
+      <a class="article-title" href="/2014/05/30/2014-05-30-install-ruby-and-vim-command-without-root/">Install Ruby Vim Command Without Root</a>
     </h1>
   
 
@@ -142,32 +142,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <p>This post intend to write down the step for installing ruby and vim command line tools, without root access.
 In addition, ncurses is the prerequisities of installing ruby and vim. Also, please install ruby first in order to enable rubyinterp.</p>
-<ol>
-<li>download ncurses</li>
-<li><code>tar xvf ncurses-5.9.tar.gz</code></li>
-<li>sh <code>./configure --prefix=/home/bobby/tools/ncurses ##--with-shared</code></li>
-<li><code>make</code></li>
-<li><code>make install</code></li>
-<li>download ruby</li>
-<li>sh <code>./configure --prefix=/home/bobby/tools/ruby1.9 --with-tlib=ncurses</code></li>
-<li><code>make</code></li>
-<li><code>make install</code></li>
-<li>download from vim</li>
-<li><code>bzip2 -cd vimxxx.tar.bz2 | tar xvf -</code></li>
-<li>edit .bash_profile <code>set CPPLAGS=&quot;-I/home/bobby/tools/ncurses/include&quot; LDFLAGS=&quot;-L/home/bobby/tools/ncurses/lib&quot; export CPPFLAGS LDFLAGS</code></li>
-<li>sh <code>./configure --prefix=/home/bobby/tools/vim7.4 --disable-selinux --enbale-gui=no --without-x --disable-gpm --disable-nls --with-tilib=ncurses --enable-multibyte --enable-rubyinterp --enable-perlinterp --enable-pythoninterp</code></li>
-<li><code>make</code></li>
-<li><code>make install</code></li>
-<li>edit ~/.bashrc <code>alias vim=&quot;/home/bobby/tools/vim7.4/bin/vim&quot;</code></li>
-<li>edit ~/.vimrc <code>set synatx on set nocompatible set backspace=2</code></li>
-<li>setup vimruntime in order to let vim find the syntax env, please edit .bash_profile <code>export VIMRUNTIME=/home/bobby/tools/preinstall/vim74/runtime</code></li>
-</ol>
 
+          
+            <p class="article-more-link">
+              <a href="/2014/05/30/2014-05-30-install-ruby-and-vim-command-without-root/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/05/30/2014-05-30-install-ruby-and-vim-command-without-root/" data-id="g68xcy5h0eqddtau" data_title="Install Ruby&Amp;Vim Command Without Root"
+          <a data-url="http://sicongtang.github.io/2014/05/30/2014-05-30-install-ruby-and-vim-command-without-root/" data-id="k15dl8jo1m766lv1" data_title="Install Ruby Vim Command Without Root"
           data_summary="This post intend to write down the step for installing ruby and vim command line tools, without root access.
 In addition, ncurses is the prerequisities of insta..." class="article-share-link">Share</a>
           
@@ -175,7 +161,7 @@ In addition, ncurses is the prerequisities of insta..." class="article-share-lin
           
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/devenvsetup-ruby/">devenvsetup ruby</a>
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
   </div>
 
 
@@ -189,7 +175,7 @@ In addition, ncurses is the prerequisities of insta..." class="article-share-lin
 
 
   
-    <article id="post-27ul9wf1zabgmvms" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-44o6jmk1kjhkkbz6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -213,38 +199,18 @@ In addition, ncurses is the prerequisities of insta..." class="article-share-lin
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <h2 id="bottom-up-approach">Bottom Up Approach</h2><p>Bottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use of CPU instructions, and then working up the software stack at what constructs or idioms are used by the application.</p>
 <h2 id="choosing-the-right-cpu-architecture">Choosing the Right CPU Architecture</h2><p>One of the major design points behind the SPARC T-series processors is to address CPU cache misses by introducing multiple hardware threads per core.</p>
-<h2 id="cpu-utilization">CPU Utilization</h2><p>A system with a single CPU socket with a quad core processor with hyperthreading disabled will show four CPUs in the GNOME System Monitor and report four virtual processors using the Java API Runtime.availableProcessors(). </p>
-<pre><code>xosview
-vmstat
-mpstat
-top 
-</code></pre><p>Which java thread is consuming CPU?</p>
-<pre><code>jstack
-</code></pre><h2 id="monitoring-linux-cpu-scheduler-run-queue">Monitoring Linux CPU Scheduler Run Queue</h2><pre><code>vmstat
-</code></pre><h2 id="memory-utilization">Memory Utilization</h2><pre><code>top
-/proc/meminf
-</code></pre><p>However, the following vmstat output from a Linux system illustrates a system that is experiencing swapping.  P36</p>
-<h2 id="monitoring-lock-contention-on-linux">Monitoring Lock Contention on Linux</h2><pre><code>pidstat -w -I -p 9391 5
-</code></pre><p>Hence, 3500 divided by 2, the num- ber of virtual processors = 1750. 1750 * 80,000 = 140,000,000. The number of clock cycles in 1 second on a 3.0GHz processor is 3,000,000,000. Thus, the percentage of clock cycles wasted on context switches is 140,000,000/3,000,000,000 = 4.7%. </p>
-<p>The cost of a voluntary context switch at a processor clock cycle level is an expensive operation, generally upwards of about 80,000 clock cycles. </p>
-<p>Again applying the general guideline of 3% to 5% of clock cycles spent in voluntary context switches implies a Java application that may be suffering from lock contention. </p>
-<h2 id="quick-lock-contention-monitoring">Quick Lock Contention Monitoring</h2><h2 id="isolating-hot-locks">Isolating Hot Locks</h2><p>A common practice to find contended locks in a Java application has been to periodically take thread dumps and look for threads that tend to be blocked on the same lock across several thread dumps.  </p>
-<h2 id="monitoring-involuntary-context-switches">Monitoring Involuntary Context Switches</h2><p>In contrast to voluntary context switching where an executing thread voluntarily takes itself off the CPU, involun- tary thread context switches occur when a thread is taken off the CPU as a result of an expiring time quantum or has been preempted by a higher priority thread. </p>
-<p>Involuntary context switches can also be monitored on Linux using <code>pidstat -w</code>. High involuntary context switches are an indication there are more threads ready to run than there are virtual processors available to run them. As a result it is common to observe a high run queue depth in vmstat, high CPU utilization, and a high number of migrations (migrations are the next topic in this section) in conjunction with a large number of involuntary context switches.</p>
-<p>On Linux, creation of processor sets and assigning applications to those processor sets can be accomplished using the Linux <code>taskset</code> command.</p>
-<h2 id="monitoring-thread-migrations">Monitoring Thread Migrations</h2><p>As a general guideline, Java applications scaling across multiple cores or virtual processors and observing migrations greater than 500 per second could benefit from binding Java applications to processor sets.  </p>
-<h2 id="network-i/o-utilization">Network I/O Utilization</h2><pre><code>netstat -i 
-nicstat
-</code></pre><h2 id="disk-i/o-utilization">Disk I/O Utilization</h2><pre><code>iostat -xm
-</code></pre><p>One of the challenges with monitoring disk I/O utilization is identifying which files are being read or written to and which application is the source of the disk activity.</p>
-<p>At the application level any strategy to minimize disk activity will help such as reducing the number of read and write operations using buffered input and output streams or integrating a caching data structure into the application to reduce or eliminate disk interaction.</p>
-<h2 id="additional-command-line-tools">Additional Command Line Tools</h2><pre><code>sar
-</code></pre><h2 id="monitoring-cpu-utilization-on-sparc-t-series-systems">Monitoring CPU Utilization on SPARC T-Series Systems</h2>
+
+          
+            <p class="article-more-link">
+              <a href="/2014/05/21/2014-05-21-java-performance-os-monitoring/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/05/21/2014-05-21-java-performance-os-monitoring/" data-id="27ul9wf1zabgmvms" data_title="Java Performance   Os Monitoring"
+          <a data-url="http://sicongtang.github.io/2014/05/21/2014-05-21-java-performance-os-monitoring/" data-id="44o6jmk1kjhkkbz6" data_title="Java Performance   Os Monitoring"
           data_summary="Bottom Up ApproachBottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use o..." class="article-share-link">Share</a>
           
             <a href="http://sicongtang.github.io/2014/05/21/2014-05-21-java-performance-os-monitoring/#disqus_thread" class="article-comment-link">Comments</a>
@@ -350,7 +316,7 @@ nicstat
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>

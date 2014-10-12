@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: javascript | BobbyTang Tech Blog</title>
+  <title>Category: javascript | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BobbyTang Tech Blog">
+<meta property="og:title" content="Bobby's Blog">
 <meta property="og:url" content="http://sicongtang.github.io/categories/javascript/">
-<meta property="og:site_name" content="BobbyTang Tech Blog">
+<meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BobbyTang Tech Blog">
+<meta name="twitter:title" content="Bobby's Blog">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -44,7 +44,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
     <div class="collapse navbar-collapse nav-menu">
       <ul class="nav navbar-nav">
       
@@ -114,7 +114,7 @@
       >
   
   
-    <article id="post-fvu1ua5sf891zfm5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-swo6impqm5dcp6yh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -138,53 +138,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
-<h2 id="1-essentials">1 Essentials</h2><h4 id="1.1-single-var-pattern">1.1 Single var Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script>
-
-<h4 id="1.2-switch-pattern">1.2 Switch Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script>
-
-<h2 id="2-literal-patterns">2 Literal Patterns</h2><h4 id="2.1-patterns-for-enforcing-new">2.1 Patterns for Enforcing new</h4><p>If we forgot to add new, this.value will become global obejct.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=patterns_for_enforcing_new.js"></script>
-
-<h4 id="2.2-self-invoking-constructor">2.2 Self-Invoking Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_invoking_constructor.js"></script>
-
-<h4 id="2.3-error-objects">2.3 Error Objects</h4><p>On the other hand, throw works with any object, not necessarily an object created with one of the error constructors, so you can opt in for throwing your own objects.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=error_objects.js"></script>
-
-<h2 id="3-api-patterns">3 API Patterns</h2><h4 id="3.1-callback-pattern">3.1 Callback Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=callback_pattern.js"></script>
-
-<h4 id="3.2-configuration-object-pattern">3.2 Configuration Object Pattern</h4><p>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script>
-
-<h2 id="4-performance-patterns">4 Performance Patterns</h2><h4 id="4.1-self-defining-functions">4.1 Self-Defining Functions</h4><p>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.</p>
-<p>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script>
-
-<h4 id="4.2-memoization-pattern(function-properties)">4.2 Memoization Pattern(Function Properties)</h4><p>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script>
-
-<h2 id="5-object-creation-patterns">5 Object Creation Patterns</h2><h4 id="5.1-prototypes-and-privacy">5.1 Prototypes and Privacy</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script>
-
-<h4 id="5.2-evelation-pattern(revealing-module-pattern)">5.2 Evelation Pattern(revealing module pattern)</h4><h4 id="5.3-static-memebers">5.3 Static Memebers</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
-
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=private_static_members.js"></script>
-
-<h2 id="6-code-reuse-patterns">6 Code Reuse Patterns</h2><h4 id="6.1-the-default-pattern">6.1 The Default Pattern</h4><h4 id="6.2-rent-a-constructor">6.2 Rent a Constructor</h4><h4 id="6.3-rent-and-set-prototype">6.3 Rent and Set Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script>
-
-<h4 id="6.4-share-the-prototype">6.4 Share the Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script>
-
-<h4 id="6.5-a-temporary-constructor">6.5 A Temporary Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script>
-
-<h4 id="6.6-mix-ins">6.6 Mix-ins</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
-
-
-<h2 id="7-design-patterns">7 Design Patterns</h2><h2 id="references:">References:</h2><ol>
-<li><a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752/ref=sr_1_1?ie=UTF8&amp;qid=1410247009&amp;sr=8-1" target="_blank" rel="external">Javascript Patterns</a></li>
-</ol>
-
+<p>
+          
+            <p class="article-more-link">
+              <a href="/2014/09/05/2014-09-05-javascript-patterns-notes/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="fvu1ua5sf891zfm5" data_title="Javascript Patterns Notes"
+          <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="swo6impqm5dcp6yh" data_title="Javascript Patterns Notes"
           data_summary="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
 ..." class="article-share-link">Share</a>
           
@@ -206,7 +170,7 @@
 
 
   
-    <article id="post-woeevqyopwnlyar9" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ap2ybxie7c6kfmde" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -279,7 +243,7 @@
 
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" data-id="woeevqyopwnlyar9" data_title="Frontend Java Script Framework Alternatives"
+          <a data-url="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" data-id="ap2ybxie7c6kfmde" data_title="Frontend Java Script Framework Alternatives"
           data_summary="MV* framework
 BackBonejs
 Angularjs
@@ -404,7 +368,7 @@ build aut..." class="article-share-link">Share</a>
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>

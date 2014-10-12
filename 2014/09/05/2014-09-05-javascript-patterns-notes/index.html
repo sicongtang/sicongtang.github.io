@@ -3,29 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Javascript Patterns Notes | BobbyTang Tech Blog</title>
+  <title>Javascript Patterns Notes | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
-1 Essentials1.1 Single var Pattern
-
-1.2">
+  <meta name="description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript Patterns Notes">
 <meta property="og:url" content="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/">
-<meta property="og:site_name" content="BobbyTang Tech Blog">
-<meta property="og:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
-1 Essentials1.1 Single var Pattern
-
-1.2">
+<meta property="og:site_name" content="Bobby's Blog">
+<meta property="og:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript Patterns Notes">
-<meta name="twitter:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
-1 Essentials1.1 Single var Pattern
-
-1.2">
+<meta name="twitter:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.">
 
   
-    <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -53,7 +44,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
     <div class="collapse navbar-collapse nav-menu">
       <ul class="nav navbar-nav">
       
@@ -118,7 +109,7 @@
       
       <section id="main"
         
-      ><article id="post-fvu1ua5sf891zfm5" class="article article-type-post" itemscope itemprop="blogPost">
+      ><article id="post-swo6impqm5dcp6yh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -126,6 +117,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <div id="toc"><span class="toc-header">Contents</span><ol class="article-toc"><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#1-essentials"><span class="article-toc-text">1 Essentials</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#1.1-single-var-pattern"><span class="article-toc-text">1.1 Single var Pattern</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#1.2-switch-pattern"><span class="article-toc-text">1.2 Switch Pattern</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#2-literal-patterns"><span class="article-toc-text">2 Literal Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#2.1-patterns-for-enforcing-new"><span class="article-toc-text">2.1 Patterns for Enforcing new</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#2.2-self-invoking-constructor"><span class="article-toc-text">2.2 Self-Invoking Constructor</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#2.3-error-objects"><span class="article-toc-text">2.3 Error Objects</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#3-api-patterns"><span class="article-toc-text">3 API Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#3.1-callback-pattern"><span class="article-toc-text">3.1 Callback Pattern</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#3.2-configuration-object-pattern"><span class="article-toc-text">3.2 Configuration Object Pattern</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#4-performance-patterns"><span class="article-toc-text">4 Performance Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#4.1-self-defining-functions"><span class="article-toc-text">4.1 Self-Defining Functions</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#4.2-memoization-pattern(function-properties)"><span class="article-toc-text">4.2 Memoization Pattern(Function Properties)</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#5-object-creation-patterns"><span class="article-toc-text">5 Object Creation Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#5.1-prototypes-and-privacy"><span class="article-toc-text">5.1 Prototypes and Privacy</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#5.2-evelation-pattern(revealing-module-pattern)"><span class="article-toc-text">5.2 Evelation Pattern(revealing module pattern)</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#5.3-static-memebers"><span class="article-toc-text">5.3 Static Memebers</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#6-code-reuse-patterns"><span class="article-toc-text">6 Code Reuse Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.1-the-default-pattern"><span class="article-toc-text">6.1 The Default Pattern</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.2-rent-a-constructor"><span class="article-toc-text">6.2 Rent a Constructor</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.3-rent-and-set-prototype"><span class="article-toc-text">6.3 Rent and Set Prototype</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.4-share-the-prototype"><span class="article-toc-text">6.4 Share the Prototype</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.5-a-temporary-constructor"><span class="article-toc-text">6.5 A Temporary Constructor</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.6-mix-ins"><span class="article-toc-text">6.6 Mix-ins</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#7-design-patterns"><span class="article-toc-text">7 Design Patterns</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#references:"><span class="article-toc-text">References:</span></a></li></ol></div><p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
+<p><a id="more"></a></p>
 <h2 id="1-essentials">1 Essentials</h2><h4 id="1.1-single-var-pattern">1.1 Single var Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script>
 
 <h4 id="1.2-switch-pattern">1.2 Switch Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script>
@@ -196,7 +188,7 @@
       
     </li>
     <li>
-      <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="fvu1ua5sf891zfm5" data_title="Javascript Patterns Notes"
+      <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="swo6impqm5dcp6yh" data_title="Javascript Patterns Notes"
         data_summary="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
 ..." class="article-share-link">Share</a>
     </li>
@@ -248,7 +240,7 @@
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>

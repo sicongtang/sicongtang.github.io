@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/9 | BobbyTang Tech Blog</title>
+  <title>Archives: 2014/9 | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BobbyTang Tech Blog">
+<meta property="og:title" content="Bobby's Blog">
 <meta property="og:url" content="http://sicongtang.github.io/archives/2014/09/">
-<meta property="og:site_name" content="BobbyTang Tech Blog">
+<meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BobbyTang Tech Blog">
+<meta name="twitter:title" content="Bobby's Blog">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="BobbyTang Tech Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -44,7 +44,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">BobbyTang Tech Blog</a>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
     <div class="collapse navbar-collapse nav-menu">
       <ul class="nav navbar-nav">
       
@@ -102,7 +102,7 @@
             <h1 class="title">
           
             
-              <time datetime="2014-10-12T15:40:56.875Z" itemprop="datePublished">October 2014</time>
+              <time datetime="2014-10-12T16:33:51.039Z" itemprop="datePublished">October 2014</time>
             
           
             </h1>
@@ -118,7 +118,7 @@
 
 
   
-    <article id="post-fvu1ua5sf891zfm5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-swo6impqm5dcp6yh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -142,53 +142,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
-<h2 id="1-essentials">1 Essentials</h2><h4 id="1.1-single-var-pattern">1.1 Single var Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script>
-
-<h4 id="1.2-switch-pattern">1.2 Switch Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script>
-
-<h2 id="2-literal-patterns">2 Literal Patterns</h2><h4 id="2.1-patterns-for-enforcing-new">2.1 Patterns for Enforcing new</h4><p>If we forgot to add new, this.value will become global obejct.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=patterns_for_enforcing_new.js"></script>
-
-<h4 id="2.2-self-invoking-constructor">2.2 Self-Invoking Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_invoking_constructor.js"></script>
-
-<h4 id="2.3-error-objects">2.3 Error Objects</h4><p>On the other hand, throw works with any object, not necessarily an object created with one of the error constructors, so you can opt in for throwing your own objects.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=error_objects.js"></script>
-
-<h2 id="3-api-patterns">3 API Patterns</h2><h4 id="3.1-callback-pattern">3.1 Callback Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=callback_pattern.js"></script>
-
-<h4 id="3.2-configuration-object-pattern">3.2 Configuration Object Pattern</h4><p>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script>
-
-<h2 id="4-performance-patterns">4 Performance Patterns</h2><h4 id="4.1-self-defining-functions">4.1 Self-Defining Functions</h4><p>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.</p>
-<p>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script>
-
-<h4 id="4.2-memoization-pattern(function-properties)">4.2 Memoization Pattern(Function Properties)</h4><p>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.</p>
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script>
-
-<h2 id="5-object-creation-patterns">5 Object Creation Patterns</h2><h4 id="5.1-prototypes-and-privacy">5.1 Prototypes and Privacy</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script>
-
-<h4 id="5.2-evelation-pattern(revealing-module-pattern)">5.2 Evelation Pattern(revealing module pattern)</h4><h4 id="5.3-static-memebers">5.3 Static Memebers</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
-
-<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=private_static_members.js"></script>
-
-<h2 id="6-code-reuse-patterns">6 Code Reuse Patterns</h2><h4 id="6.1-the-default-pattern">6.1 The Default Pattern</h4><h4 id="6.2-rent-a-constructor">6.2 Rent a Constructor</h4><h4 id="6.3-rent-and-set-prototype">6.3 Rent and Set Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script>
-
-<h4 id="6.4-share-the-prototype">6.4 Share the Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script>
-
-<h4 id="6.5-a-temporary-constructor">6.5 A Temporary Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script>
-
-<h4 id="6.6-mix-ins">6.6 Mix-ins</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
-
-
-<h2 id="7-design-patterns">7 Design Patterns</h2><h2 id="references:">References:</h2><ol>
-<li><a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752/ref=sr_1_1?ie=UTF8&amp;qid=1410247009&amp;sr=8-1" target="_blank" rel="external">Javascript Patterns</a></li>
-</ol>
-
+<p>
+          
+            <p class="article-more-link">
+              <a href="/2014/09/05/2014-09-05-javascript-patterns-notes/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="fvu1ua5sf891zfm5" data_title="Javascript Patterns Notes"
+          <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="swo6impqm5dcp6yh" data_title="Javascript Patterns Notes"
           data_summary="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
 ..." class="article-share-link">Share</a>
           
@@ -210,7 +174,7 @@
 
 
   
-    <article id="post-q7p7mp4t3tn2fudn" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-43ec4e81ir7xdnlg" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -234,24 +198,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!---->
           <p>This post aims to list the basic operation of mongo database in the mongodb shell prompt.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">w, {Number/String, &gt; -<span class="number">1</span> || ‘majority’ || tag <span class="property">name</span>} <span class="keyword">the</span> <span class="command">write</span> concern <span class="keyword">for</span> <span class="keyword">the</span> operation <span class="keyword">where</span> &lt; <span class="number">1</span> <span class="keyword">is</span> no acknowlegement <span class="keyword">of</span> <span class="command">write</span> <span class="keyword">and</span> w &gt;= <span class="number">1</span>, w = ‘majority’ <span class="keyword">or</span> tag acknowledges <span class="keyword">the</span> <span class="command">write</span></div><div class="line">j, (Boolean, default:<span class="constant">false</span>) <span class="command">write</span> waits <span class="keyword">for</span> journal sync <span class="keyword">before</span> <span class="keyword">returning</span></div></pre></td></tr></table></figure>
 
 <h2 id="system-admin">system admin</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mongod --fork --logpath /root/mongodb/log/mongodb.log</div><div class="line">mongod —shutdown</div><div class="line">mongo hostname:port/dbschema -u username -p password</div><div class="line">db.serverStatus()</div><div class="line">db.serverStatus().connections</div></pre></td></tr></table></figure>
 
-<h2 id="insert">insert</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.foo.insert({<span class="string">"bar"</span> : <span class="string">"baz"</span>})</div><div class="line">db.foo.batchInsert([{<span class="string">"_id"</span> : <span class="number">0</span>}, {<span class="string">"_id"</span> : <span class="number">1</span>}, {<span class="string">"_id"</span> : <span class="number">2</span>}])</div><div class="line"><span class="comment">//One of the basic structure checks is size: all documents must be smaller than 16 MB.</span></div><div class="line"><span class="built_in">Object</span>.bsonsize(doc)</div></pre></td></tr></table></figure>
 
-<h2 id="delete">delete</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//like detele from, high time cost</span></div><div class="line">db.foo.remove({})</div><div class="line">db.users.remove({status: <span class="string">"D"</span>})</div><div class="line"><span class="comment">//like truncate</span></div><div class="line">db.tester.drop()</div></pre></td></tr></table></figure>
-
-<h2 id="update">update</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line">db.people.update({<span class="string">"_id"</span> : ObjectId(<span class="string">"4b2b9f67a1f631733d917a7c"</span>)}, joe)</div><div class="line"><span class="comment">//</span></div><div class="line">db.users.update({<span class="string">"name"</span> : <span class="string">"joe"</span>}, {<span class="string">"$set"</span> : {<span class="string">"favorite book"</span> : [<span class="string">"Cat's Cradle"</span>, <span class="string">"Foundation Trilogy"</span>, <span class="string">"Ender's Game"</span>]}})</div><div class="line">db.blog.posts.update({<span class="string">"author.name"</span> : <span class="string">"joe"</span>}, {<span class="string">"$set"</span> : {<span class="string">"author.name"</span> : <span class="string">"joe schmoe"</span>}})</div><div class="line">db.users.update({<span class="string">"name"</span> : <span class="string">"joe"</span>}, {<span class="string">"$unset"</span> : {<span class="string">"favorite book"</span> : <span class="number">1</span>}})</div><div class="line"><span class="comment">//</span></div><div class="line">db.blog.update({<span class="string">"post"</span> : post_id}, {<span class="string">"$inc"</span> : {<span class="string">"comments.0.votes"</span> : <span class="number">1</span>}})</div><div class="line"><span class="comment">//mongodb cannot update multiple array elements in single update operation</span></div><div class="line">db.blog.update({<span class="string">"comments.author"</span> : <span class="string">"John"</span>}, {<span class="string">"$set"</span> : {<span class="string">"comments.$.author"</span> : <span class="string">"Jim"</span>}})</div><div class="line"><span class="comment">//full-document replacement, replacing the matched document with {"foo" : "bar"} </span></div><div class="line">db.coll.update(criteria, {<span class="string">"foo"</span> : <span class="string">"bar"</span>})</div><div class="line">db.users.update({<span class="string">"_id"</span> : ObjectId(<span class="string">"4b2d75476cc613d5ee930164"</span>)},</div><div class="line">                      {<span class="string">"$addToSet"</span> : {<span class="string">"emails"</span> : {<span class="string">"$each"</span> : [<span class="string">"joe@php.net"</span>, <span class="string">"joe@example.com"</span>, <span class="string">"joe@python.org"</span>]}}})</div><div class="line">db.movies.find({<span class="string">"genre"</span> : <span class="string">"horror"</span>}, </div><div class="line">     {<span class="string">"$push"</span> : {<span class="string">"top10"</span> : {</div><div class="line">          <span class="string">"$each"</span> : [{<span class="string">"name"</span> : <span class="string">"Nightmare on Elm Street"</span>, <span class="string">"rating"</span> : <span class="number">6.6</span>}, {<span class="string">"name"</span> : <span class="string">"Saw"</span>, <span class="string">"rating"</span> : <span class="number">4.3</span>}],</div><div class="line">          <span class="string">"$slice"</span> : -<span class="number">10</span>,</div><div class="line">          <span class="string">"$sort"</span> : {<span class="string">"rating"</span> : -<span class="number">1</span>}}}})</div><div class="line">{<span class="string">"$pop"</span>: {<span class="string">"key"</span>: <span class="number">1</span>}}</div><div class="line">{<span class="string">"$pop"</span>: {<span class="string">"key"</span>: -<span class="number">1</span>}}</div><div class="line"><span class="comment">//remove all the matching documents</span></div><div class="line">db.lists.update({}, {<span class="string">"$pull"</span> : {<span class="string">"todo"</span> : <span class="string">"laundry"</span>}})</div><div class="line"><span class="comment">//positional array modification</span></div><div class="line">db.blog.update({<span class="string">"post"</span> : post_id}, {<span class="string">"$inc"</span> : {<span class="string">"comments.0.votes"</span> : <span class="number">1</span>}})</div><div class="line">db.blog.update({<span class="string">"comments.author"</span> : <span class="string">"John"</span>}, {<span class="string">"$set"</span> : {<span class="string">"comments.$.author"</span> : <span class="string">"Jim"</span>}})</div><div class="line"><span class="comment">//upserts</span></div><div class="line"><span class="comment">//eliminate the race condition and faster and atomic</span></div><div class="line"><span class="comment">//If no document is found that matches the update criteria, a new document will be created by combining the criteria and updated documents.</span></div><div class="line">db.analytics.update({<span class="string">"url"</span> : <span class="string">"/blog"</span>}, {<span class="string">"$inc"</span> : {<span class="string">"pageviews"</span> : <span class="number">1</span>}}, <span class="literal">true</span>)</div><div class="line"><span class="comment">//If we run this update again, it will match the existing document, nothing will be inserted, and so the "createdAt" field will not be changed.</span></div><div class="line">db.users.update({}, {<span class="string">"$setOnInsert"</span> : {<span class="string">"createdAt"</span> : <span class="keyword">new</span> <span class="built_in">Date</span>()}}, <span class="literal">true</span>)</div><div class="line">db.foo.save(x)</div><div class="line">db.foo.update({<span class="string">"_id"</span>: x._id}, x)</div><div class="line"><span class="comment">//updating multiple documents</span></div><div class="line">db.count.update({x : <span class="number">1</span>}, {$inc : {x : <span class="number">1</span>}}, <span class="literal">false</span>, <span class="literal">true</span>) </div><div class="line">db.runCommand({getLastError : <span class="number">1</span>})</div><div class="line">{</div><div class="line"><span class="string">"err"</span> : <span class="literal">null</span>,</div><div class="line"><span class="string">"updatedExisting"</span> : <span class="literal">true</span>, </div><div class="line"><span class="string">"n"</span> : <span class="number">5</span>,</div><div class="line"><span class="string">"ok"</span> : <span class="literal">true</span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="select">select</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//find all data in collection</span></div><div class="line">db.users.find({})</div><div class="line"><span class="comment">//only display cols</span></div><div class="line">db.users.find({}, {<span class="string">"username"</span> : <span class="number">1</span>)</div><div class="line"><span class="comment">//only display cols without _id</span></div><div class="line">db.users.find({}, {<span class="string">"username"</span> : <span class="number">1</span>, <span class="string">"_id"</span> : <span class="number">0</span>})</div><div class="line"><span class="comment">//count</span></div><div class="line">db.users.count()</div><div class="line"><span class="comment">//conditionals are an inner document key, and modifiers are always a key in the outer document.</span></div><div class="line"><span class="comment">//There are a few “meta-operators” that go in the outer document: "$and“, "$or“, and "$not“.</span></div><div class="line">db.users.find({<span class="string">"id_num"</span> : {<span class="string">"$not"</span> : {<span class="string">"$mod"</span> : [<span class="number">5</span>, <span class="number">1</span>]}}})</div><div class="line">db.users.find({<span class="string">"x"</span> : {<span class="string">"$lt"</span> : <span class="number">1</span>, <span class="string">"$in"</span> : [<span class="number">4</span>]}})</div><div class="line"><span class="comment">// will return all the docs</span></div><div class="line">db.c.find({<span class="string">"z"</span>:<span class="literal">null</span>})</div><div class="line"><span class="comment">// only display null value, please use this</span></div><div class="line">db.c.find({<span class="string">"z"</span> : {<span class="string">"$in"</span> : [<span class="literal">null</span>], <span class="string">"$exists"</span> : <span class="literal">true</span>}})</div><div class="line"><span class="comment">//indexes cannot be used for case-insensitive searches</span></div><div class="line">db.users.find({<span class="string">"name"</span> : <span class="regexp">/joe/i</span>})</div><div class="line">db.users.find({<span class="string">"name"</span> : <span class="regexp">/joey?/i</span>})</div><div class="line"><span class="comment">//querying array</span></div><div class="line">db.food.find({fruit : {$all : [<span class="string">"apple"</span>, <span class="string">"banana"</span>]}})</div><div class="line">db.food.find({<span class="string">"fruit"</span> : {<span class="string">"$size"</span> : <span class="number">3</span>}})</div><div class="line">db.blog.posts.findOne(criteria, {<span class="string">"comments"</span> : {<span class="string">"$slice"</span> : [<span class="number">23</span>, <span class="number">10</span>]}})</div><div class="line">db.blog.posts.find({<span class="string">"comments.name"</span> : <span class="string">"bob"</span>}, {<span class="string">"comments.$"</span> : <span class="number">1</span>})</div><div class="line"><span class="comment">//$where</span></div><div class="line"><span class="comment">//pagination</span></div><div class="line">db.stock.find({<span class="string">"desc"</span> : <span class="string">"mp3"</span>}).limit(<span class="number">50</span>).skip(<span class="number">50</span>).sort({<span class="string">"price"</span> : -<span class="number">1</span>})</div><div class="line"><span class="comment">//find a random document</span></div><div class="line"><span class="keyword">var</span> random = <span class="built_in">Math</span>.random()</div><div class="line">result = db.foo.findOne({<span class="string">"random"</span> : {<span class="string">"$gt"</span> : random}}) </div><div class="line"><span class="keyword">if</span> (result == <span class="literal">null</span>) {</div><div class="line">  result = db.foo.findOne({<span class="string">"random"</span> : {<span class="string">"$lt"</span> : random}}) </div><div class="line">} </div><div class="line"><span class="comment">//cursor</span></div><div class="line">cursor = db.foo.find();</div><div class="line"><span class="keyword">while</span> (cursor.hasNext()) {</div><div class="line">  <span class="keyword">var</span> doc = cursor.next();</div><div class="line">  doc = process(doc);</div><div class="line">  db.foo.save(doc);</div><div class="line">}</div><div class="line"><span class="comment">//command</span></div><div class="line">use temp</div><div class="line">db.runCommand({shutdown:<span class="number">1</span>})</div><div class="line">db.adminCommand({<span class="string">"shutdown"</span> : <span class="number">1</span>}) </div></pre></td></tr></table></figure>
-
-<h2 id="aggregration">aggregration</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//calculate commission</span></div><div class="line">db.orders.aggregate([{</div><div class="line">  $match: filter</div><div class="line">}, {</div><div class="line">  $unwind: <span class="string">"$stores"</span></div><div class="line">}, {</div><div class="line">  $group: {</div><div class="line">    _id: {</div><div class="line">      store_id: <span class="string">"$stores.store_id"</span>,</div><div class="line">      store_name: <span class="string">"$stores.store_name"</span></div><div class="line">    },</div><div class="line">    total_commission: {</div><div class="line">      $sum: <span class="string">"$stores.commission"</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}, {</div><div class="line">  $sort: {</div><div class="line">    <span class="string">"_id.store_id"</span>: <span class="number">1</span></div><div class="line">  }</div><div class="line">}, {</div><div class="line">  $skip: <span class="number">0</span></div><div class="line">}, {</div><div class="line">  $limit: <span class="number">25</span></div><div class="line">}]);</div><div class="line"><span class="comment">//calculate count of commission</span></div><div class="line">db.orders.aggregate([{</div><div class="line">  $match: filter</div><div class="line">}, {</div><div class="line">  $unwind: <span class="string">"$stores"</span></div><div class="line">}, {</div><div class="line">  $group: {</div><div class="line">    _id: {</div><div class="line">      store_id: <span class="string">"$stores.store_id"</span>,</div><div class="line">      store_name: <span class="string">"$stores.store_name"</span></div><div class="line">    },</div><div class="line">    total_commission: {</div><div class="line">      $sum: <span class="string">"$stores.commission"</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}, {</div><div class="line">  $group: {</div><div class="line">    _id: <span class="literal">null</span>,</div><div class="line">    count: {</div><div class="line">      $sum: <span class="number">1</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}]);</div></pre></td></tr></table></figure>
-
+          
+            <p class="article-more-link">
+              <a href="/2014/09/02/2014-09-02-mongodb-crud-summary/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/09/02/2014-09-02-mongodb-crud-summary/" data-id="q7p7mp4t3tn2fudn" data_title="Mongo Db Crud Summary"
+          <a data-url="http://sicongtang.github.io/2014/09/02/2014-09-02-mongodb-crud-summary/" data-id="43ec4e81ir7xdnlg" data_title="Mongo Db Crud Summary"
           data_summary="This post aims to list the basic operation of mongo database in the mongodb shell prompt.
 12w, {Number/String, &gt; -1 || ‘majority’ || tag name} the write co..." class="article-share-link">Share</a>
           
@@ -358,7 +319,7 @@
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>
