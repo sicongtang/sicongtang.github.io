@@ -1,12 +1,14 @@
 ---
 layout: post
-title: "Install Ruby&amp;Vim Command without Root"
+title: "Install Ruby Vim Command without Root"
 date: 2014-05-30 08:17:24 +0800
 comments: true
-categories: devenvsetup ruby
+categories: ruby
 ---
 This post intend to write down the step for installing ruby and vim command line tools, without root access.
 In addition, ncurses is the prerequisities of installing ruby and vim. Also, please install ruby first in order to enable rubyinterp.
+
+<!--more-->
 
 1. download ncurses
 2. `tar xvf ncurses-5.9.tar.gz`

@@ -9,6 +9,9 @@ categories: books
 Bottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use of CPU instructions, and then working up the software stack at what constructs or idioms are used by the application.
 ##Choosing the Right CPU Architecture 
 One of the major design points behind the SPARC T-series processors is to address CPU cache misses by introducing multiple hardware threads per core.
+
+<!--more-->
+
 ##CPU Utilization
 A system with a single CPU socket with a quad core processor with hyperthreading disabled will show four CPUs in the GNOME System Monitor and report four virtual processors using the Java API Runtime.availableProcessors(). 
 

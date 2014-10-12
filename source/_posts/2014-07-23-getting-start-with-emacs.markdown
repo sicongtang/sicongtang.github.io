@@ -3,12 +3,15 @@ layout: post
 title: "Getting Start with Emacs"
 date: 2014-07-23 10:10:11 +0800
 comments: true
-categories: devenvsetup emacs
+categories: emacs
 ---
 ##Why emacs?
 Previously I was developing with dynamic language, like js, ruby, python, via using vim. Vim is a great editing tools with different internal mode(command/visial/insert mode). But the original reason why I intended to migrate from vim to emacs is the powerful `REPL` environment as well as other embedded function.
 ##Trouble from vim to emacs
 I was starting to read the documentation of emacs, and acquainted with new key-binding. Then I realized editing in emacs is less effective than in vim. Thus I came up to `evil`, an extensible vi layer for Emacs. Combing emacs with evil will maximize the productivies, therefore it is not necessary for you to remember all the key-binding under emacs environment.
+
+<!--more-->
+
 ##How to install on OS X?
 Download and install emacs, no args will not install gui enviornment.
 

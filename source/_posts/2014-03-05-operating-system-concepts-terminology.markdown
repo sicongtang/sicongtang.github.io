@@ -12,6 +12,8 @@ Before starting with topic, I am going to reveal why I try to read books of OS r
 
 Due to these, it is so encouraged to read and go through operating system concept again that I could be inspired and get everything tied. If there are any findings or association with Java, I will make more explanations and comments linked with definitive resource.
 
+<!--more-->
+
 ##1.Storage Device Hierarchy
 registers -- > cache -- > main memory (RAM random access memory) -- > electronic disk -- > magnetic disk -- > optical disk -- > magnetic tapes
 

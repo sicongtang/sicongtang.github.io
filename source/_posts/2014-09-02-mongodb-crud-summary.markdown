@@ -20,6 +20,8 @@ db.serverStatus()
 db.serverStatus().connections
 {% endcodeblock %}
 
+<!--more-->
+
 ##insert
 {% codeblock lang:js %}
 db.foo.insert({"bar" : "baz"})

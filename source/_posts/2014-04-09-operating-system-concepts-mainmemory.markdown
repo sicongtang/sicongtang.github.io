@@ -14,6 +14,8 @@ The general approach to avoiding this problem is to break the physical memory in
 
 Solution:
 
+<!--more-->
+
 One solution to the problem of external fragmentation is __compaction__. The goal is to shuffle the memory contents so as to place all free memory together in one large block. Compaction is possible only if relocation is dynamic and is done at execution time.
 
 Another possible solution to the external-fragmentation problem is to permit the logical address space of the processes to be noncontiguous, thus allowing a process to be allocated physical memory wherever such memory is available.

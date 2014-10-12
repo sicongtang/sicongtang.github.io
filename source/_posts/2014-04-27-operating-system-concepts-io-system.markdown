@@ -12,6 +12,8 @@ If devices use a common set of wires, the connection is called a bus. A __bus__ 
 
 This figure shows a __PCI bus__ (the common PC system bus) that connects the processor–memory subsystem to the fast devices and an expansion bus that connects relatively slow devices, such as the keyboard and serial and USB ports.
 
+<!--more-->
+
 {% img https://farm8.staticflickr.com/7406/14029529882_f49ab52235_z.jpg pcbus_structure.png %}
 
 

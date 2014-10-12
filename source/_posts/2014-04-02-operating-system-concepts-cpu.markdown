@@ -19,6 +19,8 @@ The interval from the time of submission of a process to the time of completion 
 * Waiting time
 * Response time
 
+<!--more-->
+
 ##Scheduling Alogrithm
 
 * First-Come, First-Served Scheduling

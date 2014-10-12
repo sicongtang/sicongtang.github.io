@@ -6,6 +6,8 @@ comments: true
 categories: javascript
 ---
 This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
+
+<!--more-->
 ##1 Essentials
 ####1.1 Single var Pattern
 {% gist 85d9fea488160c21d1a7 single_var_pattern.js %}

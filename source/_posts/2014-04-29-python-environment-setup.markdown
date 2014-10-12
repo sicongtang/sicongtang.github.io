@@ -3,11 +3,13 @@ layout: post
 title: "Python Environment Setup"
 date: 2014-04-29 08:10:26 +0800
 comments: true
-categories: devenvsetup python
+categories: python
 ---
 Python is a script language, the main idea for learning python is to utilize python to create easy hands-on automation script on linux env instead of shell.
 
 Here, list the steps to configure PyDev, an eclipse plugin, inside eclipse environment.
+
+<!--more-->
 
 1. Access PyDev webpage: http://pydev.org/manual_101_install.html
 2. Download PyDev certificate

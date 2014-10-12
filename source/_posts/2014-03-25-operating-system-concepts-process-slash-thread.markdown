@@ -14,6 +14,8 @@ Program counter. The counter indicates the address of the next instruction to be
 
 CPU registers. They include accumulators, index registers, stack pointers, and general-purpose registers, plus any condition-code information. Along with the program counter, this state information must be saved when an interrupt occurs, to allow the process to be continued correctly afterward.
 
+<!--more-->
+
 CPU-scheduling information. This information includes a process priority, pointers to scheduling queues, and any other scheduling parameters.
 
 Memory-management information. This information may include such information as the value of the base and limit registers, the page tables, or the segment tables, depending on the memory system used by the operating system. 

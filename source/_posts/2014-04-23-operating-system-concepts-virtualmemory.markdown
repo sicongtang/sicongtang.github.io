@@ -10,6 +10,8 @@ Loading the entire program into memory results in loading the executable code fo
 ##Page Fault
 A page fault causes the following sequence to occur:
 
+<!--more-->
+
 ![Alt text](https://farm6.staticflickr.com/5325/13952117776_754a2b4bda.jpg "Steps_in_handling_a_page_fault.png")
 
 1.	Trap to the operating system. 

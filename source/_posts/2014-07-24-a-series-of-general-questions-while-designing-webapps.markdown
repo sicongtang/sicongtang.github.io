@@ -6,6 +6,9 @@ comments: true
 categories: web
 ---
 In this post, I am going to list a series of questions as well as answers in order to figure out why contemporary webapps are designed and built like that.
+
+<!--more-->
+
 ####Why single page applications?
 * The web is currently trending such that all data/content will be exposed through an API.
 ####Why backbonejs?
