@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Getting Start with Emacs"
+title: "getting started with emacs"
 date: 2014-07-23 10:10:11 +0800
 comments: true
 categories: emacs
