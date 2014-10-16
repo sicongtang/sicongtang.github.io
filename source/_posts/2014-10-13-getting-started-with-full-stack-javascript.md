@@ -21,3 +21,17 @@ List difficulties that I encountered:
 * Backgrid newly added AMD support, which vitraully didn't upload to the bower
 * R.js optimization on the whole project doesn't handle very well on min.js, you need to declare the dev-version javascript file path.
 * npm set index as a default while not specifying the filename like `var routes = require('./handlers');`
+
+Anything need to improve?
+* The significant benefit from this stack is that we can fully utilize JSON data across all the node. However, there is a slightly difference between mongo BSON and front-end JSON, I need to investigate and search any 3rd package that can easily handle this, e.g. mongoose.
+* Requirejs contains complex configuration, if we can use commonjs-style like browserify.
+* Backbonejs is easy to code with short learning curve, but it does not resolve real-world solution in many places.
+* While dealing with a series of contiguous DB operation in node, it is inevitable to form call-back hell. So far I use asyn module to solve it, may be we can try more solution on it, e.g. promises
+
+
+
+
+
+
+
+
