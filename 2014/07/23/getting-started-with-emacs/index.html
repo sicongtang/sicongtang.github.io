@@ -8,7 +8,7 @@
   <meta name="description" content="Why emacs?Previously I was developing with dynamic language, like js, ruby, python, via using vim. Vim is a great editing tools with different internal mode(command/visial/insert mode). But the origin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Getting Started With Emacs">
-<meta property="og:url" content="http://sicongtang.github.io/2014/07/23/2014-07-23-getting-started-with-emacs/">
+<meta property="og:url" content="http://sicongtang.github.io/2014/07/23/getting-started-with-emacs/">
 <meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description" content="Why emacs?Previously I was developing with dynamic language, like js, ruby, python, via using vim. Vim is a great editing tools with different internal mode(command/visial/insert mode). But the origin">
 <meta name="twitter:card" content="summary">
@@ -121,7 +121,7 @@
 <a id="more"></a>
 
 <h2 id="how-to-install-on-os-x?">How to install on OS X?</h2><p>Download and install emacs, no args will not install gui enviornment.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew <span class="operator"><span class="keyword">install</span> <span class="comment">--cocoa emacs</span></span></div><div class="line">brew <span class="keyword">install</span> <span class="comment">--cocoa --srgb emacs</span></div><div class="line">vim .bash_profile</div><div class="line">alias emacs=<span class="string">"/usr/local/Cellar/emacs/24.3/bin/emacs-24.3"</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">brew <span class="operator"><span class="keyword">install</span> <span class="comment">--cocoa emacs</span></span></div><div class="line">brew <span class="keyword">install</span> <span class="comment">--cocoa --srgb emacs</span></div><div class="line">vim .bash_profile</div><div class="line">alias emacs=<span class="string">"/usr/local/Cellar/emacs/24.3/bin/emacs-24.3 -nw"</span></div><div class="line"></div><div class="line"><span class="keyword">ln</span> -s /usr/<span class="keyword">local</span>/Cellar/emacs/<span class="number">24.3</span>/Emacs.app /Applications</div></pre></td></tr></table></figure>
 
 <h2 id="keyboard-setting-on-os-x">Keyboard setting on OS X</h2><ol>
 <li>open the terminal perference, and then set option as a meta key.</li>
@@ -224,7 +224,7 @@
       
     </li>
     <li>
-      <a data-url="http://sicongtang.github.io/2014/07/23/2014-07-23-getting-started-with-emacs/" data-id="mn8zks5j8a4oecyy" data_title="Getting Started With Emacs"
+      <a data-url="http://sicongtang.github.io/2014/07/23/getting-started-with-emacs/" data-id="mn8zks5j8a4oecyy" data_title="Getting Started With Emacs"
         data_summary="Why emacs?Previously I was developing with dynamic language, like js, ruby, python, via using vim. Vim is a great editing tools with different internal mode(com..." class="article-share-link">Share</a>
     </li>
     <li>
@@ -302,7 +302,7 @@
 <script>
   var disqus_shortname = 'bobbytang';
   
-  var disqus_url = 'http://sicongtang.github.io/2014/07/23/2014-07-23-getting-started-with-emacs/';
+  var disqus_url = 'http://sicongtang.github.io/2014/07/23/getting-started-with-emacs/';
   
   (function(){
     var dsq = document.createElement('script');

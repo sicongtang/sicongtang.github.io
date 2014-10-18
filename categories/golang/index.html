@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: javascript | Bobby&#39;s Blog</title>
+  <title>Category: golang | Bobby&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bobby's Blog">
-<meta property="og:url" content="http://sicongtang.github.io/categories/javascript/">
+<meta property="og:url" content="http://sicongtang.github.io/categories/golang/">
 <meta property="og:site_name" content="Bobby's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -102,7 +102,7 @@
             <h1 class="title">
           
             
-              javascript
+              golang
             
           
             </h1>
@@ -114,7 +114,7 @@
       >
   
   
-    <article id="post-6nq7zczaum6fedkz" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-wegwevt9d1f400ym" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
@@ -124,13 +124,13 @@
         
   
     <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/10/13/2014-10-13-getting-started-with-full-stack-javascript/">Getting Started With Full Stack Javascript</a>
+      <a class="article-title" href="/2014/10/19/install-golang-and-emacs-plugins/">Install Golang and Emacs Plugins</a>
     </h1>
   
 
 
         <div class="article-date">
-  <time datetime="2014-10-12T18:46:32.000Z" itemprop="datePublished">Oct 13 2014</time>
+  <time datetime="2014-10-18T17:09:56.000Z" itemprop="datePublished">Oct 19 2014</time>
 </div>
 
       </header>
@@ -138,194 +138,43 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          <!---->
-          <p>Since I was enlighted by Minix and started to learn nodejs at the beginning of the June, I have realized that full-stack javascript might be dominating the web framework instead of rails or J2EE. I started to investigate any alternative framework in this new tech concept.</p>
-<p>In my initial project with full-stack javascript, requirejs/backbonejs/express/mongodb were selected. Backbone is lightweight frontend js mvc framework which has fewer learning curve and unopinionated, comparing with angularjs. Additionly, Express is the most common mvc server-side framework in nodejs. Moreover, mongodb is relatively friendly to nodejs json format in server-side code as well as command-line shell. Thus, the whole brand new tech stack has been determined.</p>
-<p>Before we commerced to scanffold our project using <a href="https://github.com/sicongtang/generator-marionette" target="_blank" rel="external">yeoman-generator</a>, we took a glimpse on tutorial i.e. <a href="http://www.amazon.com/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253/ref=sr_1_2?ie=UTF8&amp;qid=1413166509&amp;sr=8-2&amp;keywords=backbone" target="_blank" rel="external">Developing Backbone.js Applications by Addy Osmani</a>, <a href="http://www.amazon.com/Web-Development-Node-Express-Leveraging/dp/1491949309/ref=sr_1_1?ie=UTF8&amp;qid=1413166609&amp;sr=8-1&amp;keywords=node+express" target="_blank" rel="external">Web Development with Node and Express</a>, in order to be familiar with mvc conecpt, restful api, and middileware in express. Besides, I also scan tricks in requirejs/bower/node package management in order to build a highly-maintainable project with a mainifest dependency.</p>
+          <h2 id="env-setup">env setup</h2><ul>
+<li>create dir <code>GOPATH=~/Projects/goprojects</code></li>
+<li>edit .bash_profile</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GOPATH=~/Projects/goprojects</div><div class="line">GOROOT=/usr/local/go</div><div class="line">GOOS=darwin</div><div class="line">GOARCH=amd64</div><div class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin:<span class="variable">$GOPATH</span>/bin</div><div class="line"><span class="keyword">export</span> PATH</div><div class="line"><span class="keyword">export</span> GOPATH GOOS GOARCH</div></pre></td></tr></table></figure>
 
-          
-            <p class="article-more-link">
-              <a href="/2014/10/13/2014-10-13-getting-started-with-full-stack-javascript/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/10/13/2014-10-13-getting-started-with-full-stack-javascript/" data-id="6nq7zczaum6fedkz" data_title="Getting Started With Full Stack Javascript"
-          data_summary="Since I was enlighted by Minix and started to learn nodejs at the beginning of the June, I have realized that full-stack javascript might be dominating the web ..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/10/13/2014-10-13-getting-started-with-full-stack-javascript/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
-    <article id="post-7yjv5urqbcqdjxeu" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/09/05/2014-09-05-javascript-patterns-notes/">Javascript Patterns Notes</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-09-05T09:20:45.000Z" itemprop="datePublished">Sep 5 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <!---->
-          <p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
-<p>
-          
-            <p class="article-more-link">
-              <a href="/2014/09/05/2014-09-05-javascript-patterns-notes/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/" data-id="7yjv5urqbcqdjxeu" data_title="Javascript Patterns Notes"
-          data_summary="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
-..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/09/05/2014-09-05-javascript-patterns-notes/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
-    <article id="post-a03kpcftiynj5e9y" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/">Frontend Java Script Framework Alternatives</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-07-16T09:37:35.000Z" itemprop="datePublished">Jul 16 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <h2 id="mv*-framework">MV* framework</h2><ol>
-<li>BackBonejs</li>
-<li>Angularjs</li>
-<li>Emberjs</li>
-<li>KnockoutJS</li>
-<li>Dojo</li>
-<li>Spinejs</li>
+<h2 id="emac-plugins-tips">emac plugins tips</h2><ul>
+<li>copy <code>/usr/local/go/misc/emacs/go-mode-load.el</code> into emacs lisp dir, and make minor modification on your own personal setting</li>
+<li>install <a href="http://mercurial.selenic.com/downloads" target="_blank" rel="external">mercurial</a>, otherwise you cannot run hg command</li>
+<li><code>go get code.google.com/p/rog-go/exp/cmd/godef</code>, then we can use godef function</li>
+<li>follow steps with <a href="https://github.com/nsf/gocode/blob/master/README.md" target="_blank" rel="external">nsf/gocode</a></li>
+</ul>
+<h2 id="plugins-list">Plugins list</h2><ol>
+<li><a href="https://github.com/dominikh/go-mode.el" target="_blank" rel="external">https://github.com/dominikh/go-mode.el</a></li>
+<li><a href="https://github.com/nsf/gocode" target="_blank" rel="external">https://github.com/nsf/gocode</a></li>
 </ol>
-<h2 id="mvc-extension-framework">MVC extension framework</h2><ol>
-<li>MarionetteJS</li>
-<li>Thorax</li>
-</ol>
-<h2 id="template">template</h2><ol>
-<li>Handlebars</li>
-<li>Mustache</li>
-<li>JST</li>
-<li>ECO</li>
-</ol>
-<h2 id="build-automation">build automation</h2><ol>
-<li>Grunt</li>
-</ol>
-<h2 id="module-loader">module loader</h2><ol>
-<li>Requirejs</li>
-<li>Browserify</li>
-</ol>
-<h2 id="package-manager">package manager</h2><ol>
-<li>Bower</li>
-</ol>
-<h2 id="workflow-automation">workflow automation</h2><ol>
-<li>Yeoman</li>
-<li>Brunch</li>
-<li>Catero</li>
-</ol>
-<h2 id="code-analysis">code analysis</h2><ol>
-<li>JSLint</li>
-<li>JSHint</li>
-</ol>
-<h2 id="unit-testing">unit testing</h2><ol>
-<li>Jasmine</li>
-<li>QUnit</li>
-<li>Mocha</li>
-</ol>
-<p>Reference: </p>
-<ol>
-<li><a href="http://todomvc.com/" target="_blank" rel="external">http://todomvc.com/</a></li>
+<h2 id="references">References</h2><ol>
+<li><a href="http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/" target="_blank" rel="external">http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/</a></li>
+<li><a href="http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/" target="_blank" rel="external">http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/</a></li>
+<li><a href="https://golang.org/doc/install#download" target="_blank" rel="external">https://golang.org/doc/install#download</a></li>
+<li><a href="http://go-lang.cat-v.org/text-editors/" target="_blank" rel="external">http://go-lang.cat-v.org/text-editors/</a></li>
 </ol>
 
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/" data-id="a03kpcftiynj5e9y" data_title="Frontend Java Script Framework Alternatives"
-          data_summary="MV* framework
-BackBonejs
-Angularjs
-Emberjs
-KnockoutJS
-Dojo
-Spinejs
+          <a data-url="http://sicongtang.github.io/2014/10/19/install-golang-and-emacs-plugins/" data-id="wegwevt9d1f400ym" data_title="Install Golang and Emacs Plugins"
+          data_summary="env setup
+create dir GOPATH=~/Projects/goprojects
+edit .bash_profile
 
-MVC extension framework
-MarionetteJS
-Thorax
-
-template
-Handlebars
-Mustache
-JST
-ECO
-
-build aut..." class="article-share-link">Share</a>
+1234567GOPATH=~/Projects/goprojectsGOROOT=/usr/local/goGOOS=darwinGOARCH=amd64PATH=$PATH:$..." class="article-share-link">Share</a>
           
-            <a href="http://sicongtang.github.io/2014/07/16/2014-07-16-frontend-javascript-framework-alternatives/#disqus_thread" class="article-comment-link">Comments</a>
+            <a href="http://sicongtang.github.io/2014/10/19/install-golang-and-emacs-plugins/#disqus_thread" class="article-comment-link">Comments</a>
           
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/golang/">golang</a>
   </div>
 
 

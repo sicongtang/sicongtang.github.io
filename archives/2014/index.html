@@ -118,6 +118,80 @@
 
 
   
+    <article id="post-wegwevt9d1f400ym" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/10/19/install-golang-and-emacs-plugins/">Install Golang and Emacs Plugins</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-10-18T17:09:56.000Z" itemprop="datePublished">Oct 19 2014</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <h2 id="env-setup">env setup</h2><ul>
+<li>create dir <code>GOPATH=~/Projects/goprojects</code></li>
+<li>edit .bash_profile</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GOPATH=~/Projects/goprojects</div><div class="line">GOROOT=/usr/local/go</div><div class="line">GOOS=darwin</div><div class="line">GOARCH=amd64</div><div class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin:<span class="variable">$GOPATH</span>/bin</div><div class="line"><span class="keyword">export</span> PATH</div><div class="line"><span class="keyword">export</span> GOPATH GOOS GOARCH</div></pre></td></tr></table></figure>
+
+<h2 id="emac-plugins-tips">emac plugins tips</h2><ul>
+<li>copy <code>/usr/local/go/misc/emacs/go-mode-load.el</code> into emacs lisp dir, and make minor modification on your own personal setting</li>
+<li>install <a href="http://mercurial.selenic.com/downloads" target="_blank" rel="external">mercurial</a>, otherwise you cannot run hg command</li>
+<li><code>go get code.google.com/p/rog-go/exp/cmd/godef</code>, then we can use godef function</li>
+<li>follow steps with <a href="https://github.com/nsf/gocode/blob/master/README.md" target="_blank" rel="external">nsf/gocode</a></li>
+</ul>
+<h2 id="plugins-list">Plugins list</h2><ol>
+<li><a href="https://github.com/dominikh/go-mode.el" target="_blank" rel="external">https://github.com/dominikh/go-mode.el</a></li>
+<li><a href="https://github.com/nsf/gocode" target="_blank" rel="external">https://github.com/nsf/gocode</a></li>
+</ol>
+<h2 id="references">References</h2><ol>
+<li><a href="http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/" target="_blank" rel="external">http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/</a></li>
+<li><a href="http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/" target="_blank" rel="external">http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/</a></li>
+<li><a href="https://golang.org/doc/install#download" target="_blank" rel="external">https://golang.org/doc/install#download</a></li>
+<li><a href="http://go-lang.cat-v.org/text-editors/" target="_blank" rel="external">http://go-lang.cat-v.org/text-editors/</a></li>
+</ol>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/10/19/install-golang-and-emacs-plugins/" data-id="wegwevt9d1f400ym" data_title="Install Golang and Emacs Plugins"
+          data_summary="env setup
+create dir GOPATH=~/Projects/goprojects
+edit .bash_profile
+
+1234567GOPATH=~/Projects/goprojectsGOROOT=/usr/local/goGOOS=darwinGOARCH=amd64PATH=$PATH:$..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/10/19/install-golang-and-emacs-plugins/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/golang/">golang</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-6nq7zczaum6fedkz" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -359,7 +433,7 @@ Wh..." class="article-share-link">Share</a>
         
   
     <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/07/23/2014-07-23-getting-started-with-emacs/">Getting Started With Emacs</a>
+      <a class="article-title" href="/2014/07/23/getting-started-with-emacs/">Getting Started With Emacs</a>
     </h1>
   
 
@@ -379,15 +453,15 @@ Wh..." class="article-share-link">Share</a>
 
           
             <p class="article-more-link">
-              <a href="/2014/07/23/2014-07-23-getting-started-with-emacs/#more">Read More</a>
+              <a href="/2014/07/23/getting-started-with-emacs/#more">Read More</a>
             </p>
           
         
         <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/07/23/2014-07-23-getting-started-with-emacs/" data-id="mn8zks5j8a4oecyy" data_title="Getting Started With Emacs"
+          <a data-url="http://sicongtang.github.io/2014/07/23/getting-started-with-emacs/" data-id="mn8zks5j8a4oecyy" data_title="Getting Started With Emacs"
           data_summary="Why emacs?Previously I was developing with dynamic language, like js, ruby, python, via using vim. Vim is a great editing tools with different internal mode(com..." class="article-share-link">Share</a>
           
-            <a href="http://sicongtang.github.io/2014/07/23/2014-07-23-getting-started-with-emacs/#disqus_thread" class="article-comment-link">Comments</a>
+            <a href="http://sicongtang.github.io/2014/07/23/getting-started-with-emacs/#disqus_thread" class="article-comment-link">Comments</a>
           
           
   <div class="article-category">
@@ -687,64 +761,6 @@ Her..." class="article-share-link">Share</a>
 
 
   
-    <article id="post-nqj20v2bm70eym79" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/04/27/2014-04-27-operating-system-concepts-io-system/">Operating System Concepts   Io System</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-04-27T09:43:57.000Z" itemprop="datePublished">Apr 27 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <!--<div class="thumbnail"><img src="https://farm8.staticflickr.com/7406/14029529882_f49ab52235_z.jpg" title="pcbus_structure.png"></div>-->
-          <h2 id="i/o-hardware">I/O Hardware</h2><p>The device communicates with the machine via a connection point, or <strong>port</strong> — for example, a serial port.</p>
-<p>If devices use a common set of wires, the connection is called a bus. A <strong>bus</strong> is a set of wires and a rigidly defined protocol that specifies a set of messages that can be sent on the wires.</p>
-<p>This figure shows a <strong>PCI bus</strong> (the common PC system bus) that connects the processor–memory subsystem to the fast devices and an expansion bus that connects relatively slow devices, such as the keyboard and serial and USB ports.</p>
-
-          
-            <p class="article-more-link">
-              <a href="/2014/04/27/2014-04-27-operating-system-concepts-io-system/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/04/27/2014-04-27-operating-system-concepts-io-system/" data-id="nqj20v2bm70eym79" data_title="Operating System Concepts   Io System"
-          data_summary="I/O HardwareThe device communicates with the machine via a connection point, or port — for example, a serial port.
-If devices use a common set of wires, the co..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/04/27/2014-04-27-operating-system-concepts-io-system/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/books/">books</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
   
 <div class="center">
   <ul class="pagination">
@@ -787,6 +803,10 @@ If devices use a common set of wires, the co..." class="article-share-link">Shar
       <ul>
         
           <li class="recent-list">
+            <a href="/2014/10/19/install-golang-and-emacs-plugins/">Install Golang and Emacs Plugins</a>
+          </li>
+        
+          <li class="recent-list">
             <a href="/2014/10/13/2014-10-13-getting-started-with-full-stack-javascript/">Getting Started With Full Stack Javascript</a>
           </li>
         
@@ -800,10 +820,6 @@ If devices use a common set of wires, the co..." class="article-share-link">Shar
         
           <li class="recent-list">
             <a href="/2014/07/24/2014-07-24-a-series-of-general-questions-while-designing-webapps/">a Series of General Questions While Designing Webapps</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2014/07/23/2014-07-23-getting-started-with-emacs/">Getting Started With Emacs</a>
           </li>
         
       </ul>
