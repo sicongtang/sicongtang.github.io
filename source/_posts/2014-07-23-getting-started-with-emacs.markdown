@@ -15,7 +15,14 @@ I was starting to read the documentation of emacs, and acquainted with new key-b
 ##How to install on OS X?
 Download and install emacs, no args will not install gui enviornment.
 
-`brew install emacs`
+```
+brew install --cocoa emacs
+brew install --cocoa --srgb emacs
+vim .bash_profile
+alias emacs="/usr/local/Cellar/emacs/24.3/bin/emacs-24.3 -nw"
+
+ln -s /usr/local/Cellar/emacs/24.3/Emacs.app /Applications
+```
 ##Keyboard setting on OS X
 1. open the terminal perference, and then set option as a meta key.
 2. recommend you to swap capslock with ctrl
