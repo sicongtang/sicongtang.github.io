@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mongo Db Crud Summary | Bobby&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This post aims to list the basic operation of mongo database in the mongodb shell prompt.
+12w, {Number/String, &gt; -1 || ‘majority’ || tag name} the write concern for the operation where &lt; 1 is no">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongo Db Crud Summary">
+<meta property="og:url" content="http://sicongtang.github.io/2014/09/02/mongodb-crud-summary/">
+<meta property="og:site_name" content="Bobby's Blog">
+<meta property="og:description" content="This post aims to list the basic operation of mongo database in the mongodb shell prompt.
+12w, {Number/String, &gt; -1 || ‘majority’ || tag name} the write concern for the operation where &lt; 1 is no">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mongo Db Crud Summary">
+<meta name="twitter:description" content="This post aims to list the basic operation of mongo database in the mongodb shell prompt.
+12w, {Number/String, &gt; -1 || ‘majority’ || tag name} the write concern for the operation where &lt; 1 is no">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
+    <div class="collapse navbar-collapse nav-menu">
+      <ul class="nav navbar-nav">
+      
+        <li>
+          <a href="/archives">
+            <i class="fa fa-archive"></i>
+            Archives
+          </a>
+        </li>
+      
+        <li>
+          <a href="/categories">
+            <i class="fa fa-folder"></i>
+            Categories
+          </a>
+        </li>
+      
+        <li>
+          <a href="/tags">
+            <i class="fa fa-tags"></i>
+            Tags
+          </a>
+        </li>
+      
+        <li>
+          <a href="/wiki">
+            <i class="fa fa-book"></i>
+            Wiki
+          </a>
+        </li>
+      
+        <li>
+          <a href="/about">
+            <i class="fa fa-user"></i>
+            About
+          </a>
+        </li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a id="rss-link" href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="clearfix"></div>
+
+      <div id='content' class="container">
+
+        <div class="page-header-wrapper">
+          <!--[if lt IE 9]><div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>提示:</strong>您的浏览器版本太低了,建议升级到 <strong><a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" title="IE9">IE9</a></strong> 以上,本站使用<a href="https://www.google.com/intl/zh-CN/chrome/">Chrome浏览器</a>可以获得最好的显示效果.</div><![endif]-->
+          <div class="page-header">
+            <h1 class="title">
+          
+            Mongo Db Crud Summary
+          
+            </h1>
+        </div>
+      </div>
+      
+      <section id="main"
+        
+      ><article id="post-2j12vhskyv8f8haw" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc"><span class="toc-header">Contents</span><ol class="article-toc"><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#system-admin"><span class="article-toc-text">system admin</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#insert"><span class="article-toc-text">insert</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#delete"><span class="article-toc-text">delete</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#update"><span class="article-toc-text">update</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#select"><span class="article-toc-text">select</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#aggregration"><span class="article-toc-text">aggregration</span></a></li></ol></div><p>This post aims to list the basic operation of mongo database in the mongodb shell prompt.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">w, {Number/String, &gt; -<span class="number">1</span> || ‘majority’ || tag <span class="property">name</span>} <span class="keyword">the</span> <span class="command">write</span> concern <span class="keyword">for</span> <span class="keyword">the</span> operation <span class="keyword">where</span> &lt; <span class="number">1</span> <span class="keyword">is</span> no acknowlegement <span class="keyword">of</span> <span class="command">write</span> <span class="keyword">and</span> w &gt;= <span class="number">1</span>, w = ‘majority’ <span class="keyword">or</span> tag acknowledges <span class="keyword">the</span> <span class="command">write</span></div><div class="line">j, (Boolean, default:<span class="constant">false</span>) <span class="command">write</span> waits <span class="keyword">for</span> journal sync <span class="keyword">before</span> <span class="keyword">returning</span></div></pre></td></tr></table></figure>
+
+<h2 id="system-admin">system admin</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mongod --fork --logpath /root/mongodb/log/mongodb.log</div><div class="line">mongod —shutdown</div><div class="line">mongo hostname:port/dbschema -u username -p password</div><div class="line">db.serverStatus()</div><div class="line">db.serverStatus().connections</div></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="insert">insert</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.foo.insert({<span class="string">"bar"</span> : <span class="string">"baz"</span>})</div><div class="line">db.foo.batchInsert([{<span class="string">"_id"</span> : <span class="number">0</span>}, {<span class="string">"_id"</span> : <span class="number">1</span>}, {<span class="string">"_id"</span> : <span class="number">2</span>}])</div><div class="line"><span class="comment">//One of the basic structure checks is size: all documents must be smaller than 16 MB.</span></div><div class="line"><span class="built_in">Object</span>.bsonsize(doc)</div></pre></td></tr></table></figure>
+
+<h2 id="delete">delete</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//like detele from, high time cost</span></div><div class="line">db.foo.remove({})</div><div class="line">db.users.remove({status: <span class="string">"D"</span>})</div><div class="line"><span class="comment">//like truncate</span></div><div class="line">db.tester.drop()</div></pre></td></tr></table></figure>
+
+<h2 id="update">update</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line">db.people.update({<span class="string">"_id"</span> : ObjectId(<span class="string">"4b2b9f67a1f631733d917a7c"</span>)}, joe)</div><div class="line"><span class="comment">//</span></div><div class="line">db.users.update({<span class="string">"name"</span> : <span class="string">"joe"</span>}, {<span class="string">"$set"</span> : {<span class="string">"favorite book"</span> : [<span class="string">"Cat's Cradle"</span>, <span class="string">"Foundation Trilogy"</span>, <span class="string">"Ender's Game"</span>]}})</div><div class="line">db.blog.posts.update({<span class="string">"author.name"</span> : <span class="string">"joe"</span>}, {<span class="string">"$set"</span> : {<span class="string">"author.name"</span> : <span class="string">"joe schmoe"</span>}})</div><div class="line">db.users.update({<span class="string">"name"</span> : <span class="string">"joe"</span>}, {<span class="string">"$unset"</span> : {<span class="string">"favorite book"</span> : <span class="number">1</span>}})</div><div class="line"><span class="comment">//</span></div><div class="line">db.blog.update({<span class="string">"post"</span> : post_id}, {<span class="string">"$inc"</span> : {<span class="string">"comments.0.votes"</span> : <span class="number">1</span>}})</div><div class="line"><span class="comment">//mongodb cannot update multiple array elements in single update operation</span></div><div class="line">db.blog.update({<span class="string">"comments.author"</span> : <span class="string">"John"</span>}, {<span class="string">"$set"</span> : {<span class="string">"comments.$.author"</span> : <span class="string">"Jim"</span>}})</div><div class="line"><span class="comment">//full-document replacement, replacing the matched document with {"foo" : "bar"} </span></div><div class="line">db.coll.update(criteria, {<span class="string">"foo"</span> : <span class="string">"bar"</span>})</div><div class="line">db.users.update({<span class="string">"_id"</span> : ObjectId(<span class="string">"4b2d75476cc613d5ee930164"</span>)},</div><div class="line">                      {<span class="string">"$addToSet"</span> : {<span class="string">"emails"</span> : {<span class="string">"$each"</span> : [<span class="string">"joe@php.net"</span>, <span class="string">"joe@example.com"</span>, <span class="string">"joe@python.org"</span>]}}})</div><div class="line">db.movies.find({<span class="string">"genre"</span> : <span class="string">"horror"</span>}, </div><div class="line">     {<span class="string">"$push"</span> : {<span class="string">"top10"</span> : {</div><div class="line">          <span class="string">"$each"</span> : [{<span class="string">"name"</span> : <span class="string">"Nightmare on Elm Street"</span>, <span class="string">"rating"</span> : <span class="number">6.6</span>}, {<span class="string">"name"</span> : <span class="string">"Saw"</span>, <span class="string">"rating"</span> : <span class="number">4.3</span>}],</div><div class="line">          <span class="string">"$slice"</span> : -<span class="number">10</span>,</div><div class="line">          <span class="string">"$sort"</span> : {<span class="string">"rating"</span> : -<span class="number">1</span>}}}})</div><div class="line">{<span class="string">"$pop"</span>: {<span class="string">"key"</span>: <span class="number">1</span>}}</div><div class="line">{<span class="string">"$pop"</span>: {<span class="string">"key"</span>: -<span class="number">1</span>}}</div><div class="line"><span class="comment">//remove all the matching documents</span></div><div class="line">db.lists.update({}, {<span class="string">"$pull"</span> : {<span class="string">"todo"</span> : <span class="string">"laundry"</span>}})</div><div class="line"><span class="comment">//positional array modification</span></div><div class="line">db.blog.update({<span class="string">"post"</span> : post_id}, {<span class="string">"$inc"</span> : {<span class="string">"comments.0.votes"</span> : <span class="number">1</span>}})</div><div class="line">db.blog.update({<span class="string">"comments.author"</span> : <span class="string">"John"</span>}, {<span class="string">"$set"</span> : {<span class="string">"comments.$.author"</span> : <span class="string">"Jim"</span>}})</div><div class="line"><span class="comment">//upserts</span></div><div class="line"><span class="comment">//eliminate the race condition and faster and atomic</span></div><div class="line"><span class="comment">//If no document is found that matches the update criteria, a new document will be created by combining the criteria and updated documents.</span></div><div class="line">db.analytics.update({<span class="string">"url"</span> : <span class="string">"/blog"</span>}, {<span class="string">"$inc"</span> : {<span class="string">"pageviews"</span> : <span class="number">1</span>}}, <span class="literal">true</span>)</div><div class="line"><span class="comment">//If we run this update again, it will match the existing document, nothing will be inserted, and so the "createdAt" field will not be changed.</span></div><div class="line">db.users.update({}, {<span class="string">"$setOnInsert"</span> : {<span class="string">"createdAt"</span> : <span class="keyword">new</span> <span class="built_in">Date</span>()}}, <span class="literal">true</span>)</div><div class="line">db.foo.save(x)</div><div class="line">db.foo.update({<span class="string">"_id"</span>: x._id}, x)</div><div class="line"><span class="comment">//updating multiple documents</span></div><div class="line">db.count.update({x : <span class="number">1</span>}, {$inc : {x : <span class="number">1</span>}}, <span class="literal">false</span>, <span class="literal">true</span>) </div><div class="line">db.runCommand({getLastError : <span class="number">1</span>})</div><div class="line">{</div><div class="line"><span class="string">"err"</span> : <span class="literal">null</span>,</div><div class="line"><span class="string">"updatedExisting"</span> : <span class="literal">true</span>, </div><div class="line"><span class="string">"n"</span> : <span class="number">5</span>,</div><div class="line"><span class="string">"ok"</span> : <span class="literal">true</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="select">select</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//find all data in collection</span></div><div class="line">db.users.find({})</div><div class="line"><span class="comment">//only display cols</span></div><div class="line">db.users.find({}, {<span class="string">"username"</span> : <span class="number">1</span>)</div><div class="line"><span class="comment">//only display cols without _id</span></div><div class="line">db.users.find({}, {<span class="string">"username"</span> : <span class="number">1</span>, <span class="string">"_id"</span> : <span class="number">0</span>})</div><div class="line"><span class="comment">//count</span></div><div class="line">db.users.count()</div><div class="line"><span class="comment">//conditionals are an inner document key, and modifiers are always a key in the outer document.</span></div><div class="line"><span class="comment">//There are a few “meta-operators” that go in the outer document: "$and“, "$or“, and "$not“.</span></div><div class="line">db.users.find({<span class="string">"id_num"</span> : {<span class="string">"$not"</span> : {<span class="string">"$mod"</span> : [<span class="number">5</span>, <span class="number">1</span>]}}})</div><div class="line">db.users.find({<span class="string">"x"</span> : {<span class="string">"$lt"</span> : <span class="number">1</span>, <span class="string">"$in"</span> : [<span class="number">4</span>]}})</div><div class="line"><span class="comment">// will return all the docs</span></div><div class="line">db.c.find({<span class="string">"z"</span>:<span class="literal">null</span>})</div><div class="line"><span class="comment">// only display null value, please use this</span></div><div class="line">db.c.find({<span class="string">"z"</span> : {<span class="string">"$in"</span> : [<span class="literal">null</span>], <span class="string">"$exists"</span> : <span class="literal">true</span>}})</div><div class="line"><span class="comment">//indexes cannot be used for case-insensitive searches</span></div><div class="line">db.users.find({<span class="string">"name"</span> : <span class="regexp">/joe/i</span>})</div><div class="line">db.users.find({<span class="string">"name"</span> : <span class="regexp">/joey?/i</span>})</div><div class="line"><span class="comment">//querying array</span></div><div class="line">db.food.find({fruit : {$all : [<span class="string">"apple"</span>, <span class="string">"banana"</span>]}})</div><div class="line">db.food.find({<span class="string">"fruit"</span> : {<span class="string">"$size"</span> : <span class="number">3</span>}})</div><div class="line">db.blog.posts.findOne(criteria, {<span class="string">"comments"</span> : {<span class="string">"$slice"</span> : [<span class="number">23</span>, <span class="number">10</span>]}})</div><div class="line">db.blog.posts.find({<span class="string">"comments.name"</span> : <span class="string">"bob"</span>}, {<span class="string">"comments.$"</span> : <span class="number">1</span>})</div><div class="line"><span class="comment">//$where</span></div><div class="line"><span class="comment">//pagination</span></div><div class="line">db.stock.find({<span class="string">"desc"</span> : <span class="string">"mp3"</span>}).limit(<span class="number">50</span>).skip(<span class="number">50</span>).sort({<span class="string">"price"</span> : -<span class="number">1</span>})</div><div class="line"><span class="comment">//find a random document</span></div><div class="line"><span class="keyword">var</span> random = <span class="built_in">Math</span>.random()</div><div class="line">result = db.foo.findOne({<span class="string">"random"</span> : {<span class="string">"$gt"</span> : random}}) </div><div class="line"><span class="keyword">if</span> (result == <span class="literal">null</span>) {</div><div class="line">  result = db.foo.findOne({<span class="string">"random"</span> : {<span class="string">"$lt"</span> : random}}) </div><div class="line">} </div><div class="line"><span class="comment">//cursor</span></div><div class="line">cursor = db.foo.find();</div><div class="line"><span class="keyword">while</span> (cursor.hasNext()) {</div><div class="line">  <span class="keyword">var</span> doc = cursor.next();</div><div class="line">  doc = process(doc);</div><div class="line">  db.foo.save(doc);</div><div class="line">}</div><div class="line"><span class="comment">//command</span></div><div class="line">use temp</div><div class="line">db.runCommand({shutdown:<span class="number">1</span>})</div><div class="line">db.adminCommand({<span class="string">"shutdown"</span> : <span class="number">1</span>}) </div></pre></td></tr></table></figure>
+
+<h2 id="aggregration">aggregration</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//calculate commission</span></div><div class="line">db.orders.aggregate([{</div><div class="line">  $match: filter</div><div class="line">}, {</div><div class="line">  $unwind: <span class="string">"$stores"</span></div><div class="line">}, {</div><div class="line">  $group: {</div><div class="line">    _id: {</div><div class="line">      store_id: <span class="string">"$stores.store_id"</span>,</div><div class="line">      store_name: <span class="string">"$stores.store_name"</span></div><div class="line">    },</div><div class="line">    total_commission: {</div><div class="line">      $sum: <span class="string">"$stores.commission"</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}, {</div><div class="line">  $sort: {</div><div class="line">    <span class="string">"_id.store_id"</span>: <span class="number">1</span></div><div class="line">  }</div><div class="line">}, {</div><div class="line">  $skip: <span class="number">0</span></div><div class="line">}, {</div><div class="line">  $limit: <span class="number">25</span></div><div class="line">}]);</div><div class="line"><span class="comment">//calculate count of commission</span></div><div class="line">db.orders.aggregate([{</div><div class="line">  $match: filter</div><div class="line">}, {</div><div class="line">  $unwind: <span class="string">"$stores"</span></div><div class="line">}, {</div><div class="line">  $group: {</div><div class="line">    _id: {</div><div class="line">      store_id: <span class="string">"$stores.store_id"</span>,</div><div class="line">      store_name: <span class="string">"$stores.store_name"</span></div><div class="line">    },</div><div class="line">    total_commission: {</div><div class="line">      $sum: <span class="string">"$stores.commission"</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}, {</div><div class="line">  $group: {</div><div class="line">    _id: <span class="literal">null</span>,</div><div class="line">    count: {</div><div class="line">      $sum: <span class="number">1</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}]);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+  </div>
+</article>
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+        
+          
+<aside id="sidebar">
+  
+    
+      
+<div class="widget-wrap center">
+  <ul class="pagination">
+    <li>
+      
+        <a href="/2014/09/05/javascript-patterns-notes/" class="nav-prev">Prev</a>
+      
+    </li>
+    <li>
+      <a data-url="http://sicongtang.github.io/2014/09/02/mongodb-crud-summary/" data-id="2j12vhskyv8f8haw" data_title="Mongo Db Crud Summary"
+        data_summary="This post aims to list the basic operation of mongo database in the mongodb shell prompt.
+12w, {Number/String, &gt; -1 || ‘majority’ || tag name} the write co..." class="article-share-link">Share</a>
+    </li>
+    <li>
+      
+        <a href="/2014/07/24/a-series-of-general-questions-while-designing-webapps/" class="nav-next">Next</a>
+      
+    </li>
+  </ul>
+</div>
+
+
+    
+      <div class="widget-wrap">
+  <div class="post-widget">
+    <i class="fa fa-clock-o"></i>
+    <time datetime="2014-09-02T05:41:21.000Z" itemprop="datePublished">Sep 2 2014</time>
+  </div>
+</div>
+
+    
+      
+  <div class="widget-wrap">
+    <div class="post-widget">
+      <i class="fa fa-folder"></i>
+      <a class="category-link" href="/categories/sql/">sql<span class="category-count">3</span></a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="post-widget">
+      <i class="fa fa-tags"></i>
+      
+    </div>
+  </div>
+
+
+    
+  
+</aside>
+
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer container">
+    <div id="footer-info" class="inner">
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+    </div>
+  </div>
+</footer>
+<a id="gotop" href="#">
+  <i class="fa fa-chevron-up"></i>
+</a>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="[object Object]" class="mobile-nav-link">0</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">1</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">2</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">3</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">4</a>
+  
+</nav>
+
+    
+<script>
+  var disqus_shortname = 'bobbytang';
+  
+  var disqus_url = 'http://sicongtang.github.io/2014/09/02/mongodb-crud-summary/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/jquery.fitvids.js" type="text/javascript"></script>
+
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Operating System Concepts   Process/Thread | Bobby&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Process Control BlockProcess Control Block (PCB, also called Task Controlling Block, Task Struct, or Switchframe) is a data structure in the operating system kernel containing the information needed t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating System Concepts   Process/Thread">
+<meta property="og:url" content="http://sicongtang.github.io/2014/03/25/operating-system-concepts-process-slash-thread/">
+<meta property="og:site_name" content="Bobby's Blog">
+<meta property="og:description" content="Process Control BlockProcess Control Block (PCB, also called Task Controlling Block, Task Struct, or Switchframe) is a data structure in the operating system kernel containing the information needed t">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Operating System Concepts   Process/Thread">
+<meta name="twitter:description" content="Process Control BlockProcess Control Block (PCB, also called Task Controlling Block, Task Struct, or Switchframe) is a data structure in the operating system kernel containing the information needed t">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
+    <div class="collapse navbar-collapse nav-menu">
+      <ul class="nav navbar-nav">
+      
+        <li>
+          <a href="/archives">
+            <i class="fa fa-archive"></i>
+            Archives
+          </a>
+        </li>
+      
+        <li>
+          <a href="/categories">
+            <i class="fa fa-folder"></i>
+            Categories
+          </a>
+        </li>
+      
+        <li>
+          <a href="/tags">
+            <i class="fa fa-tags"></i>
+            Tags
+          </a>
+        </li>
+      
+        <li>
+          <a href="/wiki">
+            <i class="fa fa-book"></i>
+            Wiki
+          </a>
+        </li>
+      
+        <li>
+          <a href="/about">
+            <i class="fa fa-user"></i>
+            About
+          </a>
+        </li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a id="rss-link" href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="clearfix"></div>
+
+      <div id='content' class="container">
+
+        <div class="page-header-wrapper">
+          <!--[if lt IE 9]><div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>提示:</strong>您的浏览器版本太低了,建议升级到 <strong><a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" title="IE9">IE9</a></strong> 以上,本站使用<a href="https://www.google.com/intl/zh-CN/chrome/">Chrome浏览器</a>可以获得最好的显示效果.</div><![endif]-->
+          <div class="page-header">
+            <h1 class="title">
+          
+            Operating System Concepts   Process/Thread
+          
+            </h1>
+        </div>
+      </div>
+      
+      <section id="main"
+        
+      ><article id="post-hl1upujf8a8ky8nb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc"><span class="toc-header">Contents</span><ol class="article-toc"><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#process-control-block"><span class="article-toc-text">Process Control Block</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#context-switch"><span class="article-toc-text">Context Switch</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-3"><a class="article-toc-link" href="#when-to-switch?"><span class="article-toc-text">When to switch?</span></a></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#multithread-programing"><span class="article-toc-text">Multithread programing</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#multicore-programming"><span class="article-toc-text">Multicore Programming</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#multithread-model"><span class="article-toc-text">Multithread Model</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#pthread-scheduling"><span class="article-toc-text">Pthread Scheduling</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#process-creation"><span class="article-toc-text">Process Creation</span></a></li></ol></div><h2 id="process-control-block">Process Control Block</h2><p><strong>Process Control Block</strong> (PCB, also called Task Controlling Block, Task Struct, or Switchframe) is a data structure in the operating system kernel containing the information needed to manage a particular process.</p>
+<p>Process state. The state may be new, ready, running, waiting, halted, and so on. </p>
+<p>Program counter. The counter indicates the address of the next instruction to be executed for this process. </p>
+<p>CPU registers. They include accumulators, index registers, stack pointers, and general-purpose registers, plus any condition-code information. Along with the program counter, this state information must be saved when an interrupt occurs, to allow the process to be continued correctly afterward.</p>
+<a id="more"></a>
+
+<p>CPU-scheduling information. This information includes a process priority, pointers to scheduling queues, and any other scheduling parameters.</p>
+<p>Memory-management information. This information may include such information as the value of the base and limit registers, the page tables, or the segment tables, depending on the memory system used by the operating system. </p>
+<p>Accounting information. This information includes the amount of CPU and real time used, time limits, account numbers, job or process numbers, and so on. </p>
+<p>I/O status information. This information includes the list of I/O devices allocated to the process, a list of open files, and so on.</p>
+<h2 id="context-switch">Context Switch</h2><p>A <strong>context switch</strong> (also sometimes referred to as a process switch or a task switch) is the switching of the CPU (central processing unit) from one process or thread to another.</p>
+<p>A <strong>context</strong> is the contents of a CPU&#39;s registers and program counter at any point in time.</p>
+<p>A <strong>program counter</strong> is a specialized register that indicates the position of the CPU in its instruction sequence and which holds either the address of the instruction being executed or the address of the next instruction to be executed, depending on the specific system.</p>
+<p>Context switching can be described in slightly more detail as the kernel (i.e., the core of the operating system) performing the following activities with regard to processes (including threads) on the CPU:</p>
+<ol>
+<li><p>suspending the progression of one process and storing the CPU&#39;s state (i.e., the context) for that process somewhere in memory,</p>
+</li>
+<li><p>retrieving the context of the next process from memory and restoring it in the CPU&#39;s registers and</p>
+</li>
+<li><p>returning to the location indicated by the program counter (i.e., returning to the line of code at which the process was interrupted) in order to resume the process.</p>
+</li>
+</ol>
+<h3 id="when-to-switch?">When to switch?</h3><p>Context switches can occur only in kernel mode.</p>
+<p><strong>Multitasking</strong> 1.)Preemptive schedulers often configure a timer interrupt to fire when a process exceeds its time slice. 2.)This context switch can be triggered by the process making itself unrunnable, such as by waiting for an I/O or synchronization operation to complete.</p>
+<p><strong>Interrupt handling</strong> 1.) Hardware interrupt</p>
+<p><strong>User and kernel mode switching</strong> may cause context switch.</p>
+<h2 id="multithread-programing">Multithread programing</h2><p>Benifits 1.) Responsiveness 2.)Resource sharing 3.) Economy 4.)Scalability</p>
+<h2 id="multicore-programming">Multicore Programming</h2><p>Concerns 1.) Dividing activities 2.)Balance Data splitting 3.)Data dependency 4.)Testing and debugging</p>
+<h2 id="multithread-model">Multithread Model</h2><ul>
+<li>Many-to-one model</li>
+<li>One-to-one model</li>
+</ul>
+<p>The nptl(native posix thread library) implementation only uses a 1:1 thread model. The scheduler handles every thread as if it were a process. Therefore only the supported scope is PTHREAD_SCOPE_SYSTEM(Plesae see on Pthread Scheduling label). The default scheduling policy is SCHED_OTHER, which is the default Linux scheduler. The nptl implementation can utilize multiple CPUs.</p>
+<ul>
+<li>Many-to-many model</li>
+<li>Green thread</li>
+</ul>
+<p>On multi-CPU machines, native threads can run more than one thread simultaneously by assigning different threads to different CPUs. Green threads run on only one CPU.</p>
+<p>Green threads, the threads provided by the JVM, run at the user level, meaning that the JVM creates and schedules the threads itself. Therefore, the operating system kernel doesn&#39;t create or schedule them. Instead, the underlying OS sees the JVM only as one thread.</p>
+<ul>
+<li>Light weight process(LWP)
+In the traditional meaning of the term, as used in Unix System V and Solaris, a LWP runs in user space on top of a single kernel thread and shares its address space and system resources with other LWPs within the same process.</li>
+</ul>
+<h2 id="pthread-scheduling">Pthread Scheduling</h2><p>There are two possible contention scopes. PTHREAD_SCOPE_SYSTEM and PTHREAD_SCOPE_PROCESS. They can be set with pthread_attr_setscope(). The scope of a thread can only be specified before the thread is created.</p>
+<ul>
+<li>PTHREAD_SCOPE_SYSTEM</li>
+</ul>
+<p>A thread that has a scope of PTHREAD_SCOPE_SYSTEM will content with other processes and other PTHREAD_SCOPE_SYSTEM threads for the CPU.</p>
+<ul>
+<li>PTHREAD_SCOPE_PROCESS</li>
+</ul>
+<p>All threads of a process that have a scope of PTHREAD_SCOPE_PROCESS will be grouped together and this group of threads contents for the CPU. If there is a process with 4 PTHREAD_SCOPE_PROCESS threads and 4 PTHREAD_SCOPE_SYSTEM threds, then each of the PTHREAD_SCOPE_SYSTEM threads will get a fifth of the CPU and the other 4 PTHREAD_SCOPE_PROCESS threads will share the remaing fifth of the CPU. How the PTHREAD_SCOPE_PROCESS threads share their fifth of the CPU among themselves is determined by the scheduling policy and the thread&#39;s priority.</p>
+<h2 id="process-creation">Process Creation</h2><p>When a process creates a new process, two possibilities exist in terms of execution:</p>
+<ol>
+<li>The parent continues to execute concurrently with its children.</li>
+<li>The parent waits until some or all of its children have terminated.</li>
+</ol>
+<p>There are also two possibilities in terms of the address space of the new process:</p>
+<ol>
+<li>The child process is a duplicate of the parent process (it has the same program and data as the parent).</li>
+<li>The child process has a new program loaded into it.</li>
+</ol>
+<p>For example, if <code>clone()</code> is passed the flags <code>CLONE FS</code>, <code>CLONE VM</code>, <code>CLONE SIGHAND</code>, and <code>CLONE FILES</code>, the parent and child tasks will share the same file-system information (such as the current working directory), the same memory space, the same signal handlers, and the same set of open files.</p>
+<p>However, if none of these flags is set when <code>clone()</code> is invoked, no sharing takes place, resulting in functionality similar to that provided by the <code>fork()</code> system call.</p>
+
+      
+    </div>
+  </div>
+</article>
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+        
+          
+<aside id="sidebar">
+  
+    
+      
+<div class="widget-wrap center">
+  <ul class="pagination">
+    <li>
+      
+        <a href="/2014/04/02/operating-system-concepts-cpu/" class="nav-prev">Prev</a>
+      
+    </li>
+    <li>
+      <a data-url="http://sicongtang.github.io/2014/03/25/operating-system-concepts-process-slash-thread/" data-id="hl1upujf8a8ky8nb" data_title="Operating System Concepts   Process/Thread"
+        data_summary="Process Control BlockProcess Control Block (PCB, also called Task Controlling Block, Task Struct, or Switchframe) is a data structure in the operating system ke..." class="article-share-link">Share</a>
+    </li>
+    <li>
+      
+        <a href="/2014/03/10/sql-sybasease-alternative-way-to-support-lead-slash-lag-function/" class="nav-next">Next</a>
+      
+    </li>
+  </ul>
+</div>
+
+
+    
+      <div class="widget-wrap">
+  <div class="post-widget">
+    <i class="fa fa-clock-o"></i>
+    <time datetime="2014-03-24T21:57:31.000Z" itemprop="datePublished">Mar 25 2014</time>
+  </div>
+</div>
+
+    
+      
+  <div class="widget-wrap">
+    <div class="post-widget">
+      <i class="fa fa-folder"></i>
+      <a class="category-link" href="/categories/books/">books<span class="category-count">8</span></a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="post-widget">
+      <i class="fa fa-tags"></i>
+      
+    </div>
+  </div>
+
+
+    
+  
+</aside>
+
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer container">
+    <div id="footer-info" class="inner">
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+    </div>
+  </div>
+</footer>
+<a id="gotop" href="#">
+  <i class="fa fa-chevron-up"></i>
+</a>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="[object Object]" class="mobile-nav-link">0</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">1</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">2</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">3</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">4</a>
+  
+</nav>
+
+    
+<script>
+  var disqus_shortname = 'bobbytang';
+  
+  var disqus_url = 'http://sicongtang.github.io/2014/03/25/operating-system-concepts-process-slash-thread/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/jquery.fitvids.js" type="text/javascript"></script>
+
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

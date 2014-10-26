@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Javascript Patterns Notes | Bobby&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript Patterns Notes">
+<meta property="og:url" content="http://sicongtang.github.io/2014/09/05/javascript-patterns-notes/">
+<meta property="og:site_name" content="Bobby's Blog">
+<meta property="og:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript Patterns Notes">
+<meta name="twitter:description" content="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Bobby&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Bobby&#39;s Blog</a>
+    <div class="collapse navbar-collapse nav-menu">
+      <ul class="nav navbar-nav">
+      
+        <li>
+          <a href="/archives">
+            <i class="fa fa-archive"></i>
+            Archives
+          </a>
+        </li>
+      
+        <li>
+          <a href="/categories">
+            <i class="fa fa-folder"></i>
+            Categories
+          </a>
+        </li>
+      
+        <li>
+          <a href="/tags">
+            <i class="fa fa-tags"></i>
+            Tags
+          </a>
+        </li>
+      
+        <li>
+          <a href="/wiki">
+            <i class="fa fa-book"></i>
+            Wiki
+          </a>
+        </li>
+      
+        <li>
+          <a href="/about">
+            <i class="fa fa-user"></i>
+            About
+          </a>
+        </li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a id="rss-link" href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="clearfix"></div>
+
+      <div id='content' class="container">
+
+        <div class="page-header-wrapper">
+          <!--[if lt IE 9]><div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>提示:</strong>您的浏览器版本太低了,建议升级到 <strong><a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" title="IE9">IE9</a></strong> 以上,本站使用<a href="https://www.google.com/intl/zh-CN/chrome/">Chrome浏览器</a>可以获得最好的显示效果.</div><![endif]-->
+          <div class="page-header">
+            <h1 class="title">
+          
+            Javascript Patterns Notes
+          
+            </h1>
+        </div>
+      </div>
+      
+      <section id="main"
+        
+      ><article id="post-6id01pow9styaq30" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc"><span class="toc-header">Contents</span><ol class="article-toc"><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#1-essentials"><span class="article-toc-text">1 Essentials</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#1.1-single-var-pattern"><span class="article-toc-text">1.1 Single var Pattern</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#1.2-switch-pattern"><span class="article-toc-text">1.2 Switch Pattern</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#2-literal-patterns"><span class="article-toc-text">2 Literal Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#2.1-patterns-for-enforcing-new"><span class="article-toc-text">2.1 Patterns for Enforcing new</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#2.2-self-invoking-constructor"><span class="article-toc-text">2.2 Self-Invoking Constructor</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#2.3-error-objects"><span class="article-toc-text">2.3 Error Objects</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#3-api-patterns"><span class="article-toc-text">3 API Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#3.1-callback-pattern"><span class="article-toc-text">3.1 Callback Pattern</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#3.2-configuration-object-pattern"><span class="article-toc-text">3.2 Configuration Object Pattern</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#4-performance-patterns"><span class="article-toc-text">4 Performance Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#4.1-self-defining-functions"><span class="article-toc-text">4.1 Self-Defining Functions</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#4.2-memoization-pattern(function-properties)"><span class="article-toc-text">4.2 Memoization Pattern(Function Properties)</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#5-object-creation-patterns"><span class="article-toc-text">5 Object Creation Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#5.1-prototypes-and-privacy"><span class="article-toc-text">5.1 Prototypes and Privacy</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#5.2-evelation-pattern(revealing-module-pattern)"><span class="article-toc-text">5.2 Evelation Pattern(revealing module pattern)</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#5.3-static-memebers"><span class="article-toc-text">5.3 Static Memebers</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#6-code-reuse-patterns"><span class="article-toc-text">6 Code Reuse Patterns</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.1-the-default-pattern"><span class="article-toc-text">6.1 The Default Pattern</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.2-rent-a-constructor"><span class="article-toc-text">6.2 Rent a Constructor</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.3-rent-and-set-prototype"><span class="article-toc-text">6.3 Rent and Set Prototype</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.4-share-the-prototype"><span class="article-toc-text">6.4 Share the Prototype</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.5-a-temporary-constructor"><span class="article-toc-text">6.5 A Temporary Constructor</span></a></li><li class="article-toc-item article-toc-level-4"><a class="article-toc-link" href="#6.6-mix-ins"><span class="article-toc-text">6.6 Mix-ins</span></a></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#7-design-patterns"><span class="article-toc-text">7 Design Patterns</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#references:"><span class="article-toc-text">References:</span></a></li></ol></div><p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
+<p><a id="more"></a></p>
+<h2 id="1-essentials">1 Essentials</h2><h4 id="1.1-single-var-pattern">1.1 Single var Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=single_var_pattern.js"></script>
+
+<h4 id="1.2-switch-pattern">1.2 Switch Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=switch_pattern.js"></script>
+
+<h2 id="2-literal-patterns">2 Literal Patterns</h2><h4 id="2.1-patterns-for-enforcing-new">2.1 Patterns for Enforcing new</h4><p>If we forgot to add new, this.value will become global obejct.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=patterns_for_enforcing_new.js"></script>
+
+<h4 id="2.2-self-invoking-constructor">2.2 Self-Invoking Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_invoking_constructor.js"></script>
+
+<h4 id="2.3-error-objects">2.3 Error Objects</h4><p>On the other hand, throw works with any object, not necessarily an object created with one of the error constructors, so you can opt in for throwing your own objects.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=error_objects.js"></script>
+
+<h2 id="3-api-patterns">3 API Patterns</h2><h4 id="3.1-callback-pattern">3.1 Callback Pattern</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=callback_pattern.js"></script>
+
+<h4 id="3.2-configuration-object-pattern">3.2 Configuration Object Pattern</h4><p>The configuration object pattern is a way to provide cleaner APIs, especially if you’re building a library or any other code that will be consumed by other programs.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=configuration_object_pattern.js"></script>
+
+<h2 id="4-performance-patterns">4 Performance Patterns</h2><h4 id="4.1-self-defining-functions">4.1 Self-Defining Functions</h4><p>This pattern is useful when your function has some initial preparatory work to do and it needs to do it only once.</p>
+<p>A drawback of the pattern is that any properties you’ve previously added to the original function will be lost when it redefines itself.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=self_defining_functions.js"></script>
+
+<h4 id="4.2-memoization-pattern(function-properties)">4.2 Memoization Pattern(Function Properties)</h4><p>You can add custom properties to your functions at any time. One use case for custom properties is to cache the results (the return value) of a function, so the next time the function is called, it doesn’t have to redo potentially heavy computations. Caching the results of a function is also known as memoization.</p>
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=memoization_pattern.js"></script>
+
+<h2 id="5-object-creation-patterns">5 Object Creation Patterns</h2><h4 id="5.1-prototypes-and-privacy">5.1 Prototypes and Privacy</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=prototypes_and_privacy.js"></script>
+
+<h4 id="5.2-evelation-pattern(revealing-module-pattern)">5.2 Evelation Pattern(revealing module pattern)</h4><h4 id="5.3-static-memebers">5.3 Static Memebers</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=public_static_members.js"></script>
+
+<script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=private_static_members.js"></script>
+
+<h2 id="6-code-reuse-patterns">6 Code Reuse Patterns</h2><h4 id="6.1-the-default-pattern">6.1 The Default Pattern</h4><h4 id="6.2-rent-a-constructor">6.2 Rent a Constructor</h4><h4 id="6.3-rent-and-set-prototype">6.3 Rent and Set Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=rent_and_set_prototype.js"></script>
+
+<h4 id="6.4-share-the-prototype">6.4 Share the Prototype</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=share_the_prototype.js"></script>
+
+<h4 id="6.5-a-temporary-constructor">6.5 A Temporary Constructor</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=a_temporary_constructor.js"></script>
+
+<h4 id="6.6-mix-ins">6.6 Mix-ins</h4><script src="https://gist.github.com/85d9fea488160c21d1a7.js?file=mixin_pattern.js"></script>
+
+
+<h2 id="7-design-patterns">7 Design Patterns</h2><h2 id="references:">References:</h2><ol>
+<li><a href="http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752/ref=sr_1_1?ie=UTF8&amp;qid=1410247009&amp;sr=8-1" target="_blank" rel="external">Javascript Patterns</a></li>
+</ol>
+
+      
+    </div>
+  </div>
+</article>
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+        
+          
+<aside id="sidebar">
+  
+    
+      
+<div class="widget-wrap center">
+  <ul class="pagination">
+    <li>
+      
+        <a href="/2014/10/13/getting-started-with-full-stack-javascript/" class="nav-prev">Prev</a>
+      
+    </li>
+    <li>
+      <a data-url="http://sicongtang.github.io/2014/09/05/javascript-patterns-notes/" data-id="6id01pow9styaq30" data_title="Javascript Patterns Notes"
+        data_summary="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
+..." class="article-share-link">Share</a>
+    </li>
+    <li>
+      
+        <a href="/2014/09/02/mongodb-crud-summary/" class="nav-next">Next</a>
+      
+    </li>
+  </ul>
+</div>
+
+
+    
+      <div class="widget-wrap">
+  <div class="post-widget">
+    <i class="fa fa-clock-o"></i>
+    <time datetime="2014-09-05T09:20:45.000Z" itemprop="datePublished">Sep 5 2014</time>
+  </div>
+</div>
+
+    
+      
+  <div class="widget-wrap">
+    <div class="post-widget">
+      <i class="fa fa-folder"></i>
+      <a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="post-widget">
+      <i class="fa fa-tags"></i>
+      
+    </div>
+  </div>
+
+
+    
+  
+</aside>
+
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer container">
+    <div id="footer-info" class="inner">
+      <a href="/">Bobby&#39;s Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+    </div>
+  </div>
+</footer>
+<a id="gotop" href="#">
+  <i class="fa fa-chevron-up"></i>
+</a>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="[object Object]" class="mobile-nav-link">0</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">1</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">2</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">3</a>
+  
+    <a href="[object Object]" class="mobile-nav-link">4</a>
+  
+</nav>
+
+    
+<script>
+  var disqus_shortname = 'bobbytang';
+  
+  var disqus_url = 'http://sicongtang.github.io/2014/09/05/javascript-patterns-notes/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/jquery.fitvids.js" type="text/javascript"></script>
+
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
