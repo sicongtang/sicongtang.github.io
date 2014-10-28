@@ -9,11 +9,12 @@ tags:
 Listed few things that I am going to investigate in the next year. The detailed chores will be fullfilled when I have a good idea.
 
 * algorithm, MIT
-* programming paradigms, concepts, e.g. scala, python, at least one programming
+* programming paradigms, concepts, e.g. scala, python, at least one programming paradigm
 * big data process, e.g. hadoop, spark, storm
 * distributed system architecture, e.g. optimization
 * large-scale application experience, like gc tuning, server cluster, DB read-write separation
-* Lisp, EMACSLisp, SICP
-* computer science
+* lisp, emacslisp, SICP
+* computer science, like machine learning
 * MOOC, e.g. coursera
-* github distribution and search great started projects
+* github contribution and search great started projects
+* TCP/IP, Http Protocol
