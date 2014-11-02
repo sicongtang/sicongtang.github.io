@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Install Ruby Vim Command Without Root | BobbyTang&#39;s Tech Blog</title>
+  <title>Category: github | BobbyTang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This post intend to write down the step for installing ruby and vim command line tools, without root access.
-In addition, ncurses is the prerequisities of installing ruby and vim. Also, please install">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Install Ruby Vim Command Without Root">
-<meta property="og:url" content="http://sicongtang.github.io/2014/05/30/install-ruby-and-vim-command-without-root/">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BobbyTang's Tech Blog">
+<meta property="og:url" content="http://sicongtang.github.io/categories/github/">
 <meta property="og:site_name" content="BobbyTang's Tech Blog">
-<meta property="og:description" content="This post intend to write down the step for installing ruby and vim command line tools, without root access.
-In addition, ncurses is the prerequisities of installing ruby and vim. Also, please install">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Install Ruby Vim Command Without Root">
-<meta name="twitter:description" content="This post intend to write down the step for installing ruby and vim command line tools, without root access.
-In addition, ncurses is the prerequisities of installing ruby and vim. Also, please install">
+<meta name="twitter:title" content="BobbyTang's Tech Blog">
+<meta name="twitter:description">
 
   
     <link rel="alternative" href="/atom.xml" title="BobbyTang&#39;s Tech Blog" type="application/atom+xml">
@@ -104,7 +101,9 @@ In addition, ncurses is the prerequisities of installing ruby and vim. Also, ple
           <div class="page-header">
             <h1 class="title">
           
-            Install Ruby Vim Command Without Root
+            
+              github
+            
           
             </h1>
         </div>
@@ -112,48 +111,75 @@ In addition, ncurses is the prerequisities of installing ruby and vim. Also, ple
       
       <section id="main"
         
-      ><article id="post-ehipl3up3y5c8slw" class="article article-type-post" itemscope itemprop="blogPost">
+      >
+  
+  
+    <article id="post-99g7qq0mmxxair54" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
     
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/11/02/setting-github-pages/">Setting Github Pages</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-11-02T15:42:24.000Z" itemprop="datePublished">Nov 2 2014</time>
+</div>
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This post intend to write down the step for installing ruby and vim command line tools, without root access.
-In addition, ncurses is the prerequisities of installing ruby and vim. Also, please install ruby first in order to enable rubyinterp.</p>
-<a id="more"></a>
+        
+          <!--<div class="thumbnail"><img src="https://farm4.staticflickr.com/3953/15506283948_9c7c8d3c81_z.jpg" alt="Alt text" title="net_dns_config_githubblog_page"></div>-->
+          <p>There are only two steps to setup your personal blog with your own domain.</p>
+<ul>
+<li><p>Create a CNAME file under the root of your repos(e.g. <a href="https://github.com/sicongtang/sicongtang.github.io/blob/master/CNAME" target="_blank" rel="external">https://github.com/sicongtang/sicongtang.github.io/blob/master/CNAME</a>), in hexo or octopress blog system, just create a CNAME file under source folder. This will automatically deploy CNAME file to your repository&#39;s root directory.</p>
+</li>
+<li><p>Then you need to configure a custom subdomain with your DNS provider. Creating two A records helps you to use custom apex domains. In addition, if you configure both an apex domain (e.g. sicongtang.me) and a matching www subdomain (e.g. www.sicongtang.me), GitHub&#39;s servers will automatically create redirects between the two.</p>
+</li>
+</ul>
 
-<ol>
-<li>download ncurses</li>
-<li><code>tar xvf ncurses-5.9.tar.gz</code></li>
-<li>sh <code>./configure --prefix=/home/bobby/tools/ncurses ##--with-shared</code></li>
-<li><code>make</code></li>
-<li><code>make install</code></li>
-<li>download ruby</li>
-<li>sh <code>./configure --prefix=/home/bobby/tools/ruby1.9 --with-tlib=ncurses</code></li>
-<li><code>make</code></li>
-<li><code>make install</code></li>
-<li>download from vim</li>
-<li><code>bzip2 -cd vimxxx.tar.bz2 | tar xvf -</code></li>
-<li>edit .bash_profile <code>set CPPLAGS=&quot;-I/home/bobby/tools/ncurses/include&quot; LDFLAGS=&quot;-L/home/bobby/tools/ncurses/lib&quot; export CPPFLAGS LDFLAGS</code></li>
-<li>sh <code>./configure --prefix=/home/bobby/tools/vim7.4 --disable-selinux --enbale-gui=no --without-x --disable-gpm --disable-nls --with-tilib=ncurses --enable-multibyte --enable-rubyinterp --enable-perlinterp --enable-pythoninterp</code></li>
-<li><code>make</code></li>
-<li><code>make install</code></li>
-<li>edit ~/.bashrc <code>alias vim=&quot;/home/bobby/tools/vim7.4/bin/vim&quot;</code></li>
-<li>edit ~/.vimrc <code>set synatx on set nocompatible set backspace=2</code></li>
-<li>setup vimruntime in order to let vim find the syntax env, please edit .bash_profile <code>export VIMRUNTIME=/home/bobby/tools/preinstall/vim74/runtime</code></li>
-</ol>
+          
+            <p class="article-more-link">
+              <a href="/2014/11/02/setting-github-pages/#more">Read More</a>
+            </p>
+          
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/11/02/setting-github-pages/" data-id="99g7qq0mmxxair54" data_title="Setting Github Pages"
+          data_summary="There are only two steps to setup your personal blog with your own domain.
 
+Create a CNAME file under the root of your repos(e.g. https://github.com/sicongtang/..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/11/02/setting-github-pages/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/github/">github</a>
+  </div>
+
+
+          
+
+        </footer>
       
     </div>
   </div>
 </article>
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+
+  
+  
+
+
 
 
 </section>
@@ -162,42 +188,40 @@ In addition, ncurses is the prerequisities of installing ruby and vim. Also, ple
 <aside id="sidebar">
   
     
-      
-<div class="widget-wrap center">
-  <ul class="pagination">
-    <li>
-      
-        <a href="/2014/07/16/frontend-javascript-framework-alternatives/" class="nav-prev">Prev</a>
-      
-    </li>
-    <li>
-      <a data-url="http://sicongtang.github.io/2014/05/30/install-ruby-and-vim-command-without-root/" data-id="ehipl3up3y5c8slw" data_title="Install Ruby Vim Command Without Root"
-        data_summary="This post intend to write down the step for installing ruby and vim command line tools, without root access.
-In addition, ncurses is the prerequisities of insta..." class="article-share-link">Share</a>
-    </li>
-    <li>
-      
-        <a href="/2014/05/21/java-performance-os-monitoring/" class="nav-next">Next</a>
-      
-    </li>
-  </ul>
-</div>
-
-
-    
       <div class="widget-wrap">
-  <div class="post-widget">
-    <i class="fa fa-clock-o"></i>
-    <time datetime="2014-05-30T00:17:24.000Z" itemprop="datePublished">May 30 2014</time>
-  </div>
+    <div id="search-form-wrap">
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://sicongtang.github.io"></form>
+    </div>
 </div>
 
     
       
   <div class="widget-wrap">
-    <div class="post-widget">
-      <i class="fa fa-folder"></i>
-      <a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a>
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li class="recent-list">
+            <a href="/2014/11/02/setting-github-pages/">Setting Github Pages</a>
+          </li>
+        
+          <li class="recent-list">
+            <a href="/2014/10/29/uml-in-practice/">Uml in Practice</a>
+          </li>
+        
+          <li class="recent-list">
+            <a href="/2014/10/26/goal-setting-and-accomplishment-in-2015/">Goal Setting and Accomplishment in 2015</a>
+          </li>
+        
+          <li class="recent-list">
+            <a href="/2014/10/19/install-golang-and-emacs-plugins/">Install Golang and Emacs Plugins</a>
+          </li>
+        
+          <li class="recent-list">
+            <a href="/2014/10/13/getting-started-with-full-stack-javascript/">Getting Started With Full Stack Javascript</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
 
@@ -205,9 +229,32 @@ In addition, ncurses is the prerequisities of insta..." class="article-share-lin
     
       
   <div class="widget-wrap">
-    <div class="post-widget">
-      <i class="fa fa-tags"></i>
-      
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+         <li class="blogroll">
+           
+             <i class="fa fa-github"></i>
+           
+           <a href="https://github.com/sicongtang" title="Github">Github</a>
+          </li>
+        
+         <li class="blogroll">
+           
+             <i class="fa fa-google-plus"></i>
+           
+           <a href="https://plus.google.com/+BobbyTangSH" title="Google+">Google+</a>
+          </li>
+        
+         <li class="blogroll">
+           
+             <i class="fa fa-linkedin"></i>
+           
+           <a href="http://cn.linkedin.com/pub/bobby-tang/43/3b9/a2" title="Linkedin">Linkedin</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
 
@@ -250,13 +297,11 @@ In addition, ncurses is the prerequisities of insta..." class="article-share-lin
 <script>
   var disqus_shortname = 'bobbytang';
   
-  var disqus_url = 'http://sicongtang.github.io/2014/05/30/install-ruby-and-vim-command-without-root/';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//go.disqus.com/embed.js';
+    dsq.src = '//go.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
