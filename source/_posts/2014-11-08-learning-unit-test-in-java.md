@@ -18,3 +18,5 @@ Moreover, I search more stars projects on github, you can checkout [elasticsearc
 Eventually I am going to start using basic JUnit test with mockito mocking, which looks slim and compact.
 
 
+References:
+1. http://www.open-open.com/news/view/1981784
