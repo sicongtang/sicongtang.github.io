@@ -3,23 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mysql High Performance   Datatypes/Indexing | BobbyTang&#39;s Tech Blog</title>
+  <title>Atomic Db Operation in Web Apps | BobbyTang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Choosing Optimal Data Types
-Smaller is usually better.
-Simple is good. For example, integers are cheaper to compare than characters, because character sets and collations (sorting rules) make characte">
+  <meta name="description" content="Recently I met concurrency issues while trying to design a table that multiple thread on different hosts can access in a high frequency. Therfore I had to reconsider the solution to this situation.
+Af">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql High Performance   Datatypes/Indexing">
-<meta property="og:url" content="http://sicongtang.github.io/2014/11/25/mysql-high-performance-datatypes-indexing/">
+<meta property="og:title" content="Atomic Db Operation in Web Apps">
+<meta property="og:url" content="http://sicongtang.github.io/2014/12/28/atomic-DB-operation-in-web-apps/">
 <meta property="og:site_name" content="BobbyTang's Tech Blog">
-<meta property="og:description" content="Choosing Optimal Data Types
-Smaller is usually better.
-Simple is good. For example, integers are cheaper to compare than characters, because character sets and collations (sorting rules) make characte">
+<meta property="og:description" content="Recently I met concurrency issues while trying to design a table that multiple thread on different hosts can access in a high frequency. Therfore I had to reconsider the solution to this situation.
+Af">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql High Performance   Datatypes/Indexing">
-<meta name="twitter:description" content="Choosing Optimal Data Types
-Smaller is usually better.
-Simple is good. For example, integers are cheaper to compare than characters, because character sets and collations (sorting rules) make characte">
+<meta name="twitter:title" content="Atomic Db Operation in Web Apps">
+<meta name="twitter:description" content="Recently I met concurrency issues while trying to design a table that multiple thread on different hosts can access in a high frequency. Therfore I had to reconsider the solution to this situation.
+Af">
 
   
     <link rel="alternative" href="/atom.xml" title="BobbyTang&#39;s Tech Blog" type="application/atom+xml">
@@ -119,7 +116,7 @@ Simple is good. For example, integers are cheaper to compare than characters, be
           <div class="page-header">
             <h1 class="title">
           
-            Mysql High Performance   Datatypes/Indexing
+            Atomic Db Operation in Web Apps
           
             </h1>
         </div>
@@ -127,20 +124,31 @@ Simple is good. For example, integers are cheaper to compare than characters, be
       
       <section id="main"
         
-      ><article id="post-2c8bmvoe22hlsxy8" class="article article-type-post" itemscope itemprop="blogPost">
+      ><article id="post-ra7xznxsftvp0luu" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div id="toc"><span class="toc-header">Contents</span><ol class="article-toc"><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#choosing-optimal-data-types"><span class="article-toc-text">Choosing Optimal Data Types</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-5"><a class="article-toc-link" href="#varchar-and-char-types"><span class="article-toc-text">VARCHAR and CHAR types</span></a></li><li class="article-toc-item article-toc-level-5"><a class="article-toc-link" href="#blob-and-text-types"><span class="article-toc-text">BLOB and TEXT types</span></a></li><li class="article-toc-item article-toc-level-5"><a class="article-toc-link" href="#using-enum-instead-of-a-string-type"><span class="article-toc-text">Using ENUM instead of a string type</span></a></li><li class="article-toc-item article-toc-level-5"><a class="article-toc-link" href="#datetime-and-timestamp-types"><span class="article-toc-text">DATETIME and TIMESTAMP types</span></a></li><li class="article-toc-item article-toc-level-5"><a class="article-toc-link" href="#bit-packed-data-types"><span class="article-toc-text">Bit-Packed Data Types</span></a></li></ol></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#a-mixture-of-normalized-and-denormalized"><span class="article-toc-text">A Mixture of Normalized and Denormalized</span></a></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#cache-and-summary-tables"><span class="article-toc-text">Cache and Summary Tables</span></a><ol class="article-toc-child"><li class="article-toc-item article-toc-level-5"><a class="article-toc-link" href="#materialized-views"><span class="article-toc-text">Materialized Views</span></a></li><li class="article-toc-item article-toc-level-5"><a class="article-toc-link" href="#counter-tables"><span class="article-toc-text">Counter Tables</span></a></li></ol></li></ol></li></ol></li><li class="article-toc-item article-toc-level-2"><a class="article-toc-link" href="#types-of-indexes"><span class="article-toc-text">Types of Indexes</span></a></li></ol></div><h2 id="choosing-optimal-data-types">Choosing Optimal Data Types</h2><ul>
-<li>Smaller is usually better.</li>
-<li>Simple is good. For example, integers are cheaper to compare than characters, because character sets and collations (sorting rules) make character comparisons compli- cated.</li>
-<li>Avoid NULL if possible.</li>
-</ul>
-<h5 id="varchar-and-char-types">VARCHAR and CHAR types</h5><h5 id="blob-and-text-types">BLOB and TEXT types</h5><h5 id="using-enum-instead-of-a-string-type">Using ENUM instead of a string type</h5><h5 id="datetime-and-timestamp-types">DATETIME and TIMESTAMP types</h5><h5 id="bit-packed-data-types">Bit-Packed Data Types</h5><h2 id="a-mixture-of-normalized-and-denormalized">A Mixture of Normalized and Denormalized</h2><p>The most common way to denormalize data is to duplicate, or cache, selected columns from one table in another table. In MySQL 5.0 and newer, you can use triggers to update the cached values, which makes the implementation easier.</p>
-<h2 id="cache-and-summary-tables">Cache and Summary Tables</h2><h5 id="materialized-views">Materialized Views</h5><h5 id="counter-tables">Counter Tables</h5><h2 id="types-of-indexes">Types of Indexes</h2><p>Pending...</p>
+        <p>Recently I met concurrency issues while trying to design a table that multiple thread on different hosts can access in a high frequency. Therfore I had to reconsider the solution to this situation.</p>
+<p>After digging couples of references, list possbile solutions as below:</p>
+<ol>
+<li><strong>distributed lock in memory</strong>, e.g. redis, zookeeper</li>
+<li><strong>pessimistic lock</strong>(select .. for update), you cannot bear update failure while high-frequency collision occurs.</li>
+<li><strong>optimistic lock</strong>(version field), you bears update failure when collision occurs.</li>
+<li>mysql <code>last_insert_id function</code>, that only works with the same db connection. This will be infeasible for web application while using db connection pools.</li>
+<li><strong>split data</strong> across the machine and synchronized local thread</li>
+<li>batch fetch and maintain in memory, this cannot avoid concurrency issues but on the other hand can decrease the chances on race condition.</li>
+<li>You can also create <strong>counter table</strong>(<code>UPDATE hit_counter SET cnt = cnt + 1 WHERE slot = RAND() * 100;</code>), and retrieve statistics, just use aggregate queries(<code>retrieve statistics, just use aggregate queries</code>)</li>
+</ol>
+<p>When concurrency issues happens in a high frequency rate, it is recommended to use distributed in-memory lock and perssimistic lock in order to keep avoiding update failure and retry logic in optimistic lock.</p>
+<p>References:</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/6153657/how-to-increment-a-counter-and-return-the-value-in-mysql" target="_blank" rel="external">mysql last_insert_id</a></li>
+<li><a href="http://nofluffjuststuff.com/blog/scott_leberknight/2013/07/distributed_coordination_with_zookeeper_part_5_building_a_distributed_lock" target="_blank" rel="external">building_a_distributed_lock</a></li>
+<li><a href="http://www.amazon.com/High-Performance-MySQL-Jeremy-Zawodny/dp/0596003064/ref=sr_1_5?ie=UTF8&amp;qid=1419773248&amp;sr=8-5&amp;keywords=high+performance+mysql" target="_blank" rel="external">High Performance MySQL</a></li>
+</ol>
 
       
     </div>
@@ -165,18 +173,16 @@ Simple is good. For example, integers are cheaper to compare than characters, be
   <ul class="pagination">
     <li>
       
-        <a href="/2014/12/28/atomic-DB-operation-in-web-apps/" class="nav-prev">Prev</a>
+        <span class="nav-prev disabled">Prev</span>
       
     </li>
     <li>
-      <a data-url="http://sicongtang.github.io/2014/11/25/mysql-high-performance-datatypes-indexing/" data-id="2c8bmvoe22hlsxy8" data_title="Mysql High Performance   Datatypes/Indexing"
-        data_summary="Choosing Optimal Data Types
-Smaller is usually better.
-Simple is good. For example, integers are cheaper to compare than characters, because character sets and ..." class="article-share-link">Share</a>
+      <a data-url="http://sicongtang.github.io/2014/12/28/atomic-DB-operation-in-web-apps/" data-id="ra7xznxsftvp0luu" data_title="Atomic Db Operation in Web Apps"
+        data_summary="Recently I met concurrency issues while trying to design a table that multiple thread on different hosts can access in a high frequency. Therfore I had to recon..." class="article-share-link">Share</a>
     </li>
     <li>
       
-        <a href="/2014/11/11/transcation-management-in-java/" class="nav-next">Next</a>
+        <a href="/2014/11/25/mysql-high-performance-datatypes-indexing/" class="nav-next">Next</a>
       
     </li>
   </ul>
@@ -187,7 +193,7 @@ Simple is good. For example, integers are cheaper to compare than characters, be
       <div class="widget-wrap">
   <div class="post-widget">
     <i class="fa fa-clock-o"></i>
-    <time datetime="2014-11-24T16:19:32.000Z" itemprop="datePublished">Nov 25 2014</time>
+    <time datetime="2014-12-28T12:44:11.000Z" itemprop="datePublished">Dec 28 2014</time>
   </div>
 </div>
 
@@ -196,7 +202,7 @@ Simple is good. For example, integers are cheaper to compare than characters, be
   <div class="widget-wrap">
     <div class="post-widget">
       <i class="fa fa-folder"></i>
-      <a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a>
+      <a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a>
     </div>
   </div>
 
@@ -249,7 +255,7 @@ Simple is good. For example, integers are cheaper to compare than characters, be
 <script>
   var disqus_shortname = 'bobbytang';
   
-  var disqus_url = 'http://sicongtang.github.io/2014/11/25/mysql-high-performance-datatypes-indexing/';
+  var disqus_url = 'http://sicongtang.github.io/2014/12/28/atomic-DB-operation-in-web-apps/';
   
   (function(){
     var dsq = document.createElement('script');
