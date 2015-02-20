@@ -123,6 +123,150 @@
         
       >
   
+    <article id="post-hg27sku2tkciclnh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2015/02/20/JVM-Internals/">Jvm Internals</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2015-02-20T03:38:20.000Z" itemprop="datePublished">Feb 20 2015</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <h2 id="1.-jvm-structure">1. JVM Structure</h2><h2 id="2.-class-loader-subsystem">2. Class Loader SubSystem</h2><ul>
+<li>Loading: finding and importing the binary data for a type</li>
+<li>Linking: performing verification, preparation, and (optionally) resolution<ol>
+<li>Verification: ensuring the correctness of the imported type</li>
+<li>Preparation: allocating memory for class variables and initializing the memory to default values</li>
+<li>Resolution: transforming symbolic references from the type into direct references.</li>
+</ol>
+</li>
+<li>Initialization: invoking Java code that initializes class variables to their proper starting values.</li>
+</ul>
+<p>Parent-Delegation Model</p>
+<ul>
+<li>Bootstrap Class Loader: $JAVA_HOME/jre/lib/rt.jar, controlled by -Xbootclasspath option</li>
+<li>Extension Class Loader: %JAVA_HOME/jre/lib/ext/*.jar, controlled by -Djava.ext.dirs system property</li>
+<li>Application/System Class Loader: $CLASSPATH, controlled by -classpath/-cp/$CLASSPATH</li>
+<li>User defined classloader: custom classpath [path on disk, a network address etc]</li>
+</ul>
+<h2 id="3.-runtime-data-area">3. Runtime data area</h2><p>Runtime Data Areas are the memory areas assigned when the JVM program runs on the OS. The runtime data areas can be divided into 6 areas. Of the six, one PC Register, JVM Stack, and Native Method Stack are <strong>created for one thread</strong>. Heap, Method Area, and Runtime Constant Pool are <strong>shared by all threads</strong>.</p>
+<h2 id="3.1.1-method-area">3.1.1 method area</h2><p>Inside a Java Virtual Machine instance, information about loaded types is stored in a logical area of memory called the <strong>method area</strong>. When the Java Virtual Machine loads a type, it uses a class loader to locate the appropriate class file. The class loader reads in the class file--a linear stream of <strong>binary data</strong>-- and passes it to the virtual machine. The virtual machine extracts information about the type from the binary data and stores the information in the method area. Memory for class (static) variables declared in the class is also taken from the method area.</p>
+<ul>
+<li>Type Information</li>
+<li>The Constant Pool</li>
+<li>Field Information</li>
+<li>Method Information</li>
+<li>Class Variables
+** Class variables are shared among all instances of a class and can be accessed even in the absence of any instance. Constants (class variables declared final) are not treated in the same way as non-final class variables. Every type that uses a final class variable gets a copy of the constant value in its own constant pool.</li>
+<li>A Reference to Class ClassLoader</li>
+<li>A Reference to Class Class</li>
+</ul>
+<h2 id="3.1.2-runtime-constant-pool">3.1.2 runtime constant pool</h2><h2 id="3.2-heap">3.2 heap</h2><p>The Heap is used to allocate <strong>class instances and arrays</strong> at runtime. <strong>Arrays and objects</strong> can never be stored on the stack because a frame is not designed to change in size after it has been created. The frame only stores references that point to objects or arrays on the heap. Unlike primitive variables and references in the local variable array (in each frame) objects are always stored on the heap so they are not removed when a method ends. Instead objects are only removed by the garbage collector.</p>
+<h2 id="3.3-java-stack">3.3 java stack</h2><p>When the Java Virtual Machine invokes a Java method, it checks the class data to determine the number of words required by the method in the local variables and operand stack. It creates a stack frame of the proper size for the method and pushes it onto the Java stack.</p>
+<p>The stack frame has three parts: local variables, operand stack, and frame data.</p>
+<h2 id="3.4-ps-register">3.4 ps register</h2><p>Each thread of a running program has its own pc register, or program counter, which is created when the thread is started. The pc register is one word in size, so it can hold both a native pointer and a returnValue. As a thread executes a Java method, the pc register contains <strong>the address of the current instruction</strong> being executed by the thread. An &quot;address&quot; can be a native pointer or an offset from the beginning of a methodís bytecodes. If a thread is executing a native method, the value of the pc register is undefined.</p>
+<h2 id="3.5-native-method-stack">3.5 native method stack</h2><h2 id="4.-execution-engine">4. Execution Engine</h2><ul>
+<li>Interpreter: Reads, interprets and executes the bytecode instructions one by one.</li>
+<li>JIT (Just-In-Time) compiler: The JIT compiler has been introduced to compensate for the disadvantages of the interpreter. The execution engine runs as an interpreter first, and at the appropriate time, the JIT compiler compiles the entire bytecode to change it to native code.</li>
+</ul>
+<p>Oracle Hotspot VM uses a JIT compiler called Hotspot Compiler. It is called Hotspot because Hotspot Compiler searches the &#39;Hotspot&#39; that requires compiling with the highest priority through profiling, and then it compiles the hotspot to native code. If the method that has the bytecode compiled is no longer frequently invoked, in other words, if the method is not the hotspot any more, the Hotspot VM removes the native code from the cache and runs in interpreter mode. The Hotspot VM is divided into the Server VM and the Client VM, and the two VMs use different JIT compilers.</p>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2015/02/20/JVM-Internals/" data-id="hg27sku2tkciclnh" data_title="Jvm Internals"
+          data_summary="1. JVM Structure2. Class Loader SubSystem
+Loading: finding and importing the binary data for a type
+Linking: performing verification, preparation, and (optional..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2015/02/20/JVM-Internals/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JVM/">JVM</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
+    <article id="post-czuuenum1xkuc097" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2015/01/18/J2EE7-Batch-Processing/">J2 Ee7 Batch Processing</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2015-01-18T13:51:24.000Z" itemprop="datePublished">Jan 18 2015</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <p>References:</p>
+<ol>
+<li><a href="http://docs.spring.io/spring-batch/trunk/reference/html/domain.html" target="_blank" rel="external">http://docs.spring.io/spring-batch/trunk/reference/html/domain.html</a></li>
+</ol>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2015/01/18/J2EE7-Batch-Processing/" data-id="czuuenum1xkuc097" data_title="J2 Ee7 Batch Processing"
+          data_summary="References:
+
+http://docs.spring.io/spring-batch/trunk/reference/html/domain.html
+
+" class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2015/01/18/J2EE7-Batch-Processing/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/J2EE/">J2EE</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-ra7xznxsftvp0luu" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -620,119 +764,6 @@ edit .bash_profile
 
 
   
-    <article id="post-w930zzfq9e3522ni" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/10/13/getting-started-with-full-stack-javascript/">Getting Started With Full Stack Javascript</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-10-12T18:46:32.000Z" itemprop="datePublished">Oct 13 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <!---->
-          <p>Since I was enlighted by Minix and started to learn nodejs at the beginning of the June, I have realized that full-stack javascript might be dominating the web framework instead of rails or J2EE. I started to investigate any alternative framework in this new tech concept.</p>
-<p>In my initial project with full-stack javascript, requirejs/backbonejs/express/mongodb were selected. Backbone is lightweight frontend js mvc framework which has fewer learning curve and unopinionated, comparing with angularjs. Additionly, Express is the most common mvc server-side framework in nodejs. Moreover, mongodb is relatively friendly to nodejs json format in server-side code as well as command-line shell. Thus, the whole brand new tech stack has been determined.</p>
-<p>Before we commerced to scanffold our project using <a href="https://github.com/sicongtang/generator-marionette" target="_blank" rel="external">yeoman-generator</a>, we took a glimpse on tutorial i.e. <a href="http://www.amazon.com/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253/ref=sr_1_2?ie=UTF8&amp;qid=1413166509&amp;sr=8-2&amp;keywords=backbone" target="_blank" rel="external">Developing Backbone.js Applications by Addy Osmani</a>, <a href="http://www.amazon.com/Web-Development-Node-Express-Leveraging/dp/1491949309/ref=sr_1_1?ie=UTF8&amp;qid=1413166609&amp;sr=8-1&amp;keywords=node+express" target="_blank" rel="external">Web Development with Node and Express</a>, in order to be familiar with mvc conecpt, restful api, and middileware in express. Besides, I also scan tricks in requirejs/bower/node package management in order to build a highly-maintainable project with a mainifest dependency.</p>
-
-          
-            <p class="article-more-link">
-              <a href="/2014/10/13/getting-started-with-full-stack-javascript/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/10/13/getting-started-with-full-stack-javascript/" data-id="w930zzfq9e3522ni" data_title="Getting Started With Full Stack Javascript"
-          data_summary="Since I was enlighted by Minix and started to learn nodejs at the beginning of the June, I have realized that full-stack javascript might be dominating the web ..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/10/13/getting-started-with-full-stack-javascript/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
-    <article id="post-63sx9k7f62mrq7zw" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/09/05/javascript-patterns-notes/">Javascript Patterns Notes</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-09-05T09:20:45.000Z" itemprop="datePublished">Sep 5 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <!---->
-          <p>This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.</p>
-<p>
-          
-            <p class="article-more-link">
-              <a href="/2014/09/05/javascript-patterns-notes/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/09/05/javascript-patterns-notes/" data-id="63sx9k7f62mrq7zw" data_title="Javascript Patterns Notes"
-          data_summary="This post aims to summarize the js patterns in Javascript Patterns book written by Stoyan-Stefanov. The category order is followed by the chapter of this book.
-..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/09/05/javascript-patterns-notes/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
   
 <div class="center">
   <ul class="pagination">
@@ -772,7 +803,7 @@ edit .bash_profile
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">2</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">3</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
+      <a class="category-link" href="/categories/J2EE/">J2EE<span class="category-count">1</span></a><a class="category-link" href="/categories/JVM/">JVM<span class="category-count">1</span></a><a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">2</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">3</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
     </div>
   </div>
 
@@ -785,7 +816,7 @@ edit .bash_profile
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -834,7 +865,7 @@ edit .bash_profile
   
   <div class="outer container">
     <div id="footer-info" class="inner">
-      <a href="/">BobbyTang&#39;s Tech Blog</a> &copy; 2014 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
+      <a href="/">BobbyTang&#39;s Tech Blog</a> &copy; 2015 Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/seff/nut" target="_blank">Nut</a>
     </div>
   </div>
 </footer>
