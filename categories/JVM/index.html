@@ -174,10 +174,22 @@
 <li>The Constant Pool</li>
 <li>Field Information</li>
 <li>Method Information</li>
-<li>Class Variables
-** Class variables are shared among all instances of a class and can be accessed even in the absence of any instance. Constants (class variables declared final) are not treated in the same way as non-final class variables. Every type that uses a final class variable gets a copy of the constant value in its own constant pool.</li>
-<li>A Reference to Class ClassLoader</li>
-<li>A Reference to Class Class</li>
+<li>Class Variables<ul>
+<li>Class variables are shared among all instances of a class and can be accessed even in the absence of any instance. Constants (<strong>class variables declared final</strong>) are not treated in the same way as non-final class variables. Every type that uses a final class variable gets a copy of the constant value in its own constant pool.</li>
+</ul>
+</li>
+<li>A Reference to Class ClassLoader<ul>
+<li>For those types loaded via a class loader object, the virtual machine must store a reference to the class loader object that loaded the type. The virtual machine uses this information during <strong>dynamic linking</strong>. When one type refers to another type, the virtual machine requests the referenced type from the same class loader that loaded the referencing type.</li>
+</ul>
+</li>
+<li>A Reference to Class Class<ul>
+<li>class <code>Class</code> gives the running application access to the information stored in the method area</li>
+</ul>
+</li>
+<li>Method Tables<ul>
+<li>For each non-abstract class a Java Virtual Machine loads, it could generate a method table and include it as part of the class information it stores in the method area. A method table is an array of direct references to all the instance methods that may be invoked on a class instance, including instance methods inherited from superclasses.</li>
+</ul>
+</li>
 </ul>
 <h2 id="3.1.2-runtime-constant-pool">3.1.2 runtime constant pool</h2><h2 id="3.2-heap">3.2 heap</h2><p>The Heap is used to allocate <strong>class instances and arrays</strong> at runtime. <strong>Arrays and objects</strong> can never be stored on the stack because a frame is not designed to change in size after it has been created. The frame only stores references that point to objects or arrays on the heap. Unlike primitive variables and references in the local variable array (in each frame) objects are always stored on the heap so they are not removed when a method ends. Instead objects are only removed by the garbage collector.</p>
 <h2 id="3.3-java-stack">3.3 java stack</h2><p>When the Java Virtual Machine invokes a Java method, it checks the class data to determine the number of words required by the method in the local variables and operand stack. It creates a stack frame of the proper size for the method and pushes it onto the Java stack.</p>
