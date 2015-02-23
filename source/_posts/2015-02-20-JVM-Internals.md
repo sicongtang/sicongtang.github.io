@@ -4,6 +4,8 @@ categories: JVM
 ---
 ##1. JVM Structure
 
+{% img http://i.imgur.com/Ij8dKbY.png?1 jvm_architecture %}
+
 ##2. Class Loader SubSystem
 * Loading: finding and importing the binary data for a type
 * Linking: performing verification, preparation, and (optionally) resolution
