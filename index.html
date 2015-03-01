@@ -147,6 +147,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+          <!--<div class="thumbnail"><img src="http://i.imgur.com/Ij8dKbY.png?1" title="jvm_architecture"></div>-->
           <h2 id="1.-jvm-structure">1. JVM Structure</h2><img src="http://i.imgur.com/Ij8dKbY.png?1" title="jvm_architecture">
 
 <h2 id="2.-class-loader-subsystem">2. Class Loader SubSystem</h2><ul>
@@ -166,42 +167,12 @@
 <li>Application/System Class Loader: $CLASSPATH, controlled by -classpath/-cp/$CLASSPATH</li>
 <li>User defined classloader: custom classpath [path on disk, a network address etc]</li>
 </ul>
-<script src="https://gist.github.com/9b7a8455f4dea72ee285.js?file=ClassLoader.java"></script>
 
-<h2 id="3.-runtime-data-area">3. Runtime data area</h2><p>Runtime Data Areas are the memory areas assigned when the JVM program runs on the OS. The runtime data areas can be divided into 6 areas. Of the six, one PC Register, JVM Stack, and Native Method Stack are <strong>created for one thread</strong>. Heap, Method Area, and Runtime Constant Pool are <strong>shared by all threads</strong>.</p>
-<h2 id="3.1.1-method-area">3.1.1 method area</h2><p>Inside a Java Virtual Machine instance, information about loaded types is stored in a logical area of memory called the <strong>method area</strong>. When the Java Virtual Machine loads a type, it uses a class loader to locate the appropriate class file. The class loader reads in the class file--a linear stream of <strong>binary data</strong>-- and passes it to the virtual machine. The virtual machine extracts information about the type from the binary data and stores the information in the method area. Memory for class (static) variables declared in the class is also taken from the method area.</p>
-<ul>
-<li>Type Information</li>
-<li>The Constant Pool</li>
-<li>Field Information</li>
-<li>Method Information</li>
-<li>Class Variables<ul>
-<li>Class variables are shared among all instances of a class and can be accessed even in the absence of any instance. Constants (<strong>class variables declared final</strong>) are not treated in the same way as non-final class variables. Every type that uses a final class variable gets a copy of the constant value in its own constant pool.</li>
-</ul>
-</li>
-<li>A Reference to Class ClassLoader<ul>
-<li>For those types loaded via a class loader object, the virtual machine must store a reference to the class loader object that loaded the type. The virtual machine uses this information during <strong>dynamic linking</strong>. When one type refers to another type, the virtual machine requests the referenced type from the same class loader that loaded the referencing type.</li>
-</ul>
-</li>
-<li>A Reference to Class Class<ul>
-<li>class <code>Class</code> gives the running application access to the information stored in the method area</li>
-</ul>
-</li>
-<li>Method Tables<ul>
-<li>For each non-abstract class a Java Virtual Machine loads, it could generate a method table and include it as part of the class information it stores in the method area. A method table is an array of direct references to all the instance methods that may be invoked on a class instance, including instance methods inherited from superclasses.</li>
-</ul>
-</li>
-</ul>
-<h2 id="3.1.2-runtime-constant-pool">3.1.2 runtime constant pool</h2><h2 id="3.2-heap">3.2 heap</h2><p>The Heap is used to allocate <strong>class instances and arrays</strong> at runtime. <strong>Arrays and objects</strong> can never be stored on the stack because a frame is not designed to change in size after it has been created. The frame only stores references that point to objects or arrays on the heap. Unlike primitive variables and references in the local variable array (in each frame) objects are always stored on the heap so they are not removed when a method ends. Instead objects are only removed by the garbage collector.</p>
-<h2 id="3.3-java-stack">3.3 java stack</h2><p>When the Java Virtual Machine invokes a Java method, it checks the class data to determine the number of words required by the method in the local variables and operand stack. It creates a stack frame of the proper size for the method and pushes it onto the Java stack.</p>
-<p>The stack frame has three parts: local variables, operand stack, and frame data.</p>
-<h2 id="3.4-ps-register">3.4 ps register</h2><p>Each thread of a running program has its own pc register, or program counter, which is created when the thread is started. The pc register is one word in size, so it can hold both a native pointer and a returnValue. As a thread executes a Java method, the pc register contains <strong>the address of the current instruction</strong> being executed by the thread. An &quot;address&quot; can be a native pointer or an offset from the beginning of a methodís bytecodes. If a thread is executing a native method, the value of the pc register is undefined.</p>
-<h2 id="3.5-native-method-stack">3.5 native method stack</h2><h2 id="4.-execution-engine">4. Execution Engine</h2><ul>
-<li>Interpreter: Reads, interprets and executes the bytecode instructions one by one.</li>
-<li>JIT (Just-In-Time) compiler: The JIT compiler has been introduced to compensate for the disadvantages of the interpreter. The execution engine runs as an interpreter first, and at the appropriate time, the JIT compiler compiles the entire bytecode to change it to native code.</li>
-</ul>
-<p>Oracle Hotspot VM uses a JIT compiler called Hotspot Compiler. It is called Hotspot because Hotspot Compiler searches the &#39;Hotspot&#39; that requires compiling with the highest priority through profiling, and then it compiles the hotspot to native code. If the method that has the bytecode compiled is no longer frequently invoked, in other words, if the method is not the hotspot any more, the Hotspot VM removes the native code from the cache and runs in interpreter mode. The Hotspot VM is divided into the Server VM and the Client VM, and the two VMs use different JIT compilers.</p>
-
+          
+            <p class="article-more-link">
+              <a href="/2015/02/20/JVM-Internals/#more">Read More</a>
+            </p>
+          
         
         <footer class="article-footer">
           <a data-url="http://sicongtang.github.io/2015/02/20/JVM-Internals/" data-id="hg27sku2tkciclnh" data_title="Jvm Internals"
