@@ -150,7 +150,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          <h2 id="1.-jvm-structure">1. JVM Structure</h2><p><a href="http://i.imgur.com/Ij8dKbY.png?1" target="_blank" rel="external">jvm_architecture</a></p>
+          <h2 id="1.-jvm-structure">1. JVM Structure</h2><img src="http://i.imgur.com/Ij8dKbY.png?1" title="jvm_architecture">
+
 <h2 id="2.-class-loader-subsystem">2. Class Loader SubSystem</h2><ul>
 <li>Loading: finding and importing the binary data for a type</li>
 <li>Linking: performing verification, preparation, and (optionally) resolution<ol>
@@ -168,6 +169,8 @@
 <li>Application/System Class Loader: $CLASSPATH, controlled by -classpath/-cp/$CLASSPATH</li>
 <li>User defined classloader: custom classpath [path on disk, a network address etc]</li>
 </ul>
+<script src="https://gist.github.com/9b7a8455f4dea72ee285.js?file=ClassLoader.java"></script>
+
 <h2 id="3.-runtime-data-area">3. Runtime data area</h2><p>Runtime Data Areas are the memory areas assigned when the JVM program runs on the OS. The runtime data areas can be divided into 6 areas. Of the six, one PC Register, JVM Stack, and Native Method Stack are <strong>created for one thread</strong>. Heap, Method Area, and Runtime Constant Pool are <strong>shared by all threads</strong>.</p>
 <h2 id="3.1.1-method-area">3.1.1 method area</h2><p>Inside a Java Virtual Machine instance, information about loaded types is stored in a logical area of memory called the <strong>method area</strong>. When the Java Virtual Machine loads a type, it uses a class loader to locate the appropriate class file. The class loader reads in the class file--a linear stream of <strong>binary data</strong>-- and passes it to the virtual machine. The virtual machine extracts information about the type from the binary data and stores the information in the method area. Memory for class (static) variables declared in the class is also taken from the method area.</p>
 <ul>
@@ -205,10 +208,11 @@
         
         <footer class="article-footer">
           <a data-url="http://sicongtang.github.io/2015/02/20/JVM-Internals/" data-id="hg27sku2tkciclnh" data_title="Jvm Internals"
-          data_summary="1. JVM Structurejvm_architecture
+          data_summary="1. JVM Structure
+
 2. Class Loader SubSystem
 Loading: finding and importing the binary data for a type
-Linking: performing verification, preparati..." class="article-share-link">Share</a>
+Linking: performing verification, preparation, and (option..." class="article-share-link">Share</a>
           
             <a href="http://sicongtang.github.io/2015/02/20/JVM-Internals/#disqus_thread" class="article-comment-link">Comments</a>
           
@@ -257,7 +261,7 @@ Linking: performing verification, preparati..." class="article-share-link">Share
           </li>
         
           <li class="recent-list">
-            <a href="/2015/01/18/J2EE7-Batch-Processing/">Ee7 Batch Processing</a>
+            <a href="/2015/01/18/itemreader-writer-in-spring-batch/">Itemreader Writer in Spring Batch</a>
           </li>
         
           <li class="recent-list">
