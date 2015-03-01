@@ -20,6 +20,8 @@ Parent-Delegation Model
 * Application/System Class Loader: $CLASSPATH, controlled by -classpath/-cp/$CLASSPATH
 * User defined classloader: custom classpath [path on disk, a network address etc]
 
+{% gist 9b7a8455f4dea72ee285 ClassLoader.java %}
+
 ##3. Runtime data area
 Runtime Data Areas are the memory areas assigned when the JVM program runs on the OS. The runtime data areas can be divided into 6 areas. Of the six, one PC Register, JVM Stack, and Native Method Stack are __created for one thread__. Heap, Method Area, and Runtime Constant Pool are __shared by all threads__.
 
