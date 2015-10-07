@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: java | BobbyTang&#39;s Tech Blog</title>
+  <title>Thread Pool Executor or Producer Consumer Pattern | BobbyTang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="BobbyTang's Tech Blog">
-<meta property="og:url" content="http://sicongtang.github.io/tags/java/">
+  <meta name="description" content="In this topic, I would like to talk about more ThreadPoolExecutor in Java, comapred with ProducerConsumer multi-threading pattern in tradition.
+TODO
+References:
+
+http://ifeve.com/blocking-threadpool-e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thread Pool Executor or Producer Consumer Pattern">
+<meta property="og:url" content="http://sicongtang.github.io/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/">
 <meta property="og:site_name" content="BobbyTang's Tech Blog">
-<meta property="og:description">
+<meta property="og:description" content="In this topic, I would like to talk about more ThreadPoolExecutor in Java, comapred with ProducerConsumer multi-threading pattern in tradition.
+TODO
+References:
+
+http://ifeve.com/blocking-threadpool-e">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BobbyTang's Tech Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Thread Pool Executor or Producer Consumer Pattern">
+<meta name="twitter:description" content="In this topic, I would like to talk about more ThreadPoolExecutor in Java, comapred with ProducerConsumer multi-threading pattern in tradition.
+TODO
+References:
+
+http://ifeve.com/blocking-threadpool-e">
 
   
     <link rel="alternative" href="/atom.xml" title="BobbyTang&#39;s Tech Blog" type="application/atom+xml">
@@ -113,9 +125,7 @@
           <div class="page-header">
             <h1 class="title">
           
-            
-              java
-            
+            Thread Pool Executor or Producer Consumer Pattern
           
             </h1>
         </div>
@@ -123,79 +133,30 @@
       
       <section id="main"
         
-      >
-  
-  
-    <article id="post-71azd2o2fy5orpdo" class="article article-type-post" itemscope itemprop="blogPost">
+      ><article id="post-2bxntrcdvr9mvuau" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
 
     
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2015/05/12/java-generics-tips-tricks/">Java Generics Tips and Tricks</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2015-05-11T21:54:26.000Z" itemprop="datePublished">May 12 2015</time>
-</div>
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        
-          <!---->
-          <p>Parameterized type: <code>List&lt;String&gt;</code></p>
-<p>Actual type parameter: <code>String</code></p>
-<p>Generic type: <code>List&lt;E&gt;</code></p>
-<p>Formal type parameter: <code>E</code></p>
-<p>Unbounded wildcard type: <code>List&lt;?&gt;</code></p>
-<p>Raw type: <code>List</code></p>
-<p>Bounded type parameter: <code>&lt;E extends Number&gt;</code></p>
-<p>Recursive type bound: <code>&lt;T extends Comparable&lt;T&gt;&gt;</code></p>
-<p>Bounded wildcard type: <code>Bounded wildcard type</code></p>
-<p>List&lt;? extends Number&gt;: <code>static &lt;E&gt; List&lt;E&gt; asList(E[] a)</code></p>
-<p>Type token: <code>String.class</code></p>
+        <p>In this topic, I would like to talk about more ThreadPoolExecutor in Java, comapred with ProducerConsumer multi-threading pattern in tradition.</p>
+<p>TODO</p>
+<p>References:</p>
+<ol>
+<li><a href="http://ifeve.com/blocking-threadpool-executor/" target="_blank" rel="external">http://ifeve.com/blocking-threadpool-executor/</a></li>
+</ol>
 
-          
-            <p class="article-more-link">
-              <a href="/2015/05/12/java-generics-tips-tricks/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2015/05/12/java-generics-tips-tricks/" data-id="71azd2o2fy5orpdo" data_title="Java Generics Tips and Tricks"
-          data_summary="Parameterized type: List&lt;String&gt;
-Actual type parameter: String
-Generic type: List&lt;E&gt;
-Formal type parameter: E
-Unbounded wildcard type: List&lt;?&gt;..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2015/05/12/java-generics-tips-tricks/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-
-          
-<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link label label-primary" href="/tags/java/">java</a></li></ul>
-
-
-        </footer>
       
     </div>
   </div>
 </article>
 
-
-  
-  
-
-
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 
 
 </section>
@@ -204,40 +165,43 @@ Unbounded wildcard type: List&lt;?&gt;..." class="article-share-link">Share</a>
 <aside id="sidebar">
   
     
+      
+<div class="widget-wrap center">
+  <ul class="pagination">
+    <li>
+      
+        <a href="/2015/09/27/DB2-SQL-Tuning-Tips/" class="nav-prev">Prev</a>
+      
+    </li>
+    <li>
+      <a data-url="http://sicongtang.github.io/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/" data-id="2bxntrcdvr9mvuau" data_title="Thread Pool Executor or Producer Consumer Pattern"
+        data_summary="In this topic, I would like to talk about more ThreadPoolExecutor in Java, comapred with ProducerConsumer multi-threading pattern in tradition.
+TODO
+References:..." class="article-share-link">Share</a>
+    </li>
+    <li>
+      
+        <a href="/2015/05/12/java-generics-tips-tricks/" class="nav-next">Next</a>
+      
+    </li>
+  </ul>
+</div>
+
+
+    
       <div class="widget-wrap">
-    <div id="search-form-wrap">
-      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://sicongtang.github.io"></form>
-    </div>
+  <div class="post-widget">
+    <i class="fa fa-clock-o"></i>
+    <time datetime="2015-09-27T11:58:09.000Z" itemprop="datePublished">Sep 27 2015</time>
+  </div>
 </div>
 
     
       
   <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li class="recent-list">
-            <a href="/2015/09/27/DB2-SQL-Tuning-Tips/">Db2 Sql Tuning Tips</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/">Thread Pool Executor or Producer Consumer Pattern</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2015/05/12/java-generics-tips-tricks/">Java Generics Tips and Tricks</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2015/02/20/JVM-Internals/">Jvm Internals</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2015/01/18/itemreader-writer-in-spring-batch/">Itemreader Writer in Spring Batch</a>
-          </li>
-        
-      </ul>
+    <div class="post-widget">
+      <i class="fa fa-folder"></i>
+      <a class="category-link" href="/categories/java/">java<span class="category-count">3</span></a>
     </div>
   </div>
 
@@ -245,32 +209,9 @@ Unbounded wildcard type: List&lt;?&gt;..." class="article-share-link">Share</a>
     
       
   <div class="widget-wrap">
-    <h3 class="widget-title">Links</h3>
-    <div class="widget">
-      <ul>
-        
-         <li class="blogroll">
-           
-             <i class="fa fa-github"></i>
-           
-           <a href="https://github.com/sicongtang" title="Github">Github</a>
-          </li>
-        
-         <li class="blogroll">
-           
-             <i class="fa fa-google-plus"></i>
-           
-           <a href="https://plus.google.com/+BobbyTangSH" title="Google+">Google+</a>
-          </li>
-        
-         <li class="blogroll">
-           
-             <i class="fa fa-linkedin"></i>
-           
-           <a href="http://cn.linkedin.com/pub/bobby-tang/43/3b9/a2" title="Linkedin">Linkedin</a>
-          </li>
-        
-      </ul>
+    <div class="post-widget">
+      <i class="fa fa-tags"></i>
+      
     </div>
   </div>
 
@@ -313,11 +254,13 @@ Unbounded wildcard type: List&lt;?&gt;..." class="article-share-link">Share</a>
 <script>
   var disqus_shortname = 'bobbytang';
   
+  var disqus_url = 'http://sicongtang.github.io/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//go.disqus.com/count.js';
+    dsq.src = '//go.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

@@ -130,6 +130,122 @@
 
 
   
+    <article id="post-awbg60kd8i2ucsq1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/03/10/sql-switch-slash-transpose-columns-and-rows/">Sql   Switch/Transpose Columns and Rows</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-03-09T16:28:27.000Z" itemprop="datePublished">Mar 10 2014</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <p>In practice, we will meet the requirement to rotate the table including convert cols to rows, convert rows to cols. In this session, I&#39;ll produce the solution in common method as well as db-specified features.</p>
+<h2 id="convert-columns-to-rows">Convert columns to rows</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--common solution</span></div><div class="line"><span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> (</span></div><div class="line">	<span class="keyword">select</span> id, <span class="string">'col_1'</span> <span class="keyword">as</span> col_name, col_1 <span class="keyword">as</span> col_val</div><div class="line">	<span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">	<span class="keyword">union</span> <span class="keyword">all</span></div><div class="line">	<span class="keyword">select</span> id, <span class="string">'col_2'</span> <span class="keyword">as</span> col_name, col_2 <span class="keyword">as</span> col_val</div><div class="line">	<span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">	<span class="keyword">union</span> <span class="keyword">all</span></div><div class="line">	... </div><div class="line">) <span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--oracle 11g unpivot query</span></div><div class="line"><span class="operator"><span class="keyword">select</span> *</span></div><div class="line"><span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">unpivot (</div><div class="line">	col_val <span class="keyword">for</span> col_name <span class="keyword">in</span> (col_1 <span class="keyword">as</span> <span class="string">'col_1'</span>, col_2 <span class="keyword">as</span> <span class="string">'col_2'</span>)</div><div class="line">)</div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
+
+<h2 id="concert-rows-to-columns">Concert rows to columns</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--common solution</span></div><div class="line"><span class="operator"><span class="keyword">select</span> id,</span></div><div class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> col_name = <span class="string">'col_1'</span> <span class="keyword">then</span> col_val <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span>) <span class="keyword">as</span> col_1,</div><div class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> col_name = <span class="string">'col_2'</span> <span class="keyword">then</span> col_val <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span>) <span class="keyword">as</span> col_2,</div><div class="line">	...</div><div class="line"><span class="keyword">from</span> <span class="keyword">table</span></div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--oracle 11g pivot query</span></div><div class="line"><span class="operator"><span class="keyword">select</span> *</span></div><div class="line"><span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">pivot (</div><div class="line">	<span class="keyword">max</span>(col_val) <span class="keyword">for</span> col_name <span class="keyword">in</span> (<span class="string">'col_1'</span> <span class="keyword">as</span> col_1,<span class="string">'col_2'</span> <span class="keyword">as</span> col_2)</div><div class="line">)</div><div class="line"><span class="keyword">where</span> ...</div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
+
+<h2 id="excel-pivot-table">Excel pivot table</h2><p>For non-sql approaches, we can use excel pivot table. Excel spreadsheets are a great way to pivot and analyze Oracle data, and tools.</p>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/03/10/sql-switch-slash-transpose-columns-and-rows/" data-id="awbg60kd8i2ucsq1" data_title="Sql   Switch/Transpose Columns and Rows"
+          data_summary="In practice, we will meet the requirement to rotate the table including convert cols to rows, convert rows to cols. In this session, I&#39;ll produce the soluti..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/03/10/sql-switch-slash-transpose-columns-and-rows/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sql/">sql</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
+    <article id="post-zlxjscz88dtyfs7m" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/03/05/operating-system-concepts-terminology/">Operating System Concepts   Terminology</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-03-04T21:04:59.000Z" itemprop="datePublished">Mar 5 2014</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!--<div class="thumbnail"><img src="https://farm4.staticflickr.com/3775/13508587744_aa4be3c238_o.png" alt="Alt text" title="cpu_cache_hierarchy"></div>-->
+          <p>The aim of this post is to review the crucial terms of operating-system and basic interaction of these underlying components.</p>
+<p>Before starting with topic, I am going to reveal why I try to read books of OS related at this point. Let me conclude the reasons, first and foremost, various applications in my daily work encounter issues that are associated with LINUX system, such as buffer size, open file limits and unable to create native threads etc. All of these issues point out to the knowledge of OS. Next, Java performance tuning is always based on the operating system concept, like memory management, cpu utilization etc. Furthermore, including all the design concepts are derived from the solution of common issue inside operating system.</p>
+<p>Due to these, it is so encouraged to read and go through operating system concept again that I could be inspired and get everything tied. If there are any findings or association with Java, I will make more explanations and comments linked with definitive resource.</p>
+
+          
+            <p class="article-more-link">
+              <a href="/2014/03/05/operating-system-concepts-terminology/#more">Read More</a>
+            </p>
+          
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/03/05/operating-system-concepts-terminology/" data-id="zlxjscz88dtyfs7m" data_title="Operating System Concepts   Terminology"
+          data_summary="The aim of this post is to review the crucial terms of operating-system and basic interaction of these underlying components.
+Before starting with topic, I am g..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/03/05/operating-system-concepts-terminology/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/books/">books</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-a7h49716retvqrh6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -292,6 +408,14 @@ Here&#39;s some ..." class="article-share-link">Share</a>
       <ul>
         
           <li class="recent-list">
+            <a href="/2015/09/27/DB2-SQL-Tuning-Tips/">Db2 Sql Tuning Tips</a>
+          </li>
+        
+          <li class="recent-list">
+            <a href="/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/">Thread Pool Executor or Producer Consumer Pattern</a>
+          </li>
+        
+          <li class="recent-list">
             <a href="/2015/05/12/java-generics-tips-tricks/">Java Generics Tips and Tricks</a>
           </li>
         
@@ -301,14 +425,6 @@ Here&#39;s some ..." class="article-share-link">Share</a>
         
           <li class="recent-list">
             <a href="/2015/01/18/itemreader-writer-in-spring-batch/">Itemreader Writer in Spring Batch</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2014/12/28/atomic-DB-operation-in-web-apps/">Atomic Db Operation in Web Apps</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2014/11/25/mysql-high-performance-datatypes-indexing/">Mysql High Performance   Datatypes/Indexing</a>
           </li>
         
       </ul>

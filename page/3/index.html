@@ -123,6 +123,119 @@
         
       >
   
+    <article id="post-v40fx3aan5r9etpt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/05/21/java-performance-os-monitoring/">Java Performance   Os Monitoring</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-05-20T16:16:37.000Z" itemprop="datePublished">May 21 2014</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!---->
+          <h2 id="bottom-up-approach">Bottom Up Approach</h2><p>Bottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use of CPU instructions, and then working up the software stack at what constructs or idioms are used by the application.</p>
+<h2 id="choosing-the-right-cpu-architecture">Choosing the Right CPU Architecture</h2><p>One of the major design points behind the SPARC T-series processors is to address CPU cache misses by introducing multiple hardware threads per core.</p>
+
+          
+            <p class="article-more-link">
+              <a href="/2014/05/21/java-performance-os-monitoring/#more">Read More</a>
+            </p>
+          
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/05/21/java-performance-os-monitoring/" data-id="v40fx3aan5r9etpt" data_title="Java Performance   Os Monitoring"
+          data_summary="Bottom Up ApproachBottom up begins at the lowest level of the software stack, at the CPU level looking at statistics such as CPU cache misses, inefficient use o..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/05/21/java-performance-os-monitoring/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/books/">books</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
+    <article id="post-ug6rsv5u1jqktrow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/04/29/python-environment-setup/">Python Environment Setup</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-04-29T00:10:26.000Z" itemprop="datePublished">Apr 29 2014</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!---->
+          <p>Python is a script language, the main idea for learning python is to utilize python to create easy hands-on automation script on linux env instead of shell.</p>
+<p>Here, list the steps to configure PyDev, an eclipse plugin, inside eclipse environment.</p>
+
+          
+            <p class="article-more-link">
+              <a href="/2014/04/29/python-environment-setup/#more">Read More</a>
+            </p>
+          
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/04/29/python-environment-setup/" data-id="ug6rsv5u1jqktrow" data_title="Python Environment Setup"
+          data_summary="Python is a script language, the main idea for learning python is to utilize python to create easy hands-on automation script on linux env instead of shell.
+Her..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/04/29/python-environment-setup/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-6l8x4dpn4fgkkkf9" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -578,122 +691,6 @@ The general approach t..." class="article-share-link">Share</a>
 
 
   
-    <article id="post-awbg60kd8i2ucsq1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/03/10/sql-switch-slash-transpose-columns-and-rows/">Sql   Switch/Transpose Columns and Rows</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-03-09T16:28:27.000Z" itemprop="datePublished">Mar 10 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <p>In practice, we will meet the requirement to rotate the table including convert cols to rows, convert rows to cols. In this session, I&#39;ll produce the solution in common method as well as db-specified features.</p>
-<h2 id="convert-columns-to-rows">Convert columns to rows</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--common solution</span></div><div class="line"><span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> (</span></div><div class="line">	<span class="keyword">select</span> id, <span class="string">'col_1'</span> <span class="keyword">as</span> col_name, col_1 <span class="keyword">as</span> col_val</div><div class="line">	<span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">	<span class="keyword">union</span> <span class="keyword">all</span></div><div class="line">	<span class="keyword">select</span> id, <span class="string">'col_2'</span> <span class="keyword">as</span> col_name, col_2 <span class="keyword">as</span> col_val</div><div class="line">	<span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">	<span class="keyword">union</span> <span class="keyword">all</span></div><div class="line">	... </div><div class="line">) <span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--oracle 11g unpivot query</span></div><div class="line"><span class="operator"><span class="keyword">select</span> *</span></div><div class="line"><span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">unpivot (</div><div class="line">	col_val <span class="keyword">for</span> col_name <span class="keyword">in</span> (col_1 <span class="keyword">as</span> <span class="string">'col_1'</span>, col_2 <span class="keyword">as</span> <span class="string">'col_2'</span>)</div><div class="line">)</div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
-
-<h2 id="concert-rows-to-columns">Concert rows to columns</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--common solution</span></div><div class="line"><span class="operator"><span class="keyword">select</span> id,</span></div><div class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> col_name = <span class="string">'col_1'</span> <span class="keyword">then</span> col_val <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span>) <span class="keyword">as</span> col_1,</div><div class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> col_name = <span class="string">'col_2'</span> <span class="keyword">then</span> col_val <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span>) <span class="keyword">as</span> col_2,</div><div class="line">	...</div><div class="line"><span class="keyword">from</span> <span class="keyword">table</span></div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--oracle 11g pivot query</span></div><div class="line"><span class="operator"><span class="keyword">select</span> *</span></div><div class="line"><span class="keyword">from</span> <span class="keyword">table</span></div><div class="line">pivot (</div><div class="line">	<span class="keyword">max</span>(col_val) <span class="keyword">for</span> col_name <span class="keyword">in</span> (<span class="string">'col_1'</span> <span class="keyword">as</span> col_1,<span class="string">'col_2'</span> <span class="keyword">as</span> col_2)</div><div class="line">)</div><div class="line"><span class="keyword">where</span> ...</div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> id</div></pre></td></tr></table></figure>
-
-<h2 id="excel-pivot-table">Excel pivot table</h2><p>For non-sql approaches, we can use excel pivot table. Excel spreadsheets are a great way to pivot and analyze Oracle data, and tools.</p>
-
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/03/10/sql-switch-slash-transpose-columns-and-rows/" data-id="awbg60kd8i2ucsq1" data_title="Sql   Switch/Transpose Columns and Rows"
-          data_summary="In practice, we will meet the requirement to rotate the table including convert cols to rows, convert rows to cols. In this session, I&#39;ll produce the soluti..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/03/10/sql-switch-slash-transpose-columns-and-rows/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/sql/">sql</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
-    <article id="post-zlxjscz88dtyfs7m" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/03/05/operating-system-concepts-terminology/">Operating System Concepts   Terminology</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-03-04T21:04:59.000Z" itemprop="datePublished">Mar 5 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <!--<div class="thumbnail"><img src="https://farm4.staticflickr.com/3775/13508587744_aa4be3c238_o.png" alt="Alt text" title="cpu_cache_hierarchy"></div>-->
-          <p>The aim of this post is to review the crucial terms of operating-system and basic interaction of these underlying components.</p>
-<p>Before starting with topic, I am going to reveal why I try to read books of OS related at this point. Let me conclude the reasons, first and foremost, various applications in my daily work encounter issues that are associated with LINUX system, such as buffer size, open file limits and unable to create native threads etc. All of these issues point out to the knowledge of OS. Next, Java performance tuning is always based on the operating system concept, like memory management, cpu utilization etc. Furthermore, including all the design concepts are derived from the solution of common issue inside operating system.</p>
-<p>Due to these, it is so encouraged to read and go through operating system concept again that I could be inspired and get everything tied. If there are any findings or association with Java, I will make more explanations and comments linked with definitive resource.</p>
-
-          
-            <p class="article-more-link">
-              <a href="/2014/03/05/operating-system-concepts-terminology/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/03/05/operating-system-concepts-terminology/" data-id="zlxjscz88dtyfs7m" data_title="Operating System Concepts   Terminology"
-          data_summary="The aim of this post is to review the crucial terms of operating-system and basic interaction of these underlying components.
-Before starting with topic, I am g..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/03/05/operating-system-concepts-terminology/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/books/">books</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
   
 <div class="center">
   <ul class="pagination">
@@ -733,7 +730,7 @@ Before starting with topic, I am g..." class="article-share-link">Share</a>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <a class="category-link" href="/categories/J2EE/">J2EE<span class="category-count">1</span></a><a class="category-link" href="/categories/JVM/">JVM<span class="category-count">1</span></a><a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">2</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">3</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
+      <a class="category-link" href="/categories/J2EE/">J2EE<span class="category-count">1</span></a><a class="category-link" href="/categories/JVM/">JVM<span class="category-count">1</span></a><a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">3</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">4</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
     </div>
   </div>
 
@@ -753,7 +750,7 @@ Before starting with topic, I am g..." class="article-share-link">Share</a>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

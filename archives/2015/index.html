@@ -130,6 +130,212 @@
 
 
   
+    <article id="post-zt779agwbolm4z3m" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2015/09/27/DB2-SQL-Tuning-Tips/">Db2 Sql Tuning Tips</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2015-09-27T13:18:24.000Z" itemprop="datePublished">Sep 27 2015</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <p>List most critical tips from <a href="https://www.safaribooksonline.com/library/view/db2-sql-tuning/9780133038484/" target="_blank" rel="external">DB2 SQL Tuning Tips for z/OS Developers</a></p>
+<ol>
+<li><p>Stay Away from Distinct if Possbile
+Details: <code>group by</code> or <code>in or exists subquery</code> if duplicates due to one-to-many relationship</p>
+</li>
+<li><p>Try Rewriting Range Predicates as Between Predicates</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">WHERE HIREDATE &gt; :HV-DATE</div><div class="line">WHERE HIREDATE BETWEEN :HV-DATE and '9999-12-31'</div></pre></td></tr></table></figure>
+</li>
+<li><p>Use Tools for Monitoring
+Details: Some of the most common z/OS DB2 monitoring tools are OMEGAMON®, TMon, MainView, Apptune, Insight for DB2, and DB2PM. Some of the most common DB2 LUW monitoring tools are IBM’s Optim™ Query Tuner, Precise for DB2, Quest, DBI Software, Embarcadero’s Performance Analyst, and ITGAIN.</p>
+</li>
+<li><p>Avoid Discrepancies with Non-Column Expressions</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">WHERE EDLEVEL = 123.45 * 12</div><div class="line">WHERE EDLEVEL = SMALLINT(ROUND(123.45*12,0))</div></pre></td></tr></table></figure>
+</li>
+<li><p>Ensure That Subquery Predicates Involving Min and Max Have the Possibility of Nulls Being Returned Handled</p>
+</li>
+<li><p>Always Code For Fetch Only or For Read Only with Cursor Processing When a Query Is Only Selecting Data</p>
+</li>
+<li><p>Avoid Selecting a Row from a Table to Help Decide Whether the Logic in the Code Should Execute an Update or an Insert</p>
+</li>
+<li><p>Use the DB2 V9 MERGE Statement</p>
+</li>
+<li><p>Keep Table and Index Files Healthy and Organized
+Details: SYSIBM.SYSTABLESPACESTATS and SYSIBM.SYSINDEXSPACESTATS tables</p>
+</li>
+<li><p>Consider OLTP Front-End Processing</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">OPTIMIZE</span> <span class="keyword">FOR</span> <span class="number">14</span> <span class="keyword">ROWS</span></span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Take Advantage of Materialized Query Tables to Improve Response Time (Dynamic SQL Only)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> DEPT_SUM_MQT_TABLE <span class="keyword">AS</span></span></div><div class="line">(<span class="keyword">SELECT</span>  WORKDEPT, <span class="keyword">AVG</span>(SALARY) <span class="keyword">AS</span> AVG_SAL,</div><div class="line"><span class="keyword">AVG</span>(BONUS) <span class="keyword">AS</span> AVG_BONUS</div><div class="line"><span class="keyword">AVG</span>(COMM)  <span class="keyword">AS</span> AVG_COMM,</div><div class="line"><span class="keyword">SUM</span>(SALARY) <span class="keyword">AS</span> SUM_SAL,</div><div class="line"><span class="keyword">SUM</span>(BONUS) <span class="keyword">AS</span> SUM_BONUS</div><div class="line"><span class="keyword">SUM</span>(COMM)  <span class="keyword">AS</span> SUM_COMM</div><div class="line"><span class="keyword">FROM</span> EMP</div><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span>  WORKDEPT)</div><div class="line"><span class="keyword">DATA</span> <span class="keyword">INITIALLY</span> <span class="keyword">DEFERRED</span> REFRESH <span class="keyword">DEFERRED</span></div><div class="line">MAINTAINED <span class="keyword">BY</span> SYSTEM</div><div class="line">ENABLE <span class="keyword">QUERY</span> OPTIMIZATION;</div><div class="line"><span class="comment">--original query</span></div><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(BONUS)</span></div><div class="line"><span class="keyword">FROM</span> EMP</div><div class="line"><span class="keyword">WHERE</span>  WORKDEPT = <span class="string">'A00'</span></div><div class="line"><span class="comment">--rewrite by optimize</span></div><div class="line"><span class="keyword">SELECT</span> AVG_BONUS</div><div class="line"><span class="keyword">FROM</span> DEPT_SUM_MQT_TABLE</div><div class="line"><span class="keyword">WHERE</span>  WORKDEPT = <span class="string">'A00'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Insert with Select</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> EMPNO, LASTNAME, MIDINIT, FIRSTNME,</span></div><div class="line">DEPTNO, SALARY, BONUS, COMM</div><div class="line"><span class="keyword">FROM</span> FINAL <span class="keyword">TABLE</span></div><div class="line">(<span class="keyword">INSERT</span>   (EMPNO, LASTNAME, MIDINIT, FIRSTNME, DEPTNO)</div><div class="line"><span class="keyword">VALUES</span> (<span class="string">'123456'</span>, <span class="string">'SMITH'</span>, <span class="string">'A'</span>, <span class="string">'JOE'</span>, <span class="string">'A00'</span>)</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Identify Times for Volatile Tables
+Details: Using the VOLATILE keyword on the Create or Alter Table statement identifies tables whose data volumes fluctuate.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> EMP_TEMP</span></div><div class="line"> (EMPNO    <span class="built_in">CHAR</span>(<span class="number">6</span>)  <span class="keyword">Not</span> <span class="literal">Null</span>,</div><div class="line">   LASTNAME <span class="built_in">VARCHAR</span>(<span class="number">15</span>)  <span class="keyword">Not</span> <span class="literal">Null</span> )</div><div class="line">   VOLATILE</div></pre></td></tr></table></figure>
+</li>
+<li><p>Use the ON COMMIT DROP Enhancement</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">DECLARE</span> <span class="keyword">GLOBAL</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLE</span></span></div><div class="line"><span class="keyword">SESSION</span>.EMP_TEMP1  (COL1 <span class="built_in">CHAR</span> (<span class="number">20</span>)</div><div class="line">COL2 <span class="built_in">CHAR</span> (<span class="number">10</span>)</div><div class="line">COL3 <span class="built_in">SMALLINT</span> )</div><div class="line"><span class="keyword">ON</span> <span class="keyword">COMMIT</span> <span class="keyword">DROP</span> <span class="keyword">TABLE</span></div><div class="line"></div><div class="line"><span class="keyword">ON</span> <span class="keyword">COMMIT</span> <span class="keyword">DELETE</span> <span class="keyword">ROWS</span></div><div class="line"><span class="keyword">ON</span> <span class="keyword">COMMIT</span> <span class="keyword">PRESERVE</span> <span class="keyword">ROWS</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Use Multiple Distincts
+Details: This is an automatic performance gain that alleviates the need for separate calls to DB2.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">SUM</span> (<span class="keyword">DISTINCT</span> SALARY),</span></div><div class="line">     <span class="keyword">AVG</span>(<span class="keyword">DISTINCT</span> BONUS)</div><div class="line">     <span class="keyword">FROM</span> EMP;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Take Advantage of Backward Index Scanning
+Details: For each column that is in the Order By clause, the ordering that is specified in the index has to be exactly the opposite of the ordering that is specified in the Order By clause.</p>
+</li>
+<li><p>Set Your Clustering Index Correctly</p>
+</li>
+<li><p>Take Advantage of DB2 V8 Enhanced DISCARD Capabilities When It Comes to Mass Deletes</p>
+</li>
+<li><p>Consider Parallelism
+<a href="https://www-01.ibm.com/support/knowledgecenter/SSEPEK_11.0.0/com.ibm.db2z11.doc.perf/src/tpc/db2z_enableparallelprocess.dita" target="_blank" rel="external">https://www-01.ibm.com/support/knowledgecenter/SSEPEK_11.0.0/com.ibm.db2z11.doc.perf/src/tpc/db2z_enableparallelprocess.dita</a></p>
+</li>
+<li><p>Consider Direct Row Access Using ROWID Datatype (V8) or RID Function (V9)
+Details: If the ROWID value is then used in the search condition of subsequent updates or deletes, DB2 may navigate directly to the row, bypassing any index processing or tablespace scans.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EMP_ID     ROWID    NOT NULL GENERATED ALWAYS</div></pre></td></tr></table></figure>
+</li>
+<li><p>Specify the Leading Index Columns in WHERE Clauses
+Details: For a composite index, the following query would use the index and execute matching processing as long as the leading column of the index is specified in the WHERE clause.</p>
+</li>
+<li><p>Keep in Mind Index Only Processing Whenever Possible
+Many times, developers code queries that need to execute one of the four column aggregate functions (Sum, Avg, Min, or Max). They can get some great results by including an extra column as part of an index. Take, for example, the following query and associated index, Index1 = (YEAR, PERIOD):
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(JRNL_AMT)</span></div><div class="line"><span class="keyword">FROM</span> LEDGER_TABLE</div><div class="line"><span class="keyword">WHERE</span> <span class="keyword">YEAR</span> = <span class="number">2008</span> <span class="keyword">AND</span> PERIOD <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</div></pre></td></tr></table></figure>
+DB2 is good at recognizing the JRNL_AMT column in the index, even though there is no specific predicate on it, and it will choose index only processing.</p>
+</li>
+<li><p>Take Advantage of DB2 V9 Optimistic Locking</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> EMP</span></div><div class="line"> (EMPNO  <span class="built_in">CHAR</span>(<span class="number">6</span>)  <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">   ....</div><div class="line">   .....</div><div class="line">   EMP_UPD  <span class="keyword">TIMESTAMP</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">   GENERATED <span class="keyword">BY</span> <span class="keyword">DEFAULT</span></div><div class="line">   <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span></div><div class="line">   <span class="keyword">AS</span> <span class="keyword">ROW</span> <span class="keyword">CHANGE</span> <span class="keyword">TIMESTAMP</span>)</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Use the DB2 V9 MERGE Statement
+<a href="https://www-01.ibm.com/support/knowledgecenter/SSEPGG_9.7.0/com.ibm.db2.luw.sql.ref.doc/doc/r0010873.html" target="_blank" rel="external">https://www-01.ibm.com/support/knowledgecenter/SSEPGG_9.7.0/com.ibm.db2.luw.sql.ref.doc/doc/r0010873.html</a></p>
+</li>
+<li><p>Code Boolean Term Predicates Whenever Possible
+Details: A Boolean term predicate is a predicate that is connected by And logic, so when one predicate is evaluated as false for a row, it then makes the entire Where clause evaluate to false.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> EMPNO, LASTNAME, SALARY</span></div><div class="line"><span class="keyword">FROM</span> EMP</div><div class="line"><span class="keyword">WHERE</span> (LASTNAME &gt; <span class="string">'SMITH'</span>)</div><div class="line"><span class="keyword">OR</span> (LASTNAME = <span class="string">'SMITH'</span> <span class="keyword">and</span> FIRSTNME &gt; <span class="string">'BOB'</span>)</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span> EMPNO, LASTNAME, SALARY</div><div class="line"><span class="keyword">FROM</span> EMP</div><div class="line"><span class="keyword">WHERE</span>  LASTNAME &gt;= <span class="string">'SMITH'</span></div><div class="line">  <span class="keyword">AND</span> (LASTNAME &gt;  <span class="string">'SMITH'</span>   <span class="keyword">OR</span></div><div class="line">      (LASTNAME = <span class="string">'SMITH'</span> <span class="keyword">AND</span> FIRSTNME &gt; <span class="string">'BOB'</span>))</div></pre></td></tr></table></figure>
+</li>
+<li><p>Avoid Sorts with Order By
+Details: DB2 may avoid sorts if there are leading columns in an index to match the Order By or if the query contains an equal predicate on the leading column(s) of an index.</p>
+</li>
+<li><p>Watch Out for Case Logic
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> EMPNO, LASTNAME, SALARY,</span></div><div class="line">       <span class="keyword">CASE</span> <span class="keyword">WHEN</span> SALARY &lt; ...</div><div class="line">            <span class="keyword">WHEN</span> SALARY &gt; ...</div><div class="line">       <span class="keyword">ELSE</span></div><div class="line">       <span class="keyword">END</span></div><div class="line"><span class="keyword">FROM</span> EMP</div></pre></td></tr></table></figure>
+Details: If most of the rows have a Salary &lt; 50000.00, then that piece of logic should be coded first.</p>
+</li>
+<li><p>Know Your Version of DB2</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> GETVARIABLE(<span class="string">'SYSIBM.VERSION'</span>)</span></div><div class="line"><span class="keyword">FROM</span> SYSIBM.SYSDUMMY1</div></pre></td></tr></table></figure>
+</li>
+<li><p>If You Need True Uniqueness, Try the V8 Generate_Unique Function</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ORDER_TBL</span></div><div class="line"> (ORDER_ID        <span class="built_in">CHAR</span>(<span class="number">13</span>) <span class="keyword">FOR</span> <span class="built_in">BIT</span> <span class="keyword">DATA</span>,</div><div class="line">  ORDER_DATE      <span class="built_in">DATE</span>,</div><div class="line">  ORDER_LOC       <span class="built_in">CHAR</span>(<span class="number">03</span>) );</div><div class="line"></div><div class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ORDER_TBL</span></div><div class="line">  <span class="keyword">VALUES</span>(GENERATE_UNIQUE(), <span class="keyword">CURRENT</span> <span class="built_in">DATE</span>, <span class="string">'NY'</span>);</div><div class="line"></div><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">TIMESTAMP</span>(ORDER_ID), <span class="keyword">ORDER</span> <span class="built_in">DATE</span>, ....</span></div><div class="line"><span class="keyword">FROM</span> ORDER_TBL;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Update and Delete with Select (V9)
+Details: The words Old Table are SQL DB2 reserved words that need to be coded in order for this statement to work.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> SALARY, BONUS</span></div><div class="line"><span class="keyword">FROM</span> OLD <span class="keyword">TABLE</span></div><div class="line"> (<span class="keyword">UPDATE</span> EMP</div><div class="line">    <span class="keyword">SET</span> SALARY = :HV1-SALARY,</div><div class="line">    BONUS = :HV2-BONUS</div><div class="line">    <span class="keyword">WHERE</span> EMPNO = :HV-EMPNO)</div><div class="line"><span class="keyword">SELECT</span> LASTNAME, FIRSTNME, WORKDEPT</div><div class="line"><span class="keyword">FROM</span> OLD <span class="keyword">TABLE</span></div><div class="line">  (<span class="keyword">DELETE</span> <span class="keyword">FROM</span> EMP</div><div class="line">   <span class="keyword">WHERE</span> EMPNO = :HV-EMPNO)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Avoid Unnecessary Sorting
+Details: Data sorting can be caused by Group By, Order By, Distinct, Union, Intersect, Except, and Join processing.</p>
+</li>
+</ol>
+<p>List most critical tips of store procedure related from <a href="https://www.safaribooksonline.com/library/view/db2-sql-tuning/9780133038484/" target="_blank" rel="external">DB2 SQL Tuning Tips for z/OS Developers</a></p>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2015/09/27/DB2-SQL-Tuning-Tips/" data-id="zt779agwbolm4z3m" data_title="Db2 Sql Tuning Tips"
+          data_summary="List most critical tips from DB2 SQL Tuning Tips for z/OS Developers
+
+Stay Away from Distinct if Possbile
+Details: group by or in or exists subquery if duplicat..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2015/09/27/DB2-SQL-Tuning-Tips/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sql/">sql</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
+    <article id="post-2bxntrcdvr9mvuau" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/">Thread Pool Executor or Producer Consumer Pattern</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2015-09-27T11:58:09.000Z" itemprop="datePublished">Sep 27 2015</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <p>In this topic, I would like to talk about more ThreadPoolExecutor in Java, comapred with ProducerConsumer multi-threading pattern in tradition.</p>
+<p>TODO</p>
+<p>References:</p>
+<ol>
+<li><a href="http://ifeve.com/blocking-threadpool-executor/" target="_blank" rel="external">http://ifeve.com/blocking-threadpool-executor/</a></li>
+</ol>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/" data-id="2bxntrcdvr9mvuau" data_title="Thread Pool Executor or Producer Consumer Pattern"
+          data_summary="In this topic, I would like to talk about more ThreadPoolExecutor in Java, comapred with ProducerConsumer multi-threading pattern in tradition.
+TODO
+References:..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-71azd2o2fy5orpdo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -354,6 +560,14 @@ http://docs.spring.io/spring-batch/trunk/reference/html/readersAndWriters.html
       <ul>
         
           <li class="recent-list">
+            <a href="/2015/09/27/DB2-SQL-Tuning-Tips/">Db2 Sql Tuning Tips</a>
+          </li>
+        
+          <li class="recent-list">
+            <a href="/2015/09/27/ThreadPoolExecutor-or-ProducerConsumer-Pattern/">Thread Pool Executor or Producer Consumer Pattern</a>
+          </li>
+        
+          <li class="recent-list">
             <a href="/2015/05/12/java-generics-tips-tricks/">Java Generics Tips and Tricks</a>
           </li>
         
@@ -363,14 +577,6 @@ http://docs.spring.io/spring-batch/trunk/reference/html/readersAndWriters.html
         
           <li class="recent-list">
             <a href="/2015/01/18/itemreader-writer-in-spring-batch/">Itemreader Writer in Spring Batch</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2014/12/28/atomic-DB-operation-in-web-apps/">Atomic Db Operation in Web Apps</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2014/11/25/mysql-high-performance-datatypes-indexing/">Mysql High Performance   Datatypes/Indexing</a>
           </li>
         
       </ul>
