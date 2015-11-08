@@ -123,6 +123,74 @@
         
       >
   
+    <article id="post-uc0h77gstkz3uqbb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2015/11/04/Review-Google-Research-MapReduce/">Review Google Research: Map Reduce</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2015-11-04T00:19:17.000Z" itemprop="datePublished">Nov 4 2015</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <h2 id="definition">Definition</h2><p>MapReduce is a programming model and an associated implementation for processing and generating large data sets. Programs written in this functional style are automatically parallelized and executed on a large cluster of commodity machines.</p>
+<p>Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages. We realized that most of our computations involved applying a map operation to each logic &quot;record&quot; in our input in order to compute a set of intermediate key/value pairs, and then applying a reduce operation to all the values that shared the same key, in order to <strong>combine the derived data appropriately</strong>.</p>
+<h2 id="hardware">Hardware</h2><ol>
+<li>dual-processor x86 processors running Linux, with 2-4GB of memory performance</li>
+<li>commodity networking hardware - 100 MB/secs</li>
+<li>machine failures are common</li>
+<li>storage is in expensive IDE disk</li>
+</ol>
+<h2 id="execution-overview">Execution Overview</h2><h2 id="master-data-strcutures">Master Data Strcutures</h2><p>For each completed map task, the master stores the locations and sizes of the R intermediate file regions produced by the map task. ... The information is pushed incrementally to works that have in-progress reduce tasks.</p>
+<h2 id="fault-tolerance">Fault Tolerance</h2><p>The master pings every worker periodically.</p>
+<p>MapReduce is resilient to large-scale worker failures. The MapReduce master simply re-executed the work done by the unreachable worker machines.</p>
+<p>However, given that there is only a single master, its failure is unlikely; therefore our current implementation aborts the MapReduce computation if the master failes.</p>
+<h2 id="locality">Locality</h2><p>The MapReduce master takes the location information of the input files into account and attempts to schedule a map taks on a machine that contains a replica of the corresponding input data.</p>
+<h2 id="backup-tasks">Backup Tasks</h2><p>One of the common causes that lengthens the total time taken for a MapReduce operation is a &quot;straggler&quot;: a machine that takes an unusually long time to complete one of the last few map or reduce taks in the computation. We have a general mechanism to alleviate the problem of stragglers. When a MapReduce operation is close to completion, the master schedules backup executions of the remaining in-progress tasks.</p>
+<h2 id="partitioning/combiner-function">Partitioning/Combiner Function</h2><h2 id="remaining-questions-after-review">Remaining questions after review</h2><ol>
+<li>How reduce workers fetch data from different temporary files that map workers generated?</li>
+<li>How to explain the map/reduce function as below with more concrete examples:</li>
+</ol>
+<p>map (k1,v1) -&gt; list(k2,v2)
+reduce (k2,list(v2)) -&gt; list(v2)</p>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2015/11/04/Review-Google-Research-MapReduce/" data-id="uc0h77gstkz3uqbb" data_title="Review Google Research: Map Reduce"
+          data_summary="DefinitionMapReduce is a programming model and an associated implementation for processing and generating large data sets. Programs written in this functional s..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2015/11/04/Review-Google-Research-MapReduce/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/bigdata/">bigdata</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-zt779agwbolm4z3m" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -770,69 +838,6 @@ Ho..." class="article-share-link">Share</a>
 
 
   
-    <article id="post-t68gei6is3xw340x" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/11/02/setting-github-pages/">Setting Github Pages</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-11-02T15:42:24.000Z" itemprop="datePublished">Nov 2 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <!--<div class="thumbnail"><img src="https://farm4.staticflickr.com/3953/15506283948_9c7c8d3c81_z.jpg" alt="Alt text" title="net_dns_config_githubblog_page"></div>-->
-          <p>There are only two steps to setup your personal blog with your own domain.</p>
-<ul>
-<li><p>Create a CNAME file under the root of your repos(e.g. <a href="https://github.com/sicongtang/sicongtang.github.io/blob/master/CNAME" target="_blank" rel="external">https://github.com/sicongtang/sicongtang.github.io/blob/master/CNAME</a>), in hexo or octopress blog system, just create a CNAME file under source folder. This will automatically deploy CNAME file to your repository&#39;s root directory.</p>
-</li>
-<li><p>Then you need to configure a custom subdomain with your DNS provider. Creating two A records helps you to use custom apex domains. In addition, if you configure both an apex domain (e.g. sicongtang.me) and a matching www subdomain (e.g. www.sicongtang.me), GitHub&#39;s servers will automatically create redirects between the two.</p>
-</li>
-</ul>
-
-          
-            <p class="article-more-link">
-              <a href="/2014/11/02/setting-github-pages/#more">Read More</a>
-            </p>
-          
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/11/02/setting-github-pages/" data-id="t68gei6is3xw340x" data_title="Setting Github Pages"
-          data_summary="There are only two steps to setup your personal blog with your own domain.
-
-Create a CNAME file under the root of your repos(e.g. https://github.com/sicongtang/..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/11/02/setting-github-pages/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/github/">github</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
   
 <div class="center">
   <ul class="pagination">
@@ -872,7 +877,7 @@ Create a CNAME file under the root of your repos(e.g. https://github.com/sicongt
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <a class="category-link" href="/categories/J2EE/">J2EE<span class="category-count">1</span></a><a class="category-link" href="/categories/JVM/">JVM<span class="category-count">1</span></a><a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">3</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">4</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
+      <a class="category-link" href="/categories/J2EE/">J2EE<span class="category-count">1</span></a><a class="category-link" href="/categories/JVM/">JVM<span class="category-count">1</span></a><a class="category-link" href="/categories/bigdata/">bigdata<span class="category-count">1</span></a><a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">3</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">4</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
     </div>
   </div>
 
@@ -892,7 +897,7 @@ Create a CNAME file under the root of your repos(e.g. https://github.com/sicongt
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

@@ -130,6 +130,58 @@
 
 
   
+    <article id="post-8mias3j8h71yf7l1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/03/10/sql-sybasease-alternative-way-to-support-lead-slash-lag-function/">Sql   Sybase Ase   Alternative Way to Support Lead/Lag Function</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-03-09T17:32:05.000Z" itemprop="datePublished">Mar 10 2014</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <p>There is audit trial requirement that need to be captured into log table these day. But we suffer from the limited function provided by Sybase ASE DB in order to achieve our goals. SybaseASE 12.5 does not support neither analytic function nor row number column, and therefore we have to implement cross comparison by ourselves via basic semantics.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--create rownum column</span></div><div class="line"><span class="operator"><span class="keyword">select</span> rownum = <span class="keyword">identity</span>(<span class="number">10</span>), * <span class="keyword">from</span> #temp_table <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> <span class="number">1</span>=<span class="number">2</span></span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> pid = @pid</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_history <span class="keyword">where</span> pid = @pid <span class="keyword">order</span> <span class="keyword">by</span> audit_update_date <span class="keyword">desc</span></div><div class="line"><span class="comment">--use self-join to match the cross rows</span></div><div class="line"><span class="keyword">select</span> a.rownum,</div><div class="line">		<span class="keyword">case</span> <span class="keyword">when</span> a.col1 = b.col1 <span class="keyword">then</span> <span class="string">'equal'</span> <span class="keyword">else</span> <span class="string">'inequal'</span> <span class="keyword">end</span></div><div class="line"><span class="keyword">from</span> #temp_table a <span class="keyword">left</span> out <span class="keyword">join</span> #temp_table b <span class="keyword">on</span> ( a.pid = b.pid <span class="keyword">and</span> (a.rownum + <span class="number">1</span>) = b.rownum )</div><div class="line"><span class="keyword">where</span> ...</div></pre></td></tr></table></figure>
+
+<p>In contrast, we also provide oracle version of implementation.</p>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/03/10/sql-sybasease-alternative-way-to-support-lead-slash-lag-function/" data-id="8mias3j8h71yf7l1" data_title="Sql   Sybase Ase   Alternative Way to Support Lead/Lag Function"
+          data_summary="There is audit trial requirement that need to be captured into log table these day. But we suffer from the limited function provided by Sybase ASE DB in order t..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/03/10/sql-sybasease-alternative-way-to-support-lead-slash-lag-function/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sql/">sql</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-awbg60kd8i2ucsq1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -408,6 +460,10 @@ Here&#39;s some ..." class="article-share-link">Share</a>
       <ul>
         
           <li class="recent-list">
+            <a href="/2015/11/04/Review-Google-Research-MapReduce/">Review Google Research: Map Reduce</a>
+          </li>
+        
+          <li class="recent-list">
             <a href="/2015/09/27/DB2-SQL-Tuning-Tips/">Db2 Sql Tuning Tips</a>
           </li>
         
@@ -421,10 +477,6 @@ Here&#39;s some ..." class="article-share-link">Share</a>
         
           <li class="recent-list">
             <a href="/2015/02/20/JVM-Internals/">Jvm Internals</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2015/01/18/itemreader-writer-in-spring-batch/">Itemreader Writer in Spring Batch</a>
           </li>
         
       </ul>

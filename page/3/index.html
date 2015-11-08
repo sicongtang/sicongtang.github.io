@@ -123,6 +123,63 @@
         
       >
   
+    <article id="post-niuruoo9mozdrj7q" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2014/05/30/install-ruby-and-vim-command-without-root/">Install Ruby Vim Command Without Root</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2014-05-30T00:17:24.000Z" itemprop="datePublished">May 30 2014</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!---->
+          <p>This post intend to write down the step for installing ruby and vim command line tools, without root access.
+In addition, ncurses is the prerequisities of installing ruby and vim. Also, please install ruby first in order to enable rubyinterp.</p>
+
+          
+            <p class="article-more-link">
+              <a href="/2014/05/30/install-ruby-and-vim-command-without-root/#more">Read More</a>
+            </p>
+          
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2014/05/30/install-ruby-and-vim-command-without-root/" data-id="niuruoo9mozdrj7q" data_title="Install Ruby Vim Command Without Root"
+          data_summary="This post intend to write down the step for installing ruby and vim command line tools, without root access.
+In addition, ncurses is the prerequisities of insta..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2014/05/30/install-ruby-and-vim-command-without-root/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ruby/">ruby</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-v40fx3aan5r9etpt" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -639,58 +696,6 @@ The general approach t..." class="article-share-link">Share</a>
 
 
   
-    <article id="post-8mias3j8h71yf7l1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        <i class="fa fa-file-text-o"></i>
-        
-  
-    <h1 class="archive-title" itemprop="name">
-      <a class="article-title" href="/2014/03/10/sql-sybasease-alternative-way-to-support-lead-slash-lag-function/">Sql   Sybase Ase   Alternative Way to Support Lead/Lag Function</a>
-    </h1>
-  
-
-
-        <div class="article-date">
-  <time datetime="2014-03-09T17:32:05.000Z" itemprop="datePublished">Mar 10 2014</time>
-</div>
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <p>There is audit trial requirement that need to be captured into log table these day. But we suffer from the limited function provided by Sybase ASE DB in order to achieve our goals. SybaseASE 12.5 does not support neither analytic function nor row number column, and therefore we have to implement cross comparison by ourselves via basic semantics.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--create rownum column</span></div><div class="line"><span class="operator"><span class="keyword">select</span> rownum = <span class="keyword">identity</span>(<span class="number">10</span>), * <span class="keyword">from</span> #temp_table <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> <span class="number">1</span>=<span class="number">2</span></span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> pid = @pid</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> #temp_table</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> table_history <span class="keyword">where</span> pid = @pid <span class="keyword">order</span> <span class="keyword">by</span> audit_update_date <span class="keyword">desc</span></div><div class="line"><span class="comment">--use self-join to match the cross rows</span></div><div class="line"><span class="keyword">select</span> a.rownum,</div><div class="line">		<span class="keyword">case</span> <span class="keyword">when</span> a.col1 = b.col1 <span class="keyword">then</span> <span class="string">'equal'</span> <span class="keyword">else</span> <span class="string">'inequal'</span> <span class="keyword">end</span></div><div class="line"><span class="keyword">from</span> #temp_table a <span class="keyword">left</span> out <span class="keyword">join</span> #temp_table b <span class="keyword">on</span> ( a.pid = b.pid <span class="keyword">and</span> (a.rownum + <span class="number">1</span>) = b.rownum )</div><div class="line"><span class="keyword">where</span> ...</div></pre></td></tr></table></figure>
-
-<p>In contrast, we also provide oracle version of implementation.</p>
-
-        
-        <footer class="article-footer">
-          <a data-url="http://sicongtang.github.io/2014/03/10/sql-sybasease-alternative-way-to-support-lead-slash-lag-function/" data-id="8mias3j8h71yf7l1" data_title="Sql   Sybase Ase   Alternative Way to Support Lead/Lag Function"
-          data_summary="There is audit trial requirement that need to be captured into log table these day. But we suffer from the limited function provided by Sybase ASE DB in order t..." class="article-share-link">Share</a>
-          
-            <a href="http://sicongtang.github.io/2014/03/10/sql-sybasease-alternative-way-to-support-lead-slash-lag-function/#disqus_thread" class="article-comment-link">Comments</a>
-          
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/sql/">sql</a>
-  </div>
-
-
-          
-
-        </footer>
-      
-    </div>
-  </div>
-</article>
-
-
-  
   
 <div class="center">
   <ul class="pagination">
@@ -730,7 +735,7 @@ The general approach t..." class="article-share-link">Share</a>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <a class="category-link" href="/categories/J2EE/">J2EE<span class="category-count">1</span></a><a class="category-link" href="/categories/JVM/">JVM<span class="category-count">1</span></a><a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">3</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">4</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
+      <a class="category-link" href="/categories/J2EE/">J2EE<span class="category-count">1</span></a><a class="category-link" href="/categories/JVM/">JVM<span class="category-count">1</span></a><a class="category-link" href="/categories/bigdata/">bigdata<span class="category-count">1</span></a><a class="category-link" href="/categories/books/">books<span class="category-count">9</span></a><a class="category-link" href="/categories/concurrency/">concurrency<span class="category-count">1</span></a><a class="category-link" href="/categories/emacs/">emacs<span class="category-count">1</span></a><a class="category-link" href="/categories/github/">github<span class="category-count">1</span></a><a class="category-link" href="/categories/goal/">goal<span class="category-count">1</span></a><a class="category-link" href="/categories/golang/">golang<span class="category-count">1</span></a><a class="category-link" href="/categories/java/">java<span class="category-count">3</span></a><a class="category-link" href="/categories/javascript/">javascript<span class="category-count">3</span></a><a class="category-link" href="/categories/python/">python<span class="category-count">1</span></a><a class="category-link" href="/categories/ruby/">ruby<span class="category-count">1</span></a><a class="category-link" href="/categories/sql/">sql<span class="category-count">4</span></a><a class="category-link" href="/categories/test/">test<span class="category-count">1</span></a><a class="category-link" href="/categories/uml/">uml<span class="category-count">1</span></a><a class="category-link" href="/categories/web/">web<span class="category-count">1</span></a>
     </div>
   </div>
 
@@ -750,7 +755,7 @@ The general approach t..." class="article-share-link">Share</a>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

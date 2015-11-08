@@ -130,6 +130,74 @@
 
 
   
+    <article id="post-uc0h77gstkz3uqbb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        <i class="fa fa-file-text-o"></i>
+        
+  
+    <h1 class="archive-title" itemprop="name">
+      <a class="article-title" href="/2015/11/04/Review-Google-Research-MapReduce/">Review Google Research: Map Reduce</a>
+    </h1>
+  
+
+
+        <div class="article-date">
+  <time datetime="2015-11-04T00:19:17.000Z" itemprop="datePublished">Nov 4 2015</time>
+</div>
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <h2 id="definition">Definition</h2><p>MapReduce is a programming model and an associated implementation for processing and generating large data sets. Programs written in this functional style are automatically parallelized and executed on a large cluster of commodity machines.</p>
+<p>Our abstraction is inspired by the map and reduce primitives present in Lisp and many other functional languages. We realized that most of our computations involved applying a map operation to each logic &quot;record&quot; in our input in order to compute a set of intermediate key/value pairs, and then applying a reduce operation to all the values that shared the same key, in order to <strong>combine the derived data appropriately</strong>.</p>
+<h2 id="hardware">Hardware</h2><ol>
+<li>dual-processor x86 processors running Linux, with 2-4GB of memory performance</li>
+<li>commodity networking hardware - 100 MB/secs</li>
+<li>machine failures are common</li>
+<li>storage is in expensive IDE disk</li>
+</ol>
+<h2 id="execution-overview">Execution Overview</h2><h2 id="master-data-strcutures">Master Data Strcutures</h2><p>For each completed map task, the master stores the locations and sizes of the R intermediate file regions produced by the map task. ... The information is pushed incrementally to works that have in-progress reduce tasks.</p>
+<h2 id="fault-tolerance">Fault Tolerance</h2><p>The master pings every worker periodically.</p>
+<p>MapReduce is resilient to large-scale worker failures. The MapReduce master simply re-executed the work done by the unreachable worker machines.</p>
+<p>However, given that there is only a single master, its failure is unlikely; therefore our current implementation aborts the MapReduce computation if the master failes.</p>
+<h2 id="locality">Locality</h2><p>The MapReduce master takes the location information of the input files into account and attempts to schedule a map taks on a machine that contains a replica of the corresponding input data.</p>
+<h2 id="backup-tasks">Backup Tasks</h2><p>One of the common causes that lengthens the total time taken for a MapReduce operation is a &quot;straggler&quot;: a machine that takes an unusually long time to complete one of the last few map or reduce taks in the computation. We have a general mechanism to alleviate the problem of stragglers. When a MapReduce operation is close to completion, the master schedules backup executions of the remaining in-progress tasks.</p>
+<h2 id="partitioning/combiner-function">Partitioning/Combiner Function</h2><h2 id="remaining-questions-after-review">Remaining questions after review</h2><ol>
+<li>How reduce workers fetch data from different temporary files that map workers generated?</li>
+<li>How to explain the map/reduce function as below with more concrete examples:</li>
+</ol>
+<p>map (k1,v1) -&gt; list(k2,v2)
+reduce (k2,list(v2)) -&gt; list(v2)</p>
+
+        
+        <footer class="article-footer">
+          <a data-url="http://sicongtang.github.io/2015/11/04/Review-Google-Research-MapReduce/" data-id="uc0h77gstkz3uqbb" data_title="Review Google Research: Map Reduce"
+          data_summary="DefinitionMapReduce is a programming model and an associated implementation for processing and generating large data sets. Programs written in this functional s..." class="article-share-link">Share</a>
+          
+            <a href="http://sicongtang.github.io/2015/11/04/Review-Google-Research-MapReduce/#disqus_thread" class="article-comment-link">Comments</a>
+          
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/bigdata/">bigdata</a>
+  </div>
+
+
+          
+
+        </footer>
+      
+    </div>
+  </div>
+</article>
+
+
+  
     <article id="post-zt779agwbolm4z3m" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -560,6 +628,10 @@ http://docs.spring.io/spring-batch/trunk/reference/html/readersAndWriters.html
       <ul>
         
           <li class="recent-list">
+            <a href="/2015/11/04/Review-Google-Research-MapReduce/">Review Google Research: Map Reduce</a>
+          </li>
+        
+          <li class="recent-list">
             <a href="/2015/09/27/DB2-SQL-Tuning-Tips/">Db2 Sql Tuning Tips</a>
           </li>
         
@@ -573,10 +645,6 @@ http://docs.spring.io/spring-batch/trunk/reference/html/readersAndWriters.html
         
           <li class="recent-list">
             <a href="/2015/02/20/JVM-Internals/">Jvm Internals</a>
-          </li>
-        
-          <li class="recent-list">
-            <a href="/2015/01/18/itemreader-writer-in-spring-batch/">Itemreader Writer in Spring Batch</a>
           </li>
         
       </ul>
